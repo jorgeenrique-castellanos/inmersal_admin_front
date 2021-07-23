@@ -132,7 +132,7 @@ export default function FormCreate() {
                     md="12"
                     className="form-create-footer-login justify-content-center flex-column"
                   >
-                    {/* <Col md="6" className="form-group">
+                    <Col md="6" className="form-group">
                       <a
                         href="http://localhost:3000/blog-overview"
                         className="py-3 btn-text-icon-right mr-2 px-5"
@@ -140,18 +140,18 @@ export default function FormCreate() {
                       >
                         Ingresar
                       </a>
-                    </Col> */}
-                    <Button
-                      className="btn-text-icon-right mr-2 px-5"
-                      pill
-                      type="submit"
-                    >
-                      Ingresar
-                    </Button>
-                    {/* {ReactHtmlParser(icons.check.icon)} */}
-                    {/* <Button pill theme="danger" onClick={onCancel}>
-                      Cancel
-                    </Button> */}
+                    </Col>
+//                     <Button
+//                       className="btn-text-icon-right mr-2 px-5"
+//                       pill
+//                       type="submit"
+//                     >
+//                       Ingresar
+//                     </Button>
+//                     {/* {ReactHtmlParser(icons.check.icon)} */}
+//                     {/* <Button pill theme="danger" onClick={onCancel}>
+//                       Cancel
+//                     </Button> */}
                   </Col>
                   <Col md="12" className="form-group my-3 text-center">
                     <Row>
