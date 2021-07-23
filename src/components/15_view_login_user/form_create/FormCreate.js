@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import _ from "lodash";
+import { DefaultLayout } from "../../../layouts/";
 import ReactHtmlParser from "react-html-parser";
 import Icons from "../../../assets/icons";
 import { Context } from "../../../views/15_view_login_user/helpers/context";
@@ -12,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 //import { inicializar, validar } from "../../../helpers/form_validate";
 import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
+
 import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
 
 export default function FormCreate() {
@@ -130,14 +132,23 @@ export default function FormCreate() {
                     md="12"
                     className="form-create-footer-login justify-content-center flex-column"
                   >
+                    {/* <Col md="6" className="form-group">
+                      <a
+                        href="http://localhost:3000/blog-overview"
+                        className="py-3 btn-text-icon-right mr-2 px-5"
+                        pill
+                      >
+                        Ingresar
+                      </a>
+                    </Col> */}
                     <Button
                       className="btn-text-icon-right mr-2 px-5"
                       pill
                       type="submit"
                     >
-                      Ingresar {}
-                      {/* {ReactHtmlParser(icons.check.icon)} */}
+                      Ingresar
                     </Button>
+                    {/* {ReactHtmlParser(icons.check.icon)} */}
                     {/* <Button pill theme="danger" onClick={onCancel}>
                       Cancel
                     </Button> */}
