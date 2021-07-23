@@ -203,7 +203,7 @@ export default function FormCreate() {
                       // defaultValue={null}
                       // readOnly={false}
                       required={!false}
-                      placeHolder={"Ingrese su area"}
+                      placeHolder={"Ingrese su areaa"}
                       maxLength={50}
                       information={"Information here!"}
                       errorList={error_list}
