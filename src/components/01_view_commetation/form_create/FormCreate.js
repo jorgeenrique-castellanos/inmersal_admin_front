@@ -124,7 +124,7 @@ export default function FormCreate() {
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"example 32100011.."}
+                      placeHolder={"example 3210001123.."}
                       maxLength={10}
                       information={"Information here!"}
                       errorList={error_list}
