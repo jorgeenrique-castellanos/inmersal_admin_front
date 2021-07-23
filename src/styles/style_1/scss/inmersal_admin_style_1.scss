@@ -1,0 +1,57 @@
+/*
+ * Shards Dashboard Lite UI Kit v1.1.0
+ * Project URL: https://designrevision.com/downloads/shards-dashboard-lite
+ * Based on: Shards UI Kit v2.1.0 (https://designrevision.com/downloads/shards)
+ * Based on: Bootstrap v4.1.3 (https://getbootstrap.com)
+ * Copyright 2017-* DesignRevision (https://designrevision.com)
+ * Copyright 2017-* Catalin Vasile (contact@catalin.me)
+ * License: MIT
+ */
+
+// Shards variables overrides.
+@import "utilities/overrides";
+
+// Base Shards UI Kit
+@import "../../../../node_modules/shards-ui/src/scss/shards";
+
+/* Shards Dashboards Lite Styles */
+
+// Core
+@import "utilities/colors";
+@import "utilities/mixins";
+@import "utilities/typography";
+@import "utilities/variables";
+@import "utilities/general";
+@import "utilities/text";
+@import "utilities/borders";
+@import "general/general";
+
+@import "components/common/dropdown";
+@import "components/common/badge";
+@import "components/common/alert";
+@import "components/common/icons";
+@import "components/common/buttons";
+@import "components/common/button-group";
+@import "components/common/inputs";
+@import "components/common/input-group";
+@import "components/common/custom-forms";
+@import "components/common/custom-sliders";
+@import "components/common/images";
+@import "components/common/icons";
+@import "components/common/tooltip";
+@import "components/common/modal";
+@import "components/navigation/main_navbar/main_navbar";
+@import "components/navigation/main_navbar/navbar";
+@import "components/navigation/main_sidebar/main_sidebar";
+@import "components/footer/footer";
+@import "components/page_header/page_header";
+@import "components/card_post/card_post";
+@import "components/card/card";
+@import "components/error/error";
+@import "components/table/table";
+@import "components/02_view_views/form_create/form_create";
+
+@import "layouts/default_layout";
+
+// Templates
+@import "templates/common"; // Required common styles for all pages.

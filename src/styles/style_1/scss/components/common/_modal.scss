@@ -1,0 +1,9 @@
+// Modal background
+.modal-backdrop,
+.modal.show {
+  background-color: rgba(63, 82, 112, 0.5);
+}
+
+.modal.show {
+  overflow-y: scroll;
+}

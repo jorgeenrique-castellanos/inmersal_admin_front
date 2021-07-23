@@ -1,0 +1,46 @@
+// Badge Adjustments
+// .badge {
+//   line-height: 0;
+// }
+
+label + .badge-input-optional {
+  margin-left: 5px;
+}
+
+.badge-input-optional + .btn {
+  margin-left: 5px;
+}
+
+.badge-input-optional,
+.badge-input-counter {
+  @include inline-flex();
+  @include align-items(center);
+  border-radius: 0px;
+  font-size: 0.65rem;
+  line-height: 1.1;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  text-transform: uppercase;
+}
+
+.badge-input-optional {
+  margin-bottom: 0.5rem;
+}
+
+.badge-input-counter {
+  float: right;
+  margin-bottom: 0;
+  margin-top: 7px;
+}
+
+// Accent color badge variations
+.badge-accent {
+  @include badge-variant($accent-color);
+}
+
+// Accent color outline badge variation
+.badge-outline-accent {
+  background: none;
+  border: 1px solid $accent-color;
+  color: $accent-color;
+}

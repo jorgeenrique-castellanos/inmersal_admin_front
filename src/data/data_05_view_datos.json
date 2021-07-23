@@ -1,0 +1,21 @@
+{
+    "salesroom": [
+      {
+        "id": "0",
+        "view": "viewfolder",
+        "title": "lo publicaste",
+        "subtitle": "El futuro en tus manos",
+        "state":"activo",
+        "url":"lopublicaste.com",
+        "description": "buena atencion de la empresa"
+      },
+      {
+        "id": "1",
+        "view": "viewfolder",
+        "title": "inmersal",
+        "subtitle": "El futuro en tus manos",
+        "state":"activo",
+        "url":"inmersal.com",
+        "description": "buena atencion de la empresa"
+      }
+    ]}

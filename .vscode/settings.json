@@ -1,0 +1,14 @@
+{
+  "workbench.colorCustomizations": {},
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/src/styles/style_1/"
+    }
+  ],
+  "liveSassCompile.settings.includeItems": [
+    "/src/shards-dashboard/styles/scss/inmersal_admin_style_1.scss"
+  ],
+  "editor.codeActionsOnSave": null
+}

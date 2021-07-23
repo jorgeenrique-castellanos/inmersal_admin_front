@@ -1,0 +1,94 @@
+{
+  "views": [
+    {
+      "id": "1",
+      "view": "viewfolder",
+      "title": "View Folder",
+      "subtitle": "Subtitle view folder",
+      "description": "Description view folder",
+      "image": "xx",
+      "status": true
+    },
+    {
+      "id": "2",
+      "view": "viewindex",
+      "title": "View Index",
+      "subtitle": "Subtitle view index",
+      "description": "Description view index",
+      "image": "xx",
+      "status": true
+    },
+    {
+      "id": "3",
+      "view": "viewpropertytypes",
+      "title": "View Property Types",
+      "subtitle": "Subtitle view property types",
+      "description": "Description view property types",
+      "image": "xx",
+      "status": true
+    },
+    {
+      "id": "4",
+      "view": "viewingeneralformation",
+      "title": "View General Information",
+      "subtitle": "Subtitle view general information",
+      "description": "Description view general information",
+      "image": "xx",
+      "status": true
+    },
+    {
+      "id": "5",
+      "view": "viewlocation",
+      "title": "View Location",
+      "subtitle": "Subtitle view location",
+      "description": "Description view location",
+      "image": "xx",
+      "status": true
+    },
+    {
+      "id": "6",
+      "view": "viewinvestment",
+      "title": "View Investment",
+      "subtitle": "Subtitle view investment",
+      "description": "Description view investment",
+      "image": "xx",
+      "status": true
+    },
+    {
+      "id": "7",
+      "view": "viewgallery",
+      "title": "View Gallery",
+      "subtitle": "Subtitle view gallery",
+      "description": "Description view gallery",
+      "image": "xx",
+      "status": true
+    },
+    {
+      "id": "8",
+      "view": "viewpropertydetail",
+      "title": "View Property Detail",
+      "subtitle": "Subtitle view property detail",
+      "description": "Description view property detail",
+      "image": "xx",
+      "status": true
+    },
+    {
+      "id": "9",
+      "view": "viewpropertylist",
+      "title": "View Property List",
+      "subtitle": "Subtitle view property list",
+      "description": "Description view property list",
+      "image": "xx",
+      "status": true
+    },
+    {
+      "id": "10",
+      "view": "viewcontact",
+      "title": "View Contact",
+      "subtitle": "Subtitle view contact",
+      "description": "Description view contact",
+      "image": "xx",
+      "status": true
+    }
+  ]
+}

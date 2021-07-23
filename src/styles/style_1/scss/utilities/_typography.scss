@@ -1,0 +1,22 @@
+@mixin loadFont($name, $file, $weight, $style) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url("../typography/#{$file}.woff") format("woff"),
+      url("../typography/#{$file}.woff2") format("woff2"),
+      url("../typography/#{$file}.ttf") format("truetype"),
+      url("../typography/#{$file}.svg##{$name}") format("svg");
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+@include loadFont(Graphik-Bold, Graphik-Bold, normal, normal);
+@include loadFont(Graphik-Semibold, Graphik-Semibold, normal, normal);
+@include loadFont(Graphik-Medium, Graphik-Medium, normal, normal);
+@include loadFont(Graphik-Regular, Graphik-Regular, normal, normal);
+
+$typoBOLD: "Graphik-Bold";
+$typoSEMIBOLD: "Graphik-Semibold";
+$typoMEDIUM: "Graphik-Medium";
+$typoREGULAR: "Graphik-Regular";

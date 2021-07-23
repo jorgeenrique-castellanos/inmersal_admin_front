@@ -1,0 +1,273 @@
+@mixin flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-important() {
+  display: -webkit-box !important;
+  display: -moz-box !important;
+  display: -ms-flexbox !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+}
+
+@mixin inline-flex() {
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
+@mixin flex-wrap($value) {
+  -webkit-flex-wrap: $value !important;
+  -moz-flex-wrap: $value !important;
+  -ms-flex-wrap: $value !important;
+  -o-flex-wrap: $value !important;
+  flex-wrap: $value !important;
+}
+
+@mixin flex-direction($direction) {
+  @if $direction == "row" {
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: row !important;
+    flex-direction: row !important;
+  } @else if $direction == "column" {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+  }
+}
+
+@mixin justify-content($distribution) {
+  @if $distribution == "center" {
+    -webkit-box-pack: center !important;
+    -moz-box-pack: center !important;
+    -ms-flex-pack: center !important;
+    -webkit-justify-content: center !important;
+    justify-content: center !important;
+  } @else if $distribution == "flex-start" {
+    -webkit-box-pack: start !important;
+    -moz-box-pack: start !important;
+    -ms-flex-pack: start !important;
+    -webkit-justify-content: flex-start !important;
+    justify-content: flex-start !important;
+  } @else if $distribution == "flex-end" {
+    -webkit-box-pack: end !important;
+    -moz-box-pack: end !important;
+    -ms-flex-pack: end !important;
+    -webkit-justify-content: flex-end !important;
+    justify-content: flex-end !important;
+  } @else if $distribution == "space-between" {
+    -webkit-justify-content: space-between !important;
+    justify-content: space-between !important;
+  } @else if $distribution == "space-around" {
+    -webkit-justify-content: space-around !important;
+    justify-content: space-around !important;
+  }
+}
+
+@mixin align-items($distribution) {
+  @if $distribution == "baseline" {
+    -webkit-box-align: baseline !important;
+    -moz-box-align: baseline !important;
+    -ms-flex-align: baseline !important;
+    -webkit-align-items: baseline !important;
+    align-items: baseline !important;
+  } @else if $distribution == "center" {
+    -webkit-box-align: center !important;
+    -moz-box-align: center !important;
+    -ms-flex-align: center !important;
+    -webkit-align-items: center !important;
+    align-items: center !important;
+  } @else if $distribution == "flex-start" {
+    -webkit-box-align: start !important;
+    -moz-box-align: start !important;
+    -ms-flex-align: start !important;
+    -webkit-align-items: flex-start !important;
+    align-items: flex-start !important;
+  } @else if $distribution == "flex-end" {
+    -webkit-box-align: end !important;
+    -moz-box-align: end !important;
+    -ms-flex-align: end !important;
+    -webkit-align-items: flex-end !important;
+    align-items: flex-end !important;
+  } @else if $distribution == "stretch" {
+    -webkit-box-align: stretch !important;
+    -moz-box-align: stretch !important;
+    -ms-flex-align: stretch !important;
+    -webkit-align-items: stretch !important;
+    align-items: stretch !important;
+  }
+}
+
+@mixin align-self($distribution) {
+  @if $distribution == "auto" {
+    -ms-flex-item-align: auto;
+    -webkit-align-self: auto;
+    align-self: auto;
+  } @else if $distribution == "baseline" {
+    -ms-flex-item-align: baseline;
+    -webkit-align-self: baseline;
+    align-self: baseline;
+  } @else if $distribution == "center" {
+    -ms-flex-item-align: center;
+    -webkit-align-self: center;
+    align-self: center;
+  } @else if $distribution == "flex-start" {
+    -ms-flex-item-align: start;
+    -webkit-align-self: flex-start;
+    align-self: flex-start;
+  } @else if $distribution == "flex-end" {
+    -ms-flex-item-align: end;
+    -webkit-align-self: flex-end;
+    align-self: flex-end;
+  } @else if $distribution == "stretch" {
+    -ms-flex-item-align: stretch;
+    -webkit-align-self: stretch;
+    align-self: stretch;
+  }
+}
+
+@mixin transition($property, $time, $timing-function, $delay) {
+  -webkit-transition: $property $time $timing-function $delay;
+  -moz-transition: $property $time $timing-function $delay;
+  -o-transition: $property $time $timing-function $delay;
+  transition: $property $time $timing-function $delay;
+}
+
+@mixin transform($value) {
+  -webkit-transform: $value;
+  -ms-transform: $value;
+  transform: $value;
+}
+
+@mixin drop-shadow($value) {
+  filter: drop-shadow($value);
+  -webkit-filter: drop-shadow($value);
+}
+
+// @mixin bradius-tr-br($value) {
+//   -webkit-border-top-right-radius: $value;
+//   -webkit-border-bottom-right-radius: $value;
+//   -moz-border-radius-topright: $value;
+//   -moz-border-radius-bottomright: $value;
+//   border-top-right-radius: $value;
+//   border-bottom-right-radius: $value;
+// }
+
+// @mixin bradius-tl-bl($value) {
+//   -webkit-border-top-left-radius: $value;
+//   -webkit-border-bottom-left-radius: $value;
+//   -moz-border-radius-topleft: $value;
+//   -moz-border-radius-bottomleft: $value;
+//   border-top-left-radius: $value;
+//   border-bottom-left-radius: $value;
+// }
+
+@mixin box-shadow($value) {
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+  box-shadow: $value;
+}
+
+@mixin text-shadow($value) {
+  -webkit-text-shadow: $value;
+  -moz-text-shadow: $value;
+  text-shadow: $value;
+}
+
+@mixin user-select($value) {
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}
+
+@mixin opacity($value) {
+  -webkit-opacity: $value;
+  -moz-opacity: $value;
+  opacity: $value;
+  filter: alpha(opacity=$value * 100);
+}
+
+@mixin animation-simple(
+  $animation-name,
+  $duration,
+  $animation-timing-function,
+  $fill-mode,
+  $direction,
+  $delay,
+  $iteration-count
+) {
+  -webkit-animation-name: $animation-name;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-timing-function: $animation-timing-function;
+  -webkit-animation-fill-mode: $fill-mode;
+  -webkit-animation-direction: $direction;
+  -webkit-animation-delay: $delay;
+  -webkit-animation-iteration-count: $iteration-count;
+  /**/
+  -moz-animation-name: $animation-name;
+  -moz-animation-duration: $duration;
+  -moz-animation-timing-function: $animation-timing-function;
+  -moz-animation-fill-mode: $fill-mode;
+  -moz-animation-direction: $direction;
+  -moz-animation-delay: $delay;
+  -moz-animation-iteration-count: $iteration-count;
+  /**/
+  -o-animation-name: $animation-name;
+  -o-animation-duration: $duration;
+  -o-animation-timing-function: $animation-timing-function;
+  -o-animation-fill-mode: $fill-mode;
+  -o-animation-direction: $direction;
+  -o-animation-delay: $delay;
+  -o-animation-iteration-count: $iteration-count;
+  /**/
+  animation-name: $animation-name;
+  animation-duration: $duration;
+  animation-timing-function: $animation-timing-function;
+  animation-fill-mode: $fill-mode;
+  animation-direction: $direction;
+  animation-delay: $delay;
+  animation-iteration-count: $iteration-count;
+}
+
+@mixin animation-simple-keyframes($animation_name) {
+  @-webkit-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation_name} {
+    @content;
+  }
+
+  @keyframes #{$animation_name} {
+    @content;
+  }
+}
+
+@mixin gradient-bi-color($deg, $color1, $percentage1, $color2, $percentage2) {
+  background: $color1;
+  background: -moz-linear-gradient(
+    $deg,
+    $color1 $percentage1,
+    $color2 $percentage2
+  );
+  background: -webkit-linear-gradient(
+    $deg,
+    $color1 $percentage1,
+    $color2 $percentage2
+  );
+  background: linear-gradient($deg, $color1 $percentage1, $color2 $percentage2);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#$color1', endColorstr='#$color2',GradientType=1 );
+}

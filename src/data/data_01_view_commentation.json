@@ -1,0 +1,23 @@
+{
+    "commetation": [
+      {
+        "id": "0",
+        "view": "viewfolder",
+        "title": "lo publicaste",
+        "state":"activo",
+        "status": true,
+        "description": "Problem contacting me with the building numbern",
+        "city": "Bogota",
+        "scores":"3"
+      },
+      {
+        "id": "1",
+        "view": "viewfolder",
+        "title": "inmersal",
+        "state":"activo",
+        "description": "Problem contacting me with the building numbern",
+        "city": "Cartagena",
+        "scores":"4",
+        "status": true
+      }
+    ]}
