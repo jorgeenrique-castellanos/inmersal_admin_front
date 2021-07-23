@@ -12,7 +12,7 @@ const Login = ({ children }) => (
   <Container fluid>
     <Row>
       <Col
-        className="main-content p-0"
+        className="main-content m-auto p-0"
         lg={{ size: 10, offset: 2 }}
         md={{ size: 9, offset: 3 }}
         sm="12"
