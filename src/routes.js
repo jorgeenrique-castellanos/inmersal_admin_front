@@ -19,6 +19,10 @@ import ProjectListFinishes from "./views/09_view_project_List_Finishes";
 import ProjectListUpdates from "./views/10_view_project_List_Updates";
 import ProjectListMetrics from "./views/11_view_project_List_Metrics";
 import ProjectPropertyTypes from "./views/12_view_project_Property_Types";
+import ProjectListBluesprint from "./views/13_view_project_list_bluesprints";
+import ProjectListProperties from "./views/14_view_project_list_properties";
+import ProjectCenterMultimedia from "./views/15_view_project_center_multimedia";
+import ProjectContact from "./views/16_view_contact";
 import Users from "./views/13_view_user";
 import LoginUser from "./views/15_view_login_user"
 // import TiposDePersonas from "./vistas/v1/tiposdepersonas";
@@ -119,6 +123,30 @@ export default [
     exact: true,
     layout: DefaultLayout,
     component: ProjectPropertyTypes
+  },
+  {
+    path: "/projectlistbluesprint",
+    exact: true,
+    layout: DefaultLayout,
+    component: ProjectListBluesprint
+  },
+  {
+    path: "/projectlistproperties",
+    exact: true,
+    layout: DefaultLayout,
+    component: ProjectListProperties
+  },
+  {
+    path: "/projectcentermultimedia",
+    exact: true,
+    layout: DefaultLayout,
+    component: ProjectCenterMultimedia
+  },
+  {
+    path: "/projectcontact",
+    exact: true,
+    layout: DefaultLayout,
+    component: ProjectContact
   },
   {
     path: "/users",
