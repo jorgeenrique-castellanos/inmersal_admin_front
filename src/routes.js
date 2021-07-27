@@ -9,7 +9,7 @@ import Imagenes from "./vistas/imagenes";
 import Activity from "./views/00_view_activity";
 import Commentation from "./views/01_view_commetation";
 import Views from "./views/02_view_views";
-import Project from "./views/03_view_projects";
+// import Project from "./views/03_view_projects";
 import View from "./views/04_view_sales_room/views";
 import BannerPromotional from "./views/05_view_banner_promotional";
 import Proyecto from "./views/06_view_projectGeneralInformation";
@@ -23,6 +23,12 @@ import ProjectListBluesprint from "./views/13_view_project_list_bluesprints";
 import ProjectListProperties from "./views/14_view_project_list_properties";
 import ProjectCenterMultimedia from "./views/15_view_project_center_multimedia";
 import ProjectContact from "./views/16_view_contact";
+import CompanyGeneralInformation from "./views/17_view_company_general_information";
+import GeneralSettings from "./views/18_view_general_settings";
+import Agents from "./views/19_view_agents";
+import Facturation from "./views/20_view_facturation";
+import Security from "./views/21_view_security";
+import Myprofile from "./views/22_view_profile"
 import Users from "./views/13_view_user";
 import LoginUser from "./views/15_view_login_user"
 // import TiposDePersonas from "./vistas/v1/tiposdepersonas";
@@ -46,6 +52,12 @@ import BlogOverview from "./views/BlogOverview";
 // import BlogPosts from "./views/BlogPosts";
 
 export default [
+  {
+    path: "/companygeneralinformation",
+    exact: true,
+    layout: DefaultLayout,
+    component: CompanyGeneralInformation
+  },
   {
     path: "/actividad",
     exact: true,
@@ -147,6 +159,36 @@ export default [
     exact: true,
     layout: DefaultLayout,
     component: ProjectContact
+  },
+  {
+    path: "/generalsettings",
+    exact: true,
+    layout: DefaultLayout,
+    component: GeneralSettings
+  },
+  {
+    path: "/agents",
+    exact: true,
+    layout: DefaultLayout,
+    component: Agents
+  },
+  {
+    path: "/facturation",
+    exact: true,
+    layout: DefaultLayout,
+    component: Facturation
+  },
+  {
+    path: "/security",
+    exact: true,
+    layout: DefaultLayout,
+    component: Security
+  },
+  {
+    path: "/myprofile",
+    exact: true,
+    layout: DefaultLayout,
+    component: Myprofile
   },
   {
     path: "/users",

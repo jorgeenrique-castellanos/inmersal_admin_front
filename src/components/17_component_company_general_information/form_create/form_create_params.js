@@ -15,26 +15,9 @@ export default user => {
   };
 
   form_params["validation_rules"] = {
-    property_code: yup.string().required(),
-    property_zone: yup.string().required(),
-    property_title: yup.string().required(),
-    property_status: yup.string().required(),
-    property_type: yup
-      .object()
-      .shape({
-        value: yup.string().required(),
-        label: yup.string().required()
-      })
-      .default(undefined)
-      .required(),
-    property_floor: yup
-      .object()
-      .shape({
-        value: yup.string().required(),
-        label: yup.string().required()
-      })
-      .default(undefined)
-      .required()
+    project_name: yup.string().required(),
+    project_description: yup.string().required(),
+    // property_image:   
   };
 
   // form_params["parent_id"] = {

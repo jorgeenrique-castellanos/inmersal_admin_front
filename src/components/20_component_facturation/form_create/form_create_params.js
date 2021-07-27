@@ -15,10 +15,17 @@ export default user => {
   };
 
   form_params["validation_rules"] = {
-    property_code: yup.string().required(),
-    property_zone: yup.string().required(),
     property_title: yup.string().required(),
-    property_status: yup.string().required(),
+    property_description: yup.string().required(),
+    // property_image:
+    property_financing_type: yup
+      .object()
+      .shape({
+        value: yup.string().required(),
+        label: yup.string().required()
+      })
+      .default(undefined)
+      .required(),
     property_type: yup
       .object()
       .shape({
@@ -27,14 +34,37 @@ export default user => {
       })
       .default(undefined)
       .required(),
-    property_floor: yup
+    property_sfqt: yup.string().required(),
+    property_lot_sfqt: yup.string().required(),
+    property_baths: yup.string().required(),
+    property_beds: yup.string().required(),
+    property_garage: yup
       .object()
       .shape({
         value: yup.string().required(),
         label: yup.string().required()
       })
       .default(undefined)
-      .required()
+      .required(),
+    property_list_amenities: yup
+      .object()
+      .shape({
+        value: yup.string().required(),
+        label: yup.string().required()
+      })
+      .default(undefined)
+      .required(),
+    property_tour360_url: yup.string().required(),
+    property_blueprints: yup
+      .object()
+      .shape({
+        value: yup.string().required(),
+        label: yup.string().required()
+      })
+      .default(undefined)
+      .required(),
+      // property_
+      // property_
   };
 
   // form_params["parent_id"] = {

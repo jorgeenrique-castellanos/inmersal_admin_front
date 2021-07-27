@@ -15,10 +15,12 @@ export default user => {
   };
 
   form_params["validation_rules"] = {
-    property_title: yup.string().required(),
-    property_description: yup.string().required(),
+    project_contact_phones: yup.string().required(),
+    project_contact_city: yup.string().required(),
+    project_contact_address: yup.string().required(),
+    project_contact_email: yup.string().required(),
     // property_image:
-    property_financing_type: yup
+    project_contact_country: yup
       .object()
       .shape({
         value: yup.string().required(),
@@ -26,45 +28,14 @@ export default user => {
       })
       .default(undefined)
       .required(),
-    property_type: yup
+    project_contact_states: yup
       .object()
       .shape({
         value: yup.string().required(),
         label: yup.string().required()
       })
       .default(undefined)
-      .required(),
-    property_sfqt: yup.string().required(),
-    property_lot_sfqt: yup.string().required(),
-    property_baths: yup.string().required(),
-    property_beds: yup.string().required(),
-    property_garage: yup
-      .object()
-      .shape({
-        value: yup.string().required(),
-        label: yup.string().required()
-      })
-      .default(undefined)
-      .required(),
-    property_list_amenities: yup
-      .object()
-      .shape({
-        value: yup.string().required(),
-        label: yup.string().required()
-      })
-      .default(undefined)
-      .required(),
-    property_tour360_url: yup.string().required(),
-    property_blueprints: yup
-      .object()
-      .shape({
-        value: yup.string().required(),
-        label: yup.string().required()
-      })
-      .default(undefined)
-      .required(),
-      // property_
-      // property_
+      .required()
   };
 
   // form_params["parent_id"] = {
