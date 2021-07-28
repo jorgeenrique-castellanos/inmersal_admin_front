@@ -22,7 +22,7 @@ export default function() {
           title: "Información General",
           show_title: true,
           type: "link" /*link,header,separator*/,
-          view_url: "/projectgeneralinformation",
+          view_url: "/companygeneralinformation",
           view_id: "v001",
           parent_id: "i022",
           url: false,
@@ -304,67 +304,8 @@ export default function() {
       icon: "home",
       class_prefix: ""
     },
-    // {
-    //   id: "i0072",
-    //   title: "titulo separador",
-    //   show_title: true,
-    //   type: "separator" /*link,header,separator*/,
-    //   view_url: "",
-    //   view_id: "v001",
-    //   parent_id: false,
-    //   url: false,
-    //   language: "ESP",
-    //   access: "",
-    //   icon: "image",
-    //   class_prefix: ""
-    // },    
-    
-    // {
-    //   id: "i0072",
-    //   title: "titulo separador",
-    //   show_title: true,
-    //   type: "separator" /*link,header,separator*/,
-    //   view_url: "",
-    //   view_id: "v001",
-    //   parent_id: false,
-    //   url: false,
-    //   language: "ESP",
-    //   access: "",
-    //   icon: "image",
-    //   class_prefix: ""
-    // },
-    
-    // {
-    //   id: "i0072",
-    //   title: "titulo separador",
-    //   show_title: true,
-    //   type: "separator" /*link,header,separator*/,
-    //   view_url: "",
-    //   view_id: "v001",
-    //   parent_id: false,
-    //   url: false,
-    //   language: "ESP",
-    //   access: "",
-    //   icon: "image",
-    //   class_prefix: ""
-    // },
-    
-    // {
-    //   id: "i0072",
-    //   title: "titulo separador",
-    //   show_title: true,
-    //   type: "separator" /*link,header,separator*/,
-    //   view_url: "",
-    //   view_id: "v001",
-    //   parent_id: false,
-    //   url: false,
-    //   language: "ESP",
-    //   access: "",
-    //   icon: "image",
-    //   class_prefix: ""
-    // },
     {
-      id: "c022",
+      id: "conf022",
       title: "Configuración",
       show_title: true,
       type: "link" /*link,header,separator*/,
@@ -375,7 +316,65 @@ export default function() {
       language: "ESP",
       access: "",
       icon: "image",
-      class_prefix: ""
+      class_prefix: "",
+      sub_items: [
+        {
+          id: "c01",
+          title: "Ajustes generales",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/generalsettings",
+          view_id: "v001",
+          parent_id: "i022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        },
+        {
+          id: "c02",
+          title: "Agentes",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/agents",
+          view_id: "v001",
+          parent_id: "i022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        },
+        {
+          id: "c03",
+          title: "Facturación",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/facturation",
+          view_id: "v001",
+          parent_id: "i022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        },
+        {
+          id: "c01",
+          title: "Seguridad & identidad",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/security",
+          view_id: "v001",
+          parent_id: "i022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        }
+      ]
     },
     {
       id: "u022",
@@ -418,7 +417,7 @@ export default function() {
       access: "",
       icon: "home",
       class_prefix: ""
-    },
+    }
     // {
     //   id: "i009",
     //   title: "Proyectos",
@@ -446,22 +445,22 @@ export default function() {
     //   access: "",
     //   icon: "image",
     //   class_prefix: ""
-      // sub_items: [
-      //   {
-      //     id: "i001",
-      //     title: "Item 1",
-      //     show_title: true,
-      //     type: "link" /*link,header,separator*/,
-      //     view_url: "/xxx",
-      //     view_id: "v001",
-      //     parent_id: false,
-      //     url: false,
-      //     language: "ESP",
-      //     access: "",
-      //     icon: "image",
-      //     class_prefix: ""
-      //   },
-      // ]
+    // sub_items: [
+    //   {
+    //     id: "i001",
+    //     title: "Item 1",
+    //     show_title: true,
+    //     type: "link" /*link,header,separator*/,
+    //     view_url: "/xxx",
+    //     view_id: "v001",
+    //     parent_id: false,
+    //     url: false,
+    //     language: "ESP",
+    //     access: "",
+    //     icon: "image",
+    //     class_prefix: ""
+    //   },
+    // ]
     // },
     // {
     //   id: "i006",

@@ -15,11 +15,12 @@ export default user => {
   };
 
   form_params["validation_rules"] = {
-    property_code: yup.string().required(),
-    property_zone: yup.string().required(),
-    property_title: yup.string().required(),
-    property_status: yup.string().required(),
-    property_type: yup
+    agent_name: yup.string().required(),
+    agent_last_name: yup.string().required(),
+    agent_user: yup.string().required(),
+    agent_password: yup.string().required(),
+    // property_image:
+    agent_access_level: yup
       .object()
       .shape({
         value: yup.string().required(),
@@ -27,14 +28,6 @@ export default user => {
       })
       .default(undefined)
       .required(),
-    property_floor: yup
-      .object()
-      .shape({
-        value: yup.string().required(),
-        label: yup.string().required()
-      })
-      .default(undefined)
-      .required()
   };
 
   // form_params["parent_id"] = {
