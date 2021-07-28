@@ -1,20 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import _ from "lodash";
-import { DefaultLayout } from "../../../layouts/";
+// import { DefaultLayout } from "../../../layouts/";
 import ReactHtmlParser from "react-html-parser";
 import Icons from "../../../assets/icons";
 import { Context } from "../../../views/15_view_login_user/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
 import InputPassword from "../../inputs/InputPassword";
-
 import Servidor from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
-//import { inicializar, validar } from "../../../helpers/form_validate";
 import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
-
 import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
+import AppContext from "../../../components/app_context/general_context";
 
 export default function FormCreate() {
   const { register, handleSubmit, control, reset } = useForm();
@@ -22,13 +20,7 @@ export default function FormCreate() {
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
-
-  /*****************    Begin Select  ***********************/
-  // React.useEffect(() => {
-  //   register("parent_id");
-  // }, [register]);
-
-  /*****************    End Select  ***********************/
+  const mainContext = useContext(AppContext);
 
   const onCancel = () => {
     reset();
@@ -36,30 +28,29 @@ export default function FormCreate() {
   };
 
   const onSubmit = data => {
-    console.log(data);
     validateFormData(form_params, data, processValidation);
   };
 
   const processValidation = result => {
-    console.log(result);
     result.error ? viewErrors(result) : sendToServer(result.data);
   };
 
   function viewErrors(result) {
-    showMessage("Verifique los datos para guardar los cambios");
+    showMessage("Usuario y/o password errado");
     setErrorList(result.data);
   }
 
   const sendToServer = data => {
-    const formData = new FormData();
-    const newdata = JSON.stringify(data);
-    const config = form_params["record_config"];
-    formData.append("data", newdata);
-    config["data"] = formData;
+    var config = form_params['server_config'];
+    config["data"] = data;
     Servidor(responseFromServer, config);
   };
 
   function responseFromServer(response) {
+    console.log("response from server")
+    console.log(response)
+
+    mainContext.setToken('Mi primer Token');
     const status = _.get(response, "data.status", "Error");
     return status === "Success" ? recordCreated() : recordWrong(response.data);
   }
@@ -101,13 +92,13 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"login_user"}
-                      name={"login_user"}
-                      labelText={"Ingrese su usuario"}
+                      id={"email"}
+                      name={"email"}
+                      labelText={"Email"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"inmersal"}
+                      placeHolder={"Escriba su email"}
                       maxLength={10}
                       information={"Information here!"}
                       errorList={error_list}
@@ -116,13 +107,13 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputPassword
                       register={register}
-                      id={"login_password"}
-                      name={"login_password"}
-                      labelText={"Ingrese su contraseña"}
+                      id={"password"}
+                      name={"password"}
+                      labelText={"Contraseña"}
                       required={true}
-                      placeHolder={"@#$%&1234"}
+                      placeHolder={"Escriba la contraseña"}
                       maxLength={10}
-                      information={"Information here!"}
+                      information={"Escriba el password!"}
                       errorList={error_list}
                     />
                   </Col>
@@ -132,26 +123,17 @@ export default function FormCreate() {
                     md="12"
                     className="form-create-footer-login justify-content-center flex-column"
                   >
-                    <Col md="6" className="form-group">
-                      <a
-                        href="http://localhost:3000/blog-overview"
-                        className="py-3 btn-text-icon-right mr-2 px-5"
-                        pill
-                      >
-                        Ingresar
-                      </a>
-                    </Col>
-                    {/* <Button
+                    <Button
                       className="btn-text-icon-right mr-2 px-5"
                       pill
                       type="submit"
                     >
                       Ingresar
-                    </Button> */}
-                     {/* {ReactHtmlParser(icons.check.icon)} */}
-                     {/* <Button pill theme="danger" onClick={onCancel}>
-                       Cancel
-                     </Button> */}
+                    </Button>
+                    {ReactHtmlParser(icons.check.icon)}
+                    <Button pill theme="danger" onClick={onCancel}>
+                      Cancel
+                    </Button>
                   </Col>
                   <Col md="12" className="form-group my-3 text-center">
                     <Row>

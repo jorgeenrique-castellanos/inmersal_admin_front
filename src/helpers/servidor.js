@@ -19,4 +19,13 @@ export default function ServidorFormas(setDatos, config){
     });
 
 
+    // form_params["record_config"] = {
+    //   method: "post",
+    //   url: "http://localhost/inmersal/public/api/v1/menus",
+    //   headers: {
+    //     "Content-Type": "multipart/form-data"
+    //   }
+    //   //data: peticionn POST
+    //   //form_params: peticion GET
+    // };
 }
