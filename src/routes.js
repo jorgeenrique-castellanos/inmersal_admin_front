@@ -30,7 +30,7 @@ import Facturation from "./views/20_view_facturation";
 import Security from "./views/21_view_security";
 import Myprofile from "./views/22_view_profile"
 import Users from "./views/13_view_user";
-import LoginUser from "./views/15_view_login_user"
+import LogoutUser from "./components/23_view_logout_user/form_create/FormCreate"
 // import TiposDePersonas from "./vistas/v1/tiposdepersonas";
 // import TiposDeIdentificaciones from "./vistas/tiposdeidentificaciones";
 // import Paises from "./vistas/paises";
@@ -197,10 +197,10 @@ export default [
     component: Users
   },
   {
-    path: "/loginuser",
+    path: "/logoutuser",
     exact: true,
     layout: Login,
-    component: LoginUser
+    component: LogoutUser
   },
   {
     path: "/",
