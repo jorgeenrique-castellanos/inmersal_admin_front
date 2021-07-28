@@ -8,6 +8,12 @@
   @include align-items(center);
 }
 
+.buttonlogin{
+  display: flex;
+  align-items: center !important;
+  justify-content:center;
+}
+
 .btn-text-icon-left,
 .btn-text-icon-right {
   i {

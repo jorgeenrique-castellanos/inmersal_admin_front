@@ -7,6 +7,7 @@ import { Context } from "../../../views/15_view_login_user/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
 import InputPassword from "../../inputs/InputPassword";
+import InputCheckbox from "../../inputs/InputCheckbox";
 import Servidor from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 import { validateFormData } from "../../../helpers/form_validate";
@@ -41,16 +42,16 @@ export default function FormCreate() {
   }
 
   const sendToServer = data => {
-    var config = form_params['server_config'];
+    var config = form_params["server_config"];
     config["data"] = data;
     Servidor(responseFromServer, config);
   };
 
   function responseFromServer(response) {
-    console.log("response from server")
-    console.log(response)
+    console.log("response from server");
+    console.log(response);
 
-    mainContext.setToken('Mi primer Token');
+    mainContext.setToken("Mi primer Token");
     const status = _.get(response, "data.status", "Error");
     return status === "Success" ? recordCreated() : recordWrong(response.data);
   }
@@ -89,32 +90,52 @@ export default function FormCreate() {
             <Col>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Row form>
-                  <Col md="12" className="form-group">
+                  <Col
+                    md="12"
+                    className="form-group d-flex align-items-center pt-5"
+                  >
+                    {ReactHtmlParser(icons.userline.icon)}
                     <InputText
                       register={register}
                       id={"email"}
                       name={"email"}
-                      labelText={"Email"}
+                      // labelText={"Email"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Escriba su email"}
-                      maxLength={10}
+                      placeHolder={"Nombre de usuario"}
+                      maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />
                   </Col>
-                  <Col md="12" className="form-group">
+                  <Col md="12" className="form-group d-flex align-items-center">
+                    {ReactHtmlParser(icons.lockline.icon)}
                     <InputPassword
                       register={register}
                       id={"password"}
                       name={"password"}
-                      labelText={"Contraseña"}
+                      // labelText={"Contraseña"}
                       required={true}
-                      placeHolder={"Escriba la contraseña"}
-                      maxLength={10}
+                      placeHolder={"Contraseña"}
+                      maxLength={null}
                       information={"Escriba el password!"}
                       errorList={error_list}
+                    />
+                  </Col>
+                  <Col md="12" className="form-group">
+                    <a href="#ayuda" className="">
+                      ¿Necesitas ayuda para ingresar?
+                    </a>
+                  </Col>
+                  <Col md="12" className="form-group">
+                    <InputCheckbox
+                      id={"check"}
+                      name={"kevin"}
+                      // labelText={"Seleccionar"}
+                      checkboxOptionsInit={[
+                        { value: false, label: "Recordar mi nombre de usuario" }
+                      ]}
                     />
                   </Col>
                 </Row>
@@ -123,19 +144,15 @@ export default function FormCreate() {
                     md="12"
                     className="form-create-footer-login justify-content-center flex-column"
                   >
-                    <Button
-                      className="btn-text-icon-right mr-2 px-5"
-                      pill
-                      type="submit"
-                    >
+                    <Button className="p-3 buttonlogin" block type="submit">
                       Ingresar
                     </Button>
-                    {ReactHtmlParser(icons.check.icon)}
-                    <Button pill theme="danger" onClick={onCancel}>
+                    {/* {ReactHtmlParser(icons.check.icon)} */}
+                    {/* <Button pill theme="danger" onClick={onCancel}>
                       Cancel
-                    </Button>
+                    </Button> */}
                   </Col>
-                  <Col md="12" className="form-group my-3 text-center">
+                  {/* <Col md="12" className="form-group my-3 text-center">
                     <Row>
                       <Col md="6" className="form-group">
                         <a href="#olvidar" className="py-3">
@@ -148,7 +165,7 @@ export default function FormCreate() {
                         </a>
                       </Col>
                     </Row>
-                  </Col>
+                  </Col> */}
                 </Row>
               </Form>
             </Col>

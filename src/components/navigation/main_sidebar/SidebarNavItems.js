@@ -57,8 +57,16 @@ class SidebarNavItems extends React.Component {
                   showSubItems={this.showSubItems}
                 >
                   {item.sub_items.map((item, idx) => {
+                    // console.log(<SidebarNavItem />);
+
                     return (
-                      <SidebarNavItem key={idx} item={item} showIcon={false} />
+                      <>
+                        <SidebarNavItem
+                          key={idx}
+                          item={item}
+                          showIcon={false}
+                        />
+                      </>
                     );
                   })}
                 </SidebarNavHeader>

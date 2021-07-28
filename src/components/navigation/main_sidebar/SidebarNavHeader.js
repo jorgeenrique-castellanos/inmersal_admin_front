@@ -1,6 +1,7 @@
 import React, { Children } from "react";
 import PropTypes from "prop-types";
 import Icons from "../../../assets/icons";
+import classNames from "classnames";
 // import { NavLink as RouteNavLink } from "react-router-dom";
 // import { NavItem, NavLink } from "shards-react";
 
@@ -48,10 +49,11 @@ const SidebarNavHeader = ({
           visibilitySubItems && item.id === currentItemId ? "show" : ""
         }`}
       >
-        {/* {item.sub_items.map((item, idx) => {
-          return <SidebarNavItem key={idx} item={item} showIcon={false} />;
-        })} */}
         {children}
+        {console.log(item)}
+        {console.log(item.sub_items)}
+
+        {/* {children === item.id } */}
       </div>
     </div>
     // <NavItem>

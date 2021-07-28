@@ -4,7 +4,7 @@ import _ from "lodash";
 export default function() {
   return [
     {
-      id: "c022",
+      id: "cons022",
       title: "Constructoras",
       show_title: true,
       type: "link" /*link,header,separator*/,
@@ -24,7 +24,7 @@ export default function() {
           type: "link" /*link,header,separator*/,
           view_url: "/companygeneralinformation",
           view_id: "v001",
-          parent_id: "i022",
+          parent_id: "cons022",
           url: false,
           language: "ESP",
           access: "",
@@ -218,7 +218,7 @@ export default function() {
       class_prefix: "",
       sub_items: [
         {
-          id: "i01",
+          id: "i00",
           title: "Pestañas",
           show_title: true,
           type: "link" /*link,header,separator*/,
@@ -319,13 +319,13 @@ export default function() {
       class_prefix: "",
       sub_items: [
         {
-          id: "c01",
+          id: "conf_01",
           title: "Ajustes generales",
           show_title: true,
           type: "link" /*link,header,separator*/,
           view_url: "/generalsettings",
           view_id: "v001",
-          parent_id: "i022",
+          parent_id: "conf022",
           url: false,
           language: "ESP",
           access: "",
@@ -333,13 +333,13 @@ export default function() {
           class_prefix: ""
         },
         {
-          id: "c02",
+          id: "conf_02",
           title: "Agentes",
           show_title: true,
           type: "link" /*link,header,separator*/,
           view_url: "/agents",
           view_id: "v001",
-          parent_id: "i022",
+          parent_id: "conf022",
           url: false,
           language: "ESP",
           access: "",
@@ -347,13 +347,13 @@ export default function() {
           class_prefix: ""
         },
         {
-          id: "c03",
+          id: "conf_03",
           title: "Facturación",
           show_title: true,
           type: "link" /*link,header,separator*/,
           view_url: "/facturation",
           view_id: "v001",
-          parent_id: "i022",
+          parent_id: "conf022",
           url: false,
           language: "ESP",
           access: "",
@@ -361,13 +361,13 @@ export default function() {
           class_prefix: ""
         },
         {
-          id: "c01",
+          id: "conf_04",
           title: "Seguridad & identidad",
           show_title: true,
           type: "link" /*link,header,separator*/,
           view_url: "/security",
           view_id: "v001",
-          parent_id: "i022",
+          parent_id: "conf022",
           url: false,
           language: "ESP",
           access: "",

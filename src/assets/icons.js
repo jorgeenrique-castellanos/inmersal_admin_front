@@ -532,6 +532,20 @@ export default () => {
       icon_map: "",
       title: "Lista",
       alias: "lista"
+    },
+    userline: {
+      icon: "<i class='ri-user-3-line'></i>",
+      icon_active: "<i class='ri-user-3-line'></i>",
+      icon_map: "",
+      title: "Lista",
+      alias: "lista"
+    },
+    lockline: {
+      icon: "<i class='ri-lock-2-line'></i>",
+      icon_active: "<i class='ri-lock-2-line'></i>",
+      icon_map: "",
+      title: "Lista",
+      alias: "lista"
     }
   };
 };

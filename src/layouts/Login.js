@@ -8,7 +8,7 @@ import MainSidebar from "../components/navigation/main_sidebar/MainSidebar";
 // import MainSidebar from "../components/layout/MainSidebar/MainSidebar";
 import Footer from "../components/footer/Footer";
 
-const Login = ({ children }) => (
+const Login = ({ children, noFooter }) => (
   <Container fluid>
     <Row>
       <Col
@@ -19,6 +19,7 @@ const Login = ({ children }) => (
         tag="main"
       >
         {children}
+        <div className="pt-5">{!noFooter && <Footer />}</div>
       </Col>
     </Row>
   </Container>
