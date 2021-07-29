@@ -12,22 +12,20 @@ export default function FormCreate() {
   const form_params = formCreateParams(null);
   const mainContext = useContext(AppContext);
 
-
   const test = true;
   let onSubmit = null;
   if (test) {
     onSubmit = () => mainContext.setToken(null);
   } else {
     onSubmit = () => {
-      var config = form_params['server_config'];
-      config['method'] = "get";
-      config['headers']['Authorization'] = 'Bearer ' + mainContext.token;
+      var config = form_params["server_config"];
+      config["method"] = "get";
+      config["headers"]["Authorization"] = "Bearer " + mainContext.token;
       enviarAlServidor(loginExitoso, loginErrado, config);
     };
   }
 
-
-  const loginExitoso = (data) => {
+  const loginExitoso = data => {
     mainContext.setToken(null);
   };
 
@@ -36,10 +34,9 @@ export default function FormCreate() {
     showMessage(error, true);
   };
 
-
   const onCancel = data => {
-    var config = form_params['server_config'];
-    config['headers']['Authorization'] = 'Bearer ' + mainContext.token;
+    var config = form_params["server_config"];
+    config["headers"]["Authorization"] = "Bearer " + mainContext.token;
     enviarAlServidor(loginExitoso, loginErrado, config);
   };
 
