@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import _ from "lodash";
-// import { DefaultLayout } from "../../../layouts/";
 import ReactHtmlParser from "react-html-parser";
 import Icons from "../../../assets/icons";
 import { Context } from "../../../views/15_view_login_user/helpers/context";
@@ -8,7 +7,8 @@ import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
 import InputPassword from "../../inputs/InputPassword";
 import InputCheckbox from "../../inputs/InputCheckbox";
-import Servidor from "../../../helpers/servidor";
+// import Servidor from "../../../helpers/servidor";
+import Servidor, { enviarAlServidor } from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
@@ -23,10 +23,10 @@ export default function FormCreate() {
   const form_params = formCreateParams(null);
   const mainContext = useContext(AppContext);
 
-  const onCancel = () => {
-    reset();
-    view_global_actions.cancel();
-  };
+  // const onCancel = () => {
+  //   reset();
+  //   view_global_actions.cancel();
+  // };
 
   const onSubmit = data => {
     validateFormData(form_params, data, processValidation);
@@ -42,26 +42,32 @@ export default function FormCreate() {
   }
 
   const sendToServer = data => {
-    var config = form_params["server_config"];
-    config["data"] = data;
-    Servidor(responseFromServer, config);
+    mainContext.setToken("data.data.access_token");
+  };  
+  // const sendToServer = data => {
+  //   var config = form_params["server_config"];
+  //   config["data"] = data;
+  //   enviarAlServidor(loginExitoso, loginErrado, config);
+  // };
+
+  // function responseFromServer(response) {
+  //   console.log("response from server");
+  //   console.log(response);
+
+  //   mainContext.setToken("Mi primer Token");
+  //   const status = _.get(response, "data.status", "Error");
+  //   return status === "Success" ? recordCreated() : recordWrong(response.data);
+  // }
+
+  // const recordCreated = () => {
+  //   view_global_actions.ok();
+  //   showMessage("Registro creado!", false);
+
+  const loginExitoso = data => {
+    mainContext.setToken(data.data.access_token);
   };
 
-  function responseFromServer(response) {
-    console.log("response from server");
-    console.log(response);
-
-    mainContext.setToken("Mi primer Token");
-    const status = _.get(response, "data.status", "Error");
-    return status === "Success" ? recordCreated() : recordWrong(response.data);
-  }
-
-  const recordCreated = () => {
-    view_global_actions.ok();
-    showMessage("Registro creado!", false);
-  };
-
-  const recordWrong = data => {
+  const loginErrado = data => {
     const error = _.get(data, "message", "Error: consulte administrador");
     showMessage(error, true);
   };
@@ -103,7 +109,7 @@ export default function FormCreate() {
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Nombre de usuario"}
+                      placeHolder={"Escriba su email"}
                       maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
@@ -117,7 +123,7 @@ export default function FormCreate() {
                       name={"password"}
                       // labelText={"Contraseña"}
                       required={true}
-                      placeHolder={"Contraseña"}
+                      placeHolder={"Escriba la contraseña"}
                       maxLength={null}
                       information={"Escriba el password!"}
                       errorList={error_list}
@@ -146,10 +152,9 @@ export default function FormCreate() {
                   >
                     <Button className="p-3 buttonlogin" block type="submit">
                       Ingresar
-                    </Button>
-                    {/* {ReactHtmlParser(icons.check.icon)} */}
+                    </Button>                    
                     {/* <Button pill theme="danger" onClick={onCancel}>
-                      Cancel
+                      Cancel                    
                     </Button> */}
                   </Col>
                   {/* <Col md="12" className="form-group my-3 text-center">

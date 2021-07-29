@@ -1,4 +1,3 @@
-// import React from "react";
 import yup from "../../../helpers/form_validate_error_list";
 
 export default user => {
@@ -10,8 +9,6 @@ export default user => {
     headers: {
       "Content-Type": "application/json"
     }
-    //data: peticionn POST
-    //form_params: peticion GET
   };
 
   form_params["validation_rules"] = {

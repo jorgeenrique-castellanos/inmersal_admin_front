@@ -9,10 +9,11 @@ import ModalContainer from "../../components/15_view_login_user/ModalContainer";
 import UserDetails from "../../components/user-profile-lite/UserDetails";
 import FormCreate from "../../components/15_view_login_user/form_create/FormCreate";
 // import TableList from "../../components/15_view_login_user/table_list/TableList";
+// import Footer from "../../components/footer/Footer";
 
 function ViewViews({ usuario }) {
   return (
-    <Container fluid className="main-content-container px-4 py-5">
+    <Container fluid className="main-content-container px-5 py-5 mt-5">
       <Row>
         <Col lg="6" md="6" sm="6" className="m-auto">
           <Provider>
@@ -24,7 +25,7 @@ function ViewViews({ usuario }) {
             <FormCreate />
           </Provider>
         </Col>
-        <Col lg="6" md="6" sm="6" className="mt-auto ">
+        <Col lg="6" md="6" sm="6" className="mt-auto px-5">
           {/* <h5 className="m-0">Acceso administrador</h5> */}
           <div>
             {/* <UserDetails /> */}
