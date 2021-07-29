@@ -23,11 +23,6 @@ export default function FormCreate() {
   const form_params = formCreateParams(null);
   const mainContext = useContext(AppContext);
 
-  // const onCancel = () => {
-  //   reset();
-  //   view_global_actions.cancel();
-  // };
-
   const onSubmit = data => {
     validateFormData(form_params, data, processValidation);
   };
@@ -41,27 +36,17 @@ export default function FormCreate() {
     setErrorList(result.data);
   }
 
-  const sendToServer = data => {
-    mainContext.setToken("data.data.access_token");
-  };  
-  // const sendToServer = data => {
-  //   var config = form_params["server_config"];
-  //   config["data"] = data;
-  //   enviarAlServidor(loginExitoso, loginErrado, config);
-  // };
-
-  // function responseFromServer(response) {
-  //   console.log("response from server");
-  //   console.log(response);
-
-  //   mainContext.setToken("Mi primer Token");
-  //   const status = _.get(response, "data.status", "Error");
-  //   return status === "Success" ? recordCreated() : recordWrong(response.data);
-  // }
-
-  // const recordCreated = () => {
-  //   view_global_actions.ok();
-  //   showMessage("Registro creado!", false);
+  var sendToServer = null;
+  const test = true;
+  if (test) {
+    sendToServer = data => mainContext.setToken("data.data.access_token");
+  } else {
+    sendToServer = data => {
+      var config = form_params["server_config"];
+      config["data"] = data;
+      enviarAlServidor(loginExitoso, loginErrado, config);
+    };
+  }
 
   const loginExitoso = data => {
     mainContext.setToken(data.data.access_token);
@@ -152,25 +137,8 @@ export default function FormCreate() {
                   >
                     <Button className="p-3 buttonlogin" block type="submit">
                       Ingresar
-                    </Button>                    
-                    {/* <Button pill theme="danger" onClick={onCancel}>
-                      Cancel                    
-                    </Button> */}
+                    </Button>
                   </Col>
-                  {/* <Col md="12" className="form-group my-3 text-center">
-                    <Row>
-                      <Col md="6" className="form-group">
-                        <a href="#olvidar" className="py-3">
-                          Olvido su contraseña
-                        </a>
-                      </Col>
-                      <Col md="6" className="form-group">
-                        <a href="#registro" className="py-3">
-                          registrarse
-                        </a>
-                      </Col>
-                    </Row>
-                  </Col> */}
                 </Row>
               </Form>
             </Col>

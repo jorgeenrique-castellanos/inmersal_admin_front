@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import _ from "lodash";
-import { useForm} from "react-hook-form";
-import  { enviarAlServidor } from "../../../helpers/servidor";
+import { useForm } from "react-hook-form";
+import { enviarAlServidor } from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 import formCreateParams from "./form_create_params";
 import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
@@ -13,14 +13,19 @@ export default function FormCreate() {
   const mainContext = useContext(AppContext);
 
 
-  const onSubmit  = data => {
-    var config = form_params['server_config'];
-    config['method'] = "get";
-    config['headers']['Authorization'] = 'Bearer ' + mainContext.token;
-    console.log(config);
-    
-    enviarAlServidor(loginExitoso, loginErrado, config);
-  };
+  const test = true;
+  let onSubmit = null;
+  if (test) {
+    onSubmit = () => mainContext.setToken(null);
+  } else {
+    onSubmit = () => {
+      var config = form_params['server_config'];
+      config['method'] = "get";
+      config['headers']['Authorization'] = 'Bearer ' + mainContext.token;
+      enviarAlServidor(loginExitoso, loginErrado, config);
+    };
+  }
+
 
   const loginExitoso = (data) => {
     mainContext.setToken(null);
@@ -31,8 +36,8 @@ export default function FormCreate() {
     showMessage(error, true);
   };
 
-  
-  const onCancel  = data => {
+
+  const onCancel = data => {
     var config = form_params['server_config'];
     config['headers']['Authorization'] = 'Bearer ' + mainContext.token;
     enviarAlServidor(loginExitoso, loginErrado, config);
