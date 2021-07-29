@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../../views/23_view_logout_user/helpers/context";
+import { Context } from "../../views/25_view_states/helpers/context";
 import { Modal, ModalBody, ModalHeader } from "shards-react";
 
 //prettier-ignore
@@ -20,7 +20,7 @@ export default function({ title, body, size }) {
       }}
     >
       <ModalHeader>{title}</ModalHeader>
-      <ModalBody>{body}</ModalBody>
+      <ModalBody className="p-3">{body}</ModalBody>
     </Modal>
   );
 }

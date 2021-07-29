@@ -4,8 +4,10 @@ import { useForm } from "react-hook-form";
 import { enviarAlServidor } from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 import formCreateParams from "./form_create_params";
+import ModalContainer from "../ModalContainer";
 import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
 import AppContext from "../../../components/app_context/general_context";
+import showMessage from "../../../helpers/messages";
 
 export default function FormCreate() {
   const { handleSubmit, control } = useForm();
@@ -40,21 +42,6 @@ export default function FormCreate() {
     enviarAlServidor(loginExitoso, loginErrado, config);
   };
 
-  function showMessage(message, error = true) {
-    const config = {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    };
-    return error
-      ? toast.error(message, config)
-      : toast.success(message, config);
-  }
-
   return (
     <>
       <ToastContainer />
@@ -66,8 +53,15 @@ export default function FormCreate() {
                 <Row form>
                   <Col
                     md="12"
-                    className="form-create-footer-login justify-content-center flex-column"
+                    className="form-create-footer-login justify-content-center flex-column border"
                   >
+                     <Button
+                      className="btn-text-icon-right mr-2 px-5"
+                      pill
+                      type="submit"
+                    >
+                      abrir
+                    </Button>
                     <Button
                       className="btn-text-icon-right mr-2 px-5"
                       pill

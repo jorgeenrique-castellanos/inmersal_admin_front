@@ -405,6 +405,64 @@ export default function() {
       class_prefix: ""
     },
     {
+      id: "csa022",
+      title: "Configuración admin",
+      show_title: true,
+      type: "link" /*link,header,separator*/,
+      view_url: "/configurationsuperadmin",
+      view_id: "v001",
+      parent_id: false,
+      url: false,
+      language: "ESP",
+      access: "",
+      icon: "image",
+      class_prefix: "",
+      sub_items: [
+        {
+          id: "csa_01",
+          title: "Paises",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/countrys",
+          view_id: "v001",
+          parent_id: "csa022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        },
+        {
+          id: "cas_02",
+          title: "Estados",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/states",
+          view_id: "v001",
+          parent_id: "csa022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        },
+        {
+          id: "csa_03",
+          title: "Ciudades",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/cities",
+          view_id: "v001",
+          parent_id: "csa022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        }
+      ]
+    },
+    {
       id: "i0051",
       title: "Salir",
       show_title: true,

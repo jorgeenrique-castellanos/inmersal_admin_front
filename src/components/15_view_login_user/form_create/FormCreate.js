@@ -7,13 +7,14 @@ import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
 import InputPassword from "../../inputs/InputPassword";
 import InputCheckbox from "../../inputs/InputCheckbox";
-// import Servidor from "../../../helpers/servidor";
 import Servidor, { enviarAlServidor } from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
 import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
 import AppContext from "../../../components/app_context/general_context";
+import showMessage from "../../../helpers/messages";
+
 
 export default function FormCreate() {
   const { register, handleSubmit, control, reset } = useForm();
@@ -57,22 +58,7 @@ export default function FormCreate() {
     showMessage(error, true);
   };
 
-  function showMessage(message, error = true) {
-    const config = {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    };
-    return error
-      ? toast.error(message, config)
-      : toast.success(message, config);
-  }
-
-  return (
+return (
     <>
       <ToastContainer />
       <ListGroup flush>
@@ -90,7 +76,6 @@ export default function FormCreate() {
                       register={register}
                       id={"email"}
                       name={"email"}
-                      // labelText={"Email"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
@@ -106,7 +91,6 @@ export default function FormCreate() {
                       register={register}
                       id={"password"}
                       name={"password"}
-                      // labelText={"Contraseña"}
                       required={true}
                       placeHolder={"Escriba la contraseña"}
                       maxLength={null}

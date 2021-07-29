@@ -29,6 +29,9 @@ import Agents from "./views/19_view_agents";
 import Facturation from "./views/20_view_facturation";
 import Security from "./views/21_view_security";
 import Myprofile from "./views/22_view_profile";
+import Countrys from "./views/24_view_countrys";
+import State from "./views/25_view_states";
+import Cities from "./views/26_view_cities";
 import Users from "./views/13_view_user";
 // import LoginUser from "./views/15_view_login_user";
 import LogoutUser from "./components/23_view_logout_user/form_create/FormCreate";
@@ -196,6 +199,24 @@ export default [
     exact: true,
     layout: DefaultLayout,
     component: Users
+  },
+  {
+    path: "/countrys",
+    exact: true,
+    layout: DefaultLayout,
+    component: Countrys
+  },
+  {
+    path: "/states",
+    exact: true,
+    layout: DefaultLayout,
+    component: State
+  },
+  {
+    path: "/cities",
+    exact: true,
+    layout: DefaultLayout,
+    component: Cities
   },
   {
     path: "/logoutuser",

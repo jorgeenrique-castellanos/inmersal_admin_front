@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useReducer } from "react";
-import { Context } from "../../../views/23_view_logout_user/helpers/context";
+import { Context } from "../../../views/24_view_countrys/helpers/context";
 // import Tabla from "../../componentes/tabla";
 import Table from "../../table/Table";
 import recuperarParametros from "./table_list_params";
 
 export default function List({ title, botones }) {
-  const [data, setData] = useState({});
+  // const [data, setData] = useState({});
   const { view_global_state, view_global_actions } = React.useContext(Context);
   const params = recuperarParametros(null);
 

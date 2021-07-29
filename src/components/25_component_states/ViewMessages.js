@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import _ from "lodash";
-import { Context } from "../../views/23_view_logout_user/helpers/context";
+import { Context } from "../../views/25_view_states/helpers/context";
 import { toast, ToastContainer } from "react-toastify";
 
 export default function() {

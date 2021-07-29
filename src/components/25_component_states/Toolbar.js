@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "lodash";
-import { Context } from "../../views/23_view_logout_user/helpers/context";
+import { Context } from "../../views/25_view_states/helpers/context";
 import Icons from "../../assets/icons";
 import ReactHtmlParser from "react-html-parser";
 import { Button, ButtonGroup, ButtonToolbar } from "shards-react";
