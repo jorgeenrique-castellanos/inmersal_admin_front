@@ -4,7 +4,7 @@ import ReactHtmlParser from "react-html-parser";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Icons from "../../../assets/icons";
-import { Context } from "../../../views/26_view_cities/helpers/context";
+import { Context } from "../../../views/27_view_person_type/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
 import InputSelect from "../../inputs/InputSelect";
@@ -133,16 +133,21 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    <InputText
+                    <InputSelect
+                      Controller={Controller}
+                      control={control}
                       register={register}
                       id={"status"}
                       name={"status"}
                       labelText={"Departamento"}
-                      defaultValue={null}
-                      readOnly={false}
-                      required={true}
-                      placeHolder={"Ingrese un departamento"}
-                      maxLength={null}
+                      required={!false}
+                      placeHolder={"Seleccionar Departamento"}
+                      selectOptions={[
+                        { value: "0", label: "Santander" },
+                        { value: "1", label: "Cundinamarca" },
+                        { value: "2", label: "Antioquia" },
+                        { value: "3", label: "Bolivar" }
+                      ]}
                       information={"Information here!"}
                       errorList={error_list}
                     />
@@ -150,18 +155,18 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"city_name"}
-                      name={"city_name"}
-                      labelText={"Nombre de ciudad"}
+                      id={"type_person"}
+                      name={"type_person"}
+                      labelText={"Tipo de persona"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Ingrese un nombre"}
+                      placeHolder={"Escriba tipo de persona"}
                       maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />
-                  </Col>
+                  </Col>                
                   <Col md="12" className="form-create-footer">
                     <Button
                       className="btn-text-icon-right mr-2"

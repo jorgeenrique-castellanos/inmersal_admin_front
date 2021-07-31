@@ -96,29 +96,14 @@ export default function FormCreate() {
           <Row>
             <Col>
               <Form onSubmit={handleSubmit(onSubmit)}>
-                <Row form>
-                  <Col md="12" className="form-group">
-                    <InputText
-                      register={register}
-                      id={"code"}
-                      name={"code"}
-                      labelText={"Codigo"}
-                      defaultValue={null}
-                      readOnly={false}
-                      required={true}
-                      placeHolder={"123"}
-                      maxLength={null}
-                      information={"Information here!"}
-                      errorList={error_list}
-                    />
-                  </Col>
+                <Row form>                  
                   <Col md="12" className="form-group">
                     <InputSelect
                       Controller={Controller}
                       control={control}
                       register={register}
-                      id={"state_id"}
-                      name={"state_id"}
+                      id={"country_id"}
+                      name={"country_id"}
                       labelText={"Pais Id"}
                       required={!false}
                       placeHolder={"Seleccionar Pais"}
@@ -133,35 +118,40 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    <InputText
-                      register={register}
-                      id={"status"}
-                      name={"status"}
-                      labelText={"Departamento"}
-                      defaultValue={null}
-                      readOnly={false}
-                      required={true}
-                      placeHolder={"Ingrese un departamento"}
-                      maxLength={null}
-                      information={"Information here!"}
-                      errorList={error_list}
+                    <InputSelect
+                     Controller={Controller}
+                     control={control}
+                     register={register}
+                     id={"status"}
+                     name={"status"}
+                     labelText={"Departamento"}
+                     required={!false}
+                     placeHolder={"Seleccionar Departamento"}
+                     selectOptions={[
+                       { value: "0", label: "Santander" },
+                       { value: "1", label: "Cundinamarca" },
+                       { value: "2", label: "Antioquia" },
+                       { value: "3", label: "Bolivar" }
+                     ]}
+                     information={"Information here!"}
+                     errorList={error_list}
                     />
                   </Col>
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"city_name"}
-                      name={"city_name"}
-                      labelText={"Nombre de ciudad"}
+                      id={"identification_type"}
+                      name={"identification_type"}
+                      labelText={"Tipo de identificación"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Ingrese un nombre"}
+                      placeHolder={"Escriba su tipo de identificación"}
                       maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />
-                  </Col>
+                  </Col>                  
                   <Col md="12" className="form-create-footer">
                     <Button
                       className="btn-text-icon-right mr-2"

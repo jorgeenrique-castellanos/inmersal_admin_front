@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../../views/24_view_countrys/helpers/context";
+import { Context } from "../../views/27_view_person_type/helpers/context";
 import { Modal, ModalBody, ModalHeader } from "shards-react";
 
 //prettier-ignore

@@ -12,9 +12,9 @@ const PageTitle = ({ title, subtitle, className, ...attrs }) => {
   );
 
   return (
-    <Col xs="12" sm="4" className={classes} {...attrs}>
-      <span className="text-uppercase page-subtitle">{subtitle}</span>
+    <Col lg="6" xs="12" sm="4" className={classes} {...attrs}>
       <h3 className="page-title">{title}</h3>
+      <span className="text-uppercase page-subtitle">{subtitle}</span>
     </Col>
   );
 };

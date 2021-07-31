@@ -32,28 +32,12 @@ import Myprofile from "./views/22_view_profile";
 import Countrys from "./views/24_view_countrys";
 import State from "./views/25_view_states";
 import Cities from "./views/26_view_cities";
+import PersonType from "./views/27_view_person_type";
+import IdentificationType from "./views/28_view_identificatioin_type";
 import Users from "./views/13_view_user";
 // import LoginUser from "./views/15_view_login_user";
 import LogoutUser from "./components/23_view_logout_user/form_create/FormCreate";
-// import TiposDePersonas from "./vistas/v1/tiposdepersonas";
-// import TiposDeIdentificaciones from "./vistas/tiposdeidentificaciones";
-// import Paises from "./vistas/paises";
-// import Departamentos from "./vistas/departamentos";
-// import Municipios from "./vistas/municipios";
-// import Empresas from "./vistas/empresas";
-// import Proyectos from "./vistas/proyectos";
-// import TiposDeUnidades from "./vistas/tiposdeunidades";
-// import Unidades from "./vistas/unidades";
-// import TiposDeTransacciones from "./vistas/tiposdetransacciones";
-// import Transacciones from "./vistas/transacciones";
-// import RegistroUsuario from "./vistas/registrousuario";
 import BlogOverview from "./views/BlogOverview";
-// import UserProfileLite from "./views/UserProfileLite";
-// import AddNewPost from "./views/AddNewPost";
-// import Errors from "./views/Errors";
-// import ComponentsOverview from "./views/ComponentsOverview";
-// import Tables from "./views/Tables";
-// import BlogPosts from "./views/BlogPosts";
 
 export default [
   {
@@ -207,7 +191,7 @@ export default [
     component: Countrys
   },
   {
-    path: "/states",
+    path: "/departament",
     exact: true,
     layout: DefaultLayout,
     component: State
@@ -217,6 +201,18 @@ export default [
     exact: true,
     layout: DefaultLayout,
     component: Cities
+  },
+  {
+    path: "/persontype",
+    exact: true,
+    layout: DefaultLayout,
+    component: PersonType
+  },
+  {
+    path: "/identificationtype",
+    exact: true,
+    layout: DefaultLayout,
+    component: IdentificationType
   },
   {
     path: "/logoutuser",
@@ -236,109 +232,5 @@ export default [
     exact: true,
     layout: DefaultLayout,
     component: BlogOverview
-  }
-  // {
-  //   path: "/proyectos",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: Project
-  // },
-  // {
-  //   path: "/tiposdepersonas",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: TiposDePersonas
-  // },
-  // {
-  //   path: "/tiposdeidentificaciones",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: TiposDeIdentificaciones
-  // },
-  // {
-  //   path: "/paises",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: Paises
-  // },
-  // {
-  //   path: "/registrousuario",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: RegistroUsuario
-  // },
-  // {
-  //   path: "/departamentos",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: Departamentos
-  // },
-  // {
-  //   path: "/municipios",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: Municipios
-  // },
-  // {
-  //   path: "/empresas",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: Empresas
-  // },
-
-  // {
-  //   path: "/tiposdeunidades",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: TiposDeUnidades
-  // },
-  // {
-  //   path: "/unidades",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: Unidades
-  // },
-  // {
-  //   path: "/tiposdetransacciones",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: TiposDeTransacciones
-  // },
-  // {
-  //   path: "/transacciones",
-  //   exact: true,
-  //   layout: DefaultLayout,
-  //   component: Transacciones
-  // },
-
-  // {
-  //   path: "/user-profile-lite",
-  //   layout: DefaultLayout,
-  //   component: UserProfileLite
-  // },
-  // {
-  //   path: "/add-new-post",
-  //   layout: DefaultLayout,
-  //   component: AddNewPost
-  // },
-  // {
-  //   path: "/errors",
-  //   layout: DefaultLayout,
-  //   component: Errors
-  // },
-  // {
-  //   path: "/components-overview",
-  //   layout: DefaultLayout,
-  //   component: ComponentsOverview
-  // },
-  // {
-  //   path: "/tables",
-  //   layout: DefaultLayout,
-  //   component: Tables
-  // },
-  // {
-  //   path: "/blog-posts",
-  //   layout: DefaultLayout,
-  //   component: BlogPosts
-  // }
+  }  
 ];

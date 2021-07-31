@@ -5,7 +5,6 @@ import { Provider } from "./helpers/context";
 import PageTitle from "../../components/common/PageTitle";
 import Toolbar from "../../components/25_component_states/Toolbar";
 import ModalContainer from "../../components/25_component_states/ModalContainer";
-//import ViewMessages from "../../components/02_view_views/ViewMessages";
 import FormCreate from "../../components/25_component_states/form_create/FormCreate";
 import TableList from "../../components/25_component_states/table_list/TableList";
 
@@ -14,24 +13,24 @@ function ViewViews({ usuario }) {
     <Container fluid className="main-content-container px-4">
       <Row noGutters className="page-header py-4">
         <PageTitle
-          title="Información general"
-          subtitle="Informacion general de la constructora"
+          title="Información del departamento"
+          subtitle="Informacion general de crear, modificar y eliminar el departamento"
           className="text-sm-left mb-3"
         />
       </Row>
       <Row>
         <Col lg="12" md="12" sm="12" className="mb-4">
           <Provider>
-            {/* <ViewMessages /> */}
             <Card>
               <CardHeader className="in-card-view__header">
-                <h5 className="m-0">Proyecto</h5>
+                <h5 className="m-0">Datos del departamento</h5>
                 <Toolbar />
               </CardHeader>
               <CardBody>
                 <ToastContainer />
                 <ModalContainer
-                  title="Informacion para crear la vista"
+                  title="Crear el departamento"
+                  subtitle="Informacion de crear el departamento"
                   body={<FormCreate />}
                   size="lg"
                 />

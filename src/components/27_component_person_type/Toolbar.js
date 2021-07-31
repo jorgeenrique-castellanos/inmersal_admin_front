@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "lodash";
-import { Context } from "../../views/26_view_cities/helpers/context";
+import { Context } from "../../views/27_view_person_type/helpers/context";
 import Icons from "../../assets/icons";
 import ReactHtmlParser from "react-html-parser";
 import { Button, ButtonGroup, ButtonToolbar } from "shards-react";
@@ -15,7 +15,7 @@ export default () => {
       <ButtonGroup className="mr-2">
         {view_global_state.state_action !== "crear" && (
           <Button className="btn-text-icon-right" pill onClick={view_global_actions.create}>
-            Crear ciudad {ReactHtmlParser(icons.add.icon)}
+            Crear tipo de persona {ReactHtmlParser(icons.add.icon)}
           </Button>
         )}
       </ButtonGroup>

@@ -14,9 +14,25 @@ export default user => {
     //form_params: peticion GET
   };
 
-  form_params["validation_rules"] = {  
-    country_name:yup.string().required(),
-    country_initials: yup.string().required(),
+  form_params["validation_rules"] = {
+    code: yup.string().required(),
+    type_person: yup.string().required(),
+    state_id: yup
+      .object()
+      .shape({
+        value: yup.string().required(),
+        label: yup.string().required()
+      })
+      .default(undefined)
+      .required(),
+    status: yup
+      .object()
+      .shape({
+        value: yup.string().required(),
+        label: yup.string().required()
+      })
+      .default(undefined)
+      .required()
   };
 
   // form_params["parent_id"] = {

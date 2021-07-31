@@ -32,6 +32,7 @@ function ViewViews({ usuario }) {
                 <ToastContainer />
                 <ModalContainer
                   title="Informacion para crear la vista"
+                  subtitle=""
                   body={<FormCreate />}
                   size="lg"
                 />

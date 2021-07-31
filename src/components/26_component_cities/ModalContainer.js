@@ -3,7 +3,7 @@ import { Context } from "../../views/26_view_cities/helpers/context";
 import { Modal, ModalBody, ModalHeader } from "shards-react";
 
 //prettier-ignore
-export default function({ title, body, size }) {
+export default function({ title, subtitle, body, size }) {
   const [open_modal, toggleModal] = useState(false);
   const { view_global_state } = useContext(Context);
 
@@ -13,13 +13,14 @@ export default function({ title, body, size }) {
 
   return (
     <Modal
+      className="p-1"
       size={size}
       open={open_modal}
       toggle={() => {
         toggleModal(!open_modal);
       }}
     >
-      <ModalHeader>{title}</ModalHeader>
+      <ModalHeader>{title}<p className="m-0 modales">{subtitle}</p></ModalHeader>
       <ModalBody className="p-3">{body}</ModalBody>
     </Modal>
   );

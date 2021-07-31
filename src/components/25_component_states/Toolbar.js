@@ -15,7 +15,7 @@ export default () => {
       <ButtonGroup className="mr-2">
         {view_global_state.state_action !== "crear" && (
           <Button className="btn-text-icon-right" pill onClick={view_global_actions.create}>
-            Crear vista {ReactHtmlParser(icons.add.icon)}
+            Crear departamento{ReactHtmlParser(icons.add.icon)}
           </Button>
         )}
         {/* {_.get(view_global_state, "rowschanged", false) && (

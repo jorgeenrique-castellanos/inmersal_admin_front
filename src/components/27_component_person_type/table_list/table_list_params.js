@@ -22,20 +22,24 @@ export default usuario => {
 
   params["cols"] = [
     {
-      dataField: "state",
-      text: "Estado"
+      dataField: "id",
+      text: "Codigo"
     },
     {
       dataField: "country",
-      text: "Pais"
+      text: "Country Id"
     },
     {
       dataField: "departament",
-      text: "Departamento"
-    },    
+      text: "Departamentos"
+    },
+    {
+      dataField: "typeperson",
+      text: "Tipo de persona"
+    },
     {
       dataField: "acciones",
-      text: "Actions",
+      text: "Acciones",
       formatter: (cell, row, rowIndex) => {
         return setColumnActions(cell, row, rowIndex);
       },

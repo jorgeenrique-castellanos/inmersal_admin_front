@@ -117,12 +117,27 @@ export default function FormCreate() {
                     <InputText
                       register={register}
                       id={"country_id"}
-                      name={"conutry_id"}
+                      name={"country_id"}
                       labelText={"Id"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"053"}
+                      placeHolder={"170"}
+                      maxLength={null}
+                      information={"Information here!"}
+                      errorList={error_list}
+                    />
+                  </Col>
+                  <Col md="12" className="form-group">
+                    <InputText
+                      register={register}
+                      id={"country"}
+                      name={"country"}
+                      labelText={"Pais"}
+                      defaultValue={null}
+                      readOnly={false}
+                      required={true}
+                      placeHolder={"Colombia"}
                       maxLength={10}
                       information={"Information here!"}
                       errorList={error_list}
@@ -131,13 +146,13 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"country_name"}
-                      name={"country_name"}
-                      labelText={"Nombre"}
+                      id={"country_alpha_2"}
+                      name={"country_alpha_2"}
+                      labelText={"Tipo alpha 2"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Ingrese un nombre"}
+                      placeHolder={"Ejp: CO, US, AU"}
                       maxLength={10}
                       information={"Information here!"}
                       errorList={error_list}
@@ -146,13 +161,13 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"country_initials"}
-                      name={"country_initials"}
-                      labelText={"Sigla"}
+                      id={"country_alpha_3"}
+                      name={"country_alpha_3"}
+                      labelText={"Tipo alpha 3"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Ingrese sigla"}
+                      placeHolder={"Ejp: COL, USA, AUS"}
                       maxLength={10}
                       information={"Information here!"}
                       errorList={error_list}
@@ -164,7 +179,7 @@ export default function FormCreate() {
                       pill
                       type="submit"
                     >
-                      Guardar {ReactHtmlParser(icons.check.icon)}
+                      Crear {ReactHtmlParser(icons.check.icon)}
                     </Button>
                     <Button pill theme="danger" onClick={onCancel}>
                       Cancelar

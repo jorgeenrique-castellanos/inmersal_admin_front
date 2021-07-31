@@ -7,15 +7,17 @@
         "state":"activo",
         "status": true,
         "description": "Problem contacting me with the building numbern",
+        "country":"colombia",
         "city": "Bogota",
         "scores":"3"
       },
       {
         "id": "1",
         "view": "viewfolder",
-        "title": "inmersal",
+        "title": "Marval",
         "state":"activo",
         "description": "Problem contacting me with the building numbern",
+        "country":"colombia",
         "city": "Cartagena",
         "scores":"4",
         "status": true

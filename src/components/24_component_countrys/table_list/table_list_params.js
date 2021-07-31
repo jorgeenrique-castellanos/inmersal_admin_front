@@ -21,65 +21,21 @@ export default usuario => {
   };
 
   params["cols"] = [
-    // {
-    //   dataField: "id",
-    //   text: "Id"
-    // },
     {
-      dataField: "categoria",
-      text: "Categoria"
-    },
-    // {
-    //   dataField: "logo",
-    //   text: "Logo"
-    // },
-    {
-      dataField: "nombre",
-      text: "Nombre"
+      dataField: "country",
+      text: "Pais"
     },
     {
-      dataField: "direction",
-      text: "Dirección"
+      dataField: "alpha2",
+      text: "Alpha 2"
     },
     {
-      dataField: "latitud",
-      text: "Latitud"
-    },
+      dataField: "alpha3",
+      text: "Alpha 3"
+    },     
     {
-      dataField: "longitud",
-      text: "Longitud"
-    },
-    {
-      dataField: "fotografia",
-      text: "Fotografia"
-    },
-    {
-      dataField: "ruta", 
-      text: "Ruta"
-    },
-    {
-      dataField: "tiempoestimado", 
-      text: "Tiempo estimado"
-    },      
-    {
-      dataField: "distanciaestimada", 
-      text: "Distancia estimada"
-    },      
-    {
-      dataField: 'state',
-      text: 'Activo',
-      // editor: {
-      //     type: Type.SELECT,
-      //     value: '1:0'
-      // },
-      // formatter: cell => selectOptions[cell],
-      // filter: selectFilter({
-      //     options: selectOptions
-      // })
-    },
-    {
-      dataField: "actions",
-      text: "Actions",
+      dataField: "acciones",
+      text: "Acciones",
       formatter: (cell, row, rowIndex) => {
         return setColumnActions(cell, row, rowIndex);
       },

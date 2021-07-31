@@ -7,7 +7,14 @@
         "subtitle": "El futuro en tus manos",
         "state":"activo",
         "url":"lopublicaste.com",
-        "description": "buena atencion de la empresa"
+        "description": "buena atencion de la empresa",
+        "country":"Colombia",
+        "departament":"Cundinamarca",
+        "city": "Bogota",
+        "alpha2":"CO",
+        "alpha3":"COl",
+        "typeperson":"Juridica",
+        "identificationtype" :"Cedula"
       },
       {
         "id": "1",
@@ -16,6 +23,13 @@
         "subtitle": "El futuro en tus manos",
         "state":"activo",
         "url":"inmersal.com",
-        "description": "buena atencion de la empresa"
+        "description": "buena atencion de la empresa",
+        "country":"Colombia",
+        "departament":"Santander",
+        "city": "Bucaramanga",
+        "alpha2":"CO",
+        "alpha3":"COl",
+        "typeperson":"Natural",
+        "identificationtype" :"Nit"
       }
     ]}

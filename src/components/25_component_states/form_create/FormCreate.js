@@ -7,10 +7,7 @@ import Icons from "../../../assets/icons";
 import { Context } from "../../../views/25_view_states/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
-import InputToggle from "../../inputs/InputToggle";
-import InputImage from "../../inputs/inputImage";
 import InputSelect from "../../inputs/InputSelect";
-import InputRange from "../../inputs/InputRange";
 import Servidor from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 //import { inicializar, validar } from "../../../helpers/form_validate";
@@ -106,8 +103,6 @@ export default function FormCreate() {
       : toast.success(message, config);
   }
 
-  // const check =
-
   return (
     <>
       <ToastContainer />
@@ -137,9 +132,9 @@ export default function FormCreate() {
                       Controller={Controller}
                       control={control}
                       register={register}
-                      id={"state_country_name"}
-                      name={"state_country_name"}
-                      labelText={"Pais"}
+                      id={"country_id"}
+                      name={"country_id"}
+                      labelText={"Pais Id"}
                       required={!false}
                       placeHolder={"Seleccionar Pais"}
                       selectOptions={[
@@ -154,10 +149,30 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
+                    <InputSelect
+                      Controller={Controller}
+                      control={control}
+                      register={register}
+                      id={"status_id"}
+                      name={"status_id"}
+                      labelText={"Departamentos"}
+                      required={!false}
+                      placeHolder={"Seleccionar Pais"}
+                      selectOptions={[
+                        { value: "0", label: "Santander" },
+                        { value: "1", label: "Cundinamarca" },
+                        { value: "2", label: "Antioquia" },
+                        { value: "3", label: "Bolivar" }
+                      ]}
+                      information={"Information here!"}
+                      errorList={error_list}
+                    />
+                  </Col>
+                  <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"state_name"}
-                      name={"state_name"}
+                      id={"state"}
+                      name={"state"}
                       labelText={"Nombre"}
                       defaultValue={null}
                       readOnly={false}
@@ -174,7 +189,7 @@ export default function FormCreate() {
                       pill
                       type="submit"
                     >
-                      Guardar {ReactHtmlParser(icons.check.icon)}
+                      Crear{ReactHtmlParser(icons.check.icon)}
                     </Button>
                     <Button pill theme="danger" onClick={onCancel}>
                       Cancelar

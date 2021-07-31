@@ -14,8 +14,8 @@ function ViewViews({ usuario }) {
     <Container fluid className="main-content-container px-4">
       <Row noGutters className="page-header py-4">
         <PageTitle
-          title="Información general"
-          subtitle="Informacion general de la constructora"
+          title="Información del pais"
+          subtitle="Informacion general de crear, modificar y eliminar el pais"
           className="text-sm-left mb-3"
         />
       </Row>
@@ -25,13 +25,14 @@ function ViewViews({ usuario }) {
             {/* <ViewMessages /> */}
             <Card>
               <CardHeader className="in-card-view__header">
-                <h5 className="m-0">Proyecto</h5>
+                <h5 className="m-0">Datos de pais</h5>
                 <Toolbar />
               </CardHeader>
               <CardBody>
                 <ToastContainer />
                 <ModalContainer
-                  title="Informacion para crear la vista"
+                  title="Crear el pais"
+                  subtitle="Informacion de crear el pais"
                   body={<FormCreate />}
                   size="lg"
                 />
