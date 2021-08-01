@@ -1,28 +1,17 @@
 import React, { useState } from "react";
 import _ from "lodash";
 import ReactHtmlParser from "react-html-parser";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import Icons from "../../../assets/icons";
-import { Context } from "../../../views/25_view_states/helpers/context";
+import { Context } from "../../../views/29_view_general_status/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
-import InputSelect from "../../inputs/InputSelect";
 import Servidor from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
 import showMessage from "../../../helpers/messages";
 
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-  ListGroupItem,
-  ListGroup,
-  Badge
-} from "shards-react";
+import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
 
 export default function FormCreate() {
   const { register, handleSubmit, control, reset } = useForm();
@@ -30,12 +19,6 @@ export default function FormCreate() {
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
-  const [archivos, setArchivos] = useState(null);
-
-  const [startDate, setStartDate] = useState(new Date());
-  let handleColor = time => {
-    return time.getHours() > 12 ? "text-success" : "text-error";
-  };
 
   const onCancel = () => {
     reset();
@@ -81,6 +64,7 @@ export default function FormCreate() {
     showMessage(error, true);
   };
 
+
   return (
     <>
       <ToastContainer />
@@ -89,72 +73,18 @@ export default function FormCreate() {
           <Row>
             <Col>
               <Form onSubmit={handleSubmit(onSubmit)}>
-                <Row form>
+                <Row form>                                 
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"state_id"}
-                      name={"state_id"}
-                      labelText={"Codigo"}
-                      defaultValue={null}
-                      readOnly={false}
-                      required={true}
-                      placeHolder={"023"}
-                      maxLength={null}
-                      information={"Information here!"}
-                      errorList={error_list}
-                    />
-                  </Col>
-                  <Col md="12" className="form-group">
-                    <InputSelect
-                      Controller={Controller}
-                      control={control}
-                      register={register}
-                      id={"country_id"}
-                      name={"country_id"}
-                      labelText={"Pais Id"}
-                      required={!false}
-                      placeHolder={"Seleccionar Pais"}
-                      selectOptions={[
-                        { value: "0", label: "España" },
-                        { value: "1", label: "E.E.U.U" },
-                        { value: "2", label: "Francia" },
-                        { value: "3", label: "Colombia" }
-                        // { value: "vanilla", label: "Vanilla" }
-                      ]}
-                      information={"Information here!"}
-                      errorList={error_list}
-                    />
-                  </Col>
-                  <Col md="12" className="form-group">
-                    <InputText
-                      register={register}
-                      id={"state"}
-                      name={"state"}
-                      labelText={"Nombre del departamento"}
-                      defaultValue={null}
-                      readOnly={false}
-                      required={true}
-                      placeHolder={"Escriba un nombre"}
-                      maxLength={null}
-                      information={"Information here!"}
-                      errorList={error_list}
-                    />
-                  </Col>
-                  <Col md="12" className="form-group">
-                    <InputSelect
-                      Controller={Controller}
-                      control={control}
-                      register={register}
-                      id={"status_id"}
-                      name={"status_id"}
+                      id={"status"}
+                      name={"status"}
                       labelText={"Estado"}
-                      required={!false}
-                      placeHolder={"Seleccionar Estado"}
-                      selectOptions={[
-                        { value: "0", label: "Activo" },
-                        { value: "1", label: "Inactivo" },                        
-                      ]}
+                      defaultValue={null}
+                      readOnly={false}
+                      required={true}
+                      placeHolder={"Escriba un estado"}
+                      maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />

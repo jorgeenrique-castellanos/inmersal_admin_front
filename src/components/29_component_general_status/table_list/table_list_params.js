@@ -7,13 +7,35 @@ import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
 import filterFactory, { selectFilter } from "react-bootstrap-table2-filter";
 
 // DATA
-import data from "../../../data/data_05_view_datos.json";
+// import data from "../../../data/data_05_view_datos.json";
 
 //prettier-ignore
 export default usuario => {
   const icons = Icons();
   const params = {};
   params["key"] = "id";
+
+  const datos = 
+  {
+    salesroom: [
+      {
+        id: 0,        
+        title: "",
+        subtitle:"",
+        status: "activo",
+        url: "",
+        description: "",
+        country: "",
+        departament: "",
+        city: "berlin",
+        alpha2: "",
+        alpha3: "",
+        typeperson: "",
+        identificationtype: ""
+      },
+    ]
+  }
+
 
   const selectOptions = {
     1: "Activo",
@@ -26,16 +48,8 @@ export default usuario => {
       text: "Estado"
     },
     {
-      dataField: "country",
-      text: "Pais"
-    },
-    {
-      dataField: "departament",
-      text: "Departamento"
-    },    
-    {
       dataField: "acciones",
-      text: "Actions",
+      text: "Acciones",
       formatter: (cell, row, rowIndex) => {
         return setColumnActions(cell, row, rowIndex);
       },
@@ -77,7 +91,7 @@ export default usuario => {
     alert(`BORRAR: los datos de la fila con el ID = ${row.id}`);
   };
 
-  params["data"] = data.salesroom;
-
+  params["data"] = datos.salesroom;
+  // console.log(onSubmit)
   return params;
 };

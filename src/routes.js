@@ -34,6 +34,9 @@ import State from "./views/25_view_states";
 import Cities from "./views/26_view_cities";
 import PersonType from "./views/27_view_person_type";
 import IdentificationType from "./views/28_view_identificatioin_type";
+import GeneralStatus from "./views/29_view_general_status";
+import Clients from "./views/30_view_clients";
+import Config_contacts from "./views/31_view_config_contacts";
 import Users from "./views/13_view_user";
 // import LoginUser from "./views/15_view_login_user";
 import LogoutUser from "./components/23_view_logout_user/form_create/FormCreate";
@@ -185,6 +188,12 @@ export default [
     component: Users
   },
   {
+    path: "/generalstatus",
+    exact: true,
+    layout: DefaultLayout,
+    component: GeneralStatus
+  },  
+  {
     path: "/countrys",
     exact: true,
     layout: DefaultLayout,
@@ -215,6 +224,18 @@ export default [
     component: IdentificationType
   },
   {
+    path: "/clients",
+    exact: true,
+    layout: DefaultLayout,
+    component: Clients
+  },
+  {
+    path: "/contacts",
+    exact: true,
+    layout: DefaultLayout,
+    component: Config_contacts
+  },
+  {
     path: "/logoutuser",
     exact: true,
     layout: Login,
@@ -232,5 +253,5 @@ export default [
     exact: true,
     layout: DefaultLayout,
     component: BlogOverview
-  }  
+  }
 ];

@@ -4,7 +4,7 @@ import ReactHtmlParser from "react-html-parser";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Icons from "../../../assets/icons";
-import { Context } from "../../../views/26_view_cities/helpers/context";
+import { Context } from "../../../views/28_view_identificatioin_type/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
 import InputSelect from "../../inputs/InputSelect";

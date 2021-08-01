@@ -419,6 +419,20 @@ export default function() {
       class_prefix: "",
       sub_items: [
         {
+          id: "csa_00",
+          title: "Estado general",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/generalstatus",
+          view_id: "v001",
+          parent_id: "csa022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        },
+        {
           id: "csa_01",
           title: "Paises",
           show_title: true,
@@ -445,7 +459,21 @@ export default function() {
           access: "",
           icon: "image",
           class_prefix: ""
-        },
+        },      
+        {
+          id: "cas_03",
+          title: "Ciudad",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/cities",
+          view_id: "v001",
+          parent_id: "csa022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        },      
         {
           id: "csa_04",
           title: "Tipos de persona",
@@ -459,7 +487,7 @@ export default function() {
           access: "",
           icon: "image",
           class_prefix: ""
-        },
+        },           
         {
           id: "csa_05",
           title: "Tipos de identificación",
@@ -473,7 +501,35 @@ export default function() {
           access: "",
           icon: "image",
           class_prefix: ""
-        }
+        },
+        {
+          id: "cas_06",
+          title: "Clientes",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/clients",
+          view_id: "v001",
+          parent_id: "csa022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        },      
+        {
+          id: "cas_07",
+          title: "Contactos",
+          show_title: true,
+          type: "link" /*link,header,separator*/,
+          view_url: "/contacts",
+          view_id: "v001",
+          parent_id: "csa022",
+          url: false,
+          language: "ESP",
+          access: "",
+          icon: "image",
+          class_prefix: ""
+        },  
       ]
     },
     {

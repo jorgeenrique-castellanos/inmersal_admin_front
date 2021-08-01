@@ -4,25 +4,17 @@ import ReactHtmlParser from "react-html-parser";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Icons from "../../../assets/icons";
-import { Context } from "../../../views/25_view_states/helpers/context";
+import { Context } from "../../../views/31_view_config_contacts/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
 import InputSelect from "../../inputs/InputSelect";
 import Servidor from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
+//import { inicializar, validar } from "../../../helpers/form_validate";
 import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
-import showMessage from "../../../helpers/messages";
 
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-  ListGroupItem,
-  ListGroup,
-  Badge
-} from "shards-react";
+import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
 
 export default function FormCreate() {
   const { register, handleSubmit, control, reset } = useForm();
@@ -30,7 +22,7 @@ export default function FormCreate() {
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
-  const [archivos, setArchivos] = useState(null);
+  // const [archivos, setArchivos] = useState(null);
 
   const [startDate, setStartDate] = useState(new Date());
   let handleColor = time => {
@@ -81,6 +73,21 @@ export default function FormCreate() {
     showMessage(error, true);
   };
 
+  function showMessage(message, error = true) {
+    const config = {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined
+    };
+    return error
+      ? toast.error(message, config)
+      : toast.success(message, config);
+  }
+
   return (
     <>
       <ToastContainer />
@@ -89,22 +96,7 @@ export default function FormCreate() {
           <Row>
             <Col>
               <Form onSubmit={handleSubmit(onSubmit)}>
-                <Row form>
-                  <Col md="12" className="form-group">
-                    <InputText
-                      register={register}
-                      id={"state_id"}
-                      name={"state_id"}
-                      labelText={"Codigo"}
-                      defaultValue={null}
-                      readOnly={false}
-                      required={true}
-                      placeHolder={"023"}
-                      maxLength={null}
-                      information={"Information here!"}
-                      errorList={error_list}
-                    />
-                  </Col>
+                <Row form>                  
                   <Col md="12" className="form-group">
                     <InputSelect
                       Controller={Controller}
@@ -120,41 +112,42 @@ export default function FormCreate() {
                         { value: "1", label: "E.E.U.U" },
                         { value: "2", label: "Francia" },
                         { value: "3", label: "Colombia" }
-                        // { value: "vanilla", label: "Vanilla" }
                       ]}
-                      information={"Information here!"}
-                      errorList={error_list}
-                    />
-                  </Col>
-                  <Col md="12" className="form-group">
-                    <InputText
-                      register={register}
-                      id={"state"}
-                      name={"state"}
-                      labelText={"Nombre del departamento"}
-                      defaultValue={null}
-                      readOnly={false}
-                      required={true}
-                      placeHolder={"Escriba un nombre"}
-                      maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />
                   </Col>
                   <Col md="12" className="form-group">
                     <InputSelect
-                      Controller={Controller}
-                      control={control}
+                     Controller={Controller}
+                     control={control}
+                     register={register}
+                     id={"status"}
+                     name={"status"}
+                     labelText={"Departamento"}
+                     required={!false}
+                     placeHolder={"Seleccionar Departamento"}
+                     selectOptions={[
+                       { value: "0", label: "Santander" },
+                       { value: "1", label: "Cundinamarca" },
+                       { value: "2", label: "Antioquia" },
+                       { value: "3", label: "Bolivar" }
+                     ]}
+                     information={"Information here!"}
+                     errorList={error_list}
+                    />
+                  </Col>
+                  <Col md="12" className="form-group">
+                    <InputText
                       register={register}
-                      id={"status_id"}
-                      name={"status_id"}
-                      labelText={"Estado"}
-                      required={!false}
-                      placeHolder={"Seleccionar Estado"}
-                      selectOptions={[
-                        { value: "0", label: "Activo" },
-                        { value: "1", label: "Inactivo" },                        
-                      ]}
+                      id={"identification_type"}
+                      name={"identification_type"}
+                      labelText={"Tipo de identificación"}
+                      defaultValue={null}
+                      readOnly={false}
+                      required={true}
+                      placeHolder={"Escriba su tipo de identificación"}
+                      maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />

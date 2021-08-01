@@ -118,7 +118,7 @@ export default function FormCreate() {
                       register={register}
                       id={"country_id"}
                       name={"country_id"}
-                      labelText={"Id"}
+                      labelText={"Codigo"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
@@ -138,7 +138,7 @@ export default function FormCreate() {
                       readOnly={false}
                       required={true}
                       placeHolder={"Colombia"}
-                      maxLength={10}
+                      maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />
@@ -153,7 +153,7 @@ export default function FormCreate() {
                       readOnly={false}
                       required={true}
                       placeHolder={"Ejp: CO, US, AU"}
-                      maxLength={10}
+                      maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />
@@ -168,7 +168,7 @@ export default function FormCreate() {
                       readOnly={false}
                       required={true}
                       placeHolder={"Ejp: COL, USA, AUS"}
-                      maxLength={10}
+                      maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />
