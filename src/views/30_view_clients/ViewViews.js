@@ -14,8 +14,8 @@ function ViewViews({ usuario }) {
     <Container fluid className="main-content-container px-4">
       <Row noGutters className="page-header py-4">
         <PageTitle
-          title="Crear tipo de identificación"
-          subtitle="Informacion general de crear, modificar y eliminar tipos de identificación"
+          title="Crear clientes"
+          subtitle="Informacion general de crear, modificar y eliminar clientes"
           className="text-sm-left mb-3"
         />
       </Row>
@@ -25,14 +25,14 @@ function ViewViews({ usuario }) {
             {/* <ViewMessages /> */}
             <Card>
               <CardHeader className="in-card-view__header">
-                <h5 className="m-0">Datos tipos de identificación</h5>
+                <h5 className="m-0">Datos de clientes</h5>
                 <Toolbar />
               </CardHeader>
               <CardBody>
                 <ToastContainer />
                 <ModalContainer
-                  title="Crear tipo de identificación"
-                  subtitle="Informacion general de crear tipo de identificación"
+                  title="Crear cliente"
+                  subtitle="Informacion general de crear un cliente"
                   body={<FormCreate />}
                   size="lg"
                 />

@@ -117,9 +117,9 @@ export default function FormCreate() {
                       Controller={Controller}
                       control={control}
                       register={register}
-                      id={"state_id"}
-                      name={"state_id"}
-                      labelText={"Pais Id"}
+                      id={"country_id"}
+                      name={"country_id"}
+                      labelText={"Pais"}
                       required={!false}
                       placeHolder={"Seleccionar Pais"}
                       selectOptions={[
@@ -133,30 +133,10 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    <InputSelect
-                      Controller={Controller}
-                      control={control}
-                      register={register}
-                      id={"status"}
-                      name={"status"}
-                      labelText={"Departamento"}
-                      required={!false}
-                      placeHolder={"Seleccionar Departamento"}
-                      selectOptions={[
-                        { value: "0", label: "Santander" },
-                        { value: "1", label: "Cundinamarca" },
-                        { value: "2", label: "Antioquia" },
-                        { value: "3", label: "Bolivar" }
-                      ]}
-                      information={"Information here!"}
-                      errorList={error_list}
-                    />
-                  </Col>
-                  <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"type_person"}
-                      name={"type_person"}
+                      id={"person_type"}
+                      name={"person_type"}
                       labelText={"Tipo de persona"}
                       defaultValue={null}
                       readOnly={false}
@@ -166,7 +146,25 @@ export default function FormCreate() {
                       information={"Information here!"}
                       errorList={error_list}
                     />
-                  </Col>                
+                  </Col>
+                  <Col md="12" className="form-group">
+                    <InputSelect
+                      Controller={Controller}
+                      control={control}
+                      register={register}
+                      id={"status"}
+                      name={"status"}
+                      labelText={"Estado"}
+                      required={!false}
+                      placeHolder={"Seleccionar Estado"}
+                      selectOptions={[
+                        { value: "0", label: "Activo" },
+                        { value: "1", label: "Inactivo" },                        
+                      ]}
+                      information={"Information here!"}
+                      errorList={error_list}
+                    />
+                  </Col>
                   <Col md="12" className="form-create-footer">
                     <Button
                       className="btn-text-icon-right mr-2"

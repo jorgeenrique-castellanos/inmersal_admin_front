@@ -20,11 +20,7 @@ export default usuario => {
     0: "Inactivo"
   };
 
-  params["cols"] = [
-    {
-      dataField: "id",
-      text: "Codigo"
-    },
+  params["cols"] = [  
     {
       dataField: "country",
       text: "Pais"

@@ -14,7 +14,13 @@ export default user => {
     //form_params: peticion GET
   };
 
-  form_params["validation_rules"] = {  
+  form_params["validation_rules"] = {
+    name: yup.string().required(),
+    // logo: yup.string().required(),
+    identification: yup.string().required(),
+    phone: yup.string().required(),
+    email: yup.string().required(),
+    identificacion_type: yup.string().required(),
     country_id: yup
       .object()
       .shape({
@@ -23,15 +29,30 @@ export default user => {
       })
       .default(undefined)
       .required(),
-      status: yup
+    person_type_id: yup
       .object()
       .shape({
         value: yup.string().required(),
         label: yup.string().required()
       })
       .default(undefined)
-      .required(),      
-      identificacion_type: yup.string().required(),
+      .required(),
+    identification_type_id: yup
+      .object()
+      .shape({
+        value: yup.string().required(),
+        label: yup.string().required()
+      })
+      .default(undefined)
+      .required(),
+    status: yup
+      .object()
+      .shape({
+        value: yup.string().required(),
+        label: yup.string().required()
+      })
+      .default(undefined)
+      .required()
   };
 
   // form_params["parent_id"] = {

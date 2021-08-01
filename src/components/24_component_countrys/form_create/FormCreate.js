@@ -116,8 +116,8 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"country_id"}
-                      name={"country_id"}
+                      id={"country_code"}
+                      name={"country_code"}
                       labelText={"Codigo"}
                       defaultValue={null}
                       readOnly={false}

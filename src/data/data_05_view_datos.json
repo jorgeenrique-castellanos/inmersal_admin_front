@@ -1,7 +1,8 @@
 {
     "salesroom": [
       {
-        "id": "0",        
+        "id": "0",   
+        "name": "Kevin",     
         "title": "lo publicaste",
         "subtitle": "subititle",
         "status":"activo",
@@ -12,8 +13,12 @@
         "city": "Bogota",
         "alpha2":"CO",
         "alpha3":"COl",
-        "typeperson":"Juridica",
-        "identificationtype" :"Cedula"
+        "persontype":"Juridica",
+        "identificationtype" :"Cedula",
+        "identification": "1000222333",
+        "phone": "3108881900",
+        "email": "lopublicaste@gmail.com",
+        "clients": "fenix"
       }
     ]
 }

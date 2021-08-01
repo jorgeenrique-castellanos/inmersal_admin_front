@@ -16,8 +16,8 @@ export default user => {
 
   form_params["validation_rules"] = {
     code: yup.string().required(),
-    type_person: yup.string().required(),
-    state_id: yup
+    person_type: yup.string().required(),
+    country_id: yup
       .object()
       .shape({
         value: yup.string().required(),

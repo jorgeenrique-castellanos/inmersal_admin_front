@@ -15,8 +15,9 @@ export default user => {
   };
 
   form_params["validation_rules"] = {  
-    country_name:yup.string().required(),
-    country_initials: yup.string().required(),
+    country: yup.string().required(),
+    country_alpha_2: yup.string().required(),
+    country_alpha_3: yup.string().required(),
   };
 
   // form_params["parent_id"] = {

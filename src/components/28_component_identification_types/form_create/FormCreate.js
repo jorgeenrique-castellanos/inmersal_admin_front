@@ -104,7 +104,7 @@ export default function FormCreate() {
                       register={register}
                       id={"country_id"}
                       name={"country_id"}
-                      labelText={"Pais Id"}
+                      labelText={"Pais"}
                       required={!false}
                       placeHolder={"Seleccionar Pais"}
                       selectOptions={[
@@ -122,16 +122,14 @@ export default function FormCreate() {
                      Controller={Controller}
                      control={control}
                      register={register}
-                     id={"status"}
-                     name={"status"}
-                     labelText={"Departamento"}
+                     id={"person_type_id"}
+                     name={"person_type_id"}
+                     labelText={"Tipo de Persona"}
                      required={!false}
-                     placeHolder={"Seleccionar Departamento"}
+                     placeHolder={"Seleccionar tipo de persona"}
                      selectOptions={[
-                       { value: "0", label: "Santander" },
-                       { value: "1", label: "Cundinamarca" },
-                       { value: "2", label: "Antioquia" },
-                       { value: "3", label: "Bolivar" }
+                       { value: "0", label: "Juridica" },                       
+                       { value: "1", label: "Natural" },                       
                      ]}
                      information={"Information here!"}
                      errorList={error_list}
@@ -146,12 +144,30 @@ export default function FormCreate() {
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Escriba su tipo de identificación"}
+                      placeHolder={"Escriba un tipo de identificación"}
                       maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />
-                  </Col>                  
+                  </Col>  
+                  <Col md="12" className="form-group">
+                    <InputSelect
+                     Controller={Controller}
+                     control={control}
+                     register={register}
+                     id={"status"}
+                     name={"status"}
+                     labelText={"Estado"}
+                     required={!false}
+                     placeHolder={"Seleccionar estado"}
+                     selectOptions={[
+                       { value: "0", label: "Activo" },                       
+                       { value: "1", label: "Inactivo" },                       
+                     ]}
+                     information={"Information here!"}
+                     errorList={error_list}
+                    />
+                  </Col>                
                   <Col md="12" className="form-create-footer">
                     <Button
                       className="btn-text-icon-right mr-2"

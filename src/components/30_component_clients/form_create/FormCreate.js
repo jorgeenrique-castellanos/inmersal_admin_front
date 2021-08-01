@@ -8,12 +8,12 @@ import { Context } from "../../../views/30_view_clients/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
 import InputSelect from "../../inputs/InputSelect";
+import InputImage from "../../inputs/inputImage";
 import Servidor from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 //import { inicializar, validar } from "../../../helpers/form_validate";
 import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
-
 import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
 
 export default function FormCreate() {
@@ -22,7 +22,7 @@ export default function FormCreate() {
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
-  // const [archivos, setArchivos] = useState(null);
+  const [archivos, setArchivos] = useState(null);
 
   const [startDate, setStartDate] = useState(new Date());
   let handleColor = time => {
@@ -96,15 +96,40 @@ export default function FormCreate() {
           <Row>
             <Col>
               <Form onSubmit={handleSubmit(onSubmit)}>
-                <Row form>                  
-                  <Col md="12" className="form-group">
+                <Row form>
+                  <Col md="6" className="form-group">
+                    <InputText
+                      register={register}
+                      id={"name"}
+                      name={"name"}
+                      labelText={"Nombre"}
+                      defaultValue={null}
+                      readOnly={false}
+                      required={true}
+                      placeHolder={"Escriba un nombre"}
+                      maxLength={null}
+                      information={"Information here!"}
+                      errorList={error_list}
+                    />
+                  </Col>
+                  <Col md="6" className="form-group">
+                    <InputImage
+                      id={"logo"}
+                      name={"log"}
+                      labelText={"Seleccionar imagen"}
+                      setArchivos={setArchivos}
+                      titulo="Arrastre o haga click para cargar logo"
+                      archivos={3}
+                    />
+                  </Col>
+                  <Col md="4" className="form-group">
                     <InputSelect
                       Controller={Controller}
                       control={control}
                       register={register}
                       id={"country_id"}
                       name={"country_id"}
-                      labelText={"Pais Id"}
+                      labelText={"Pais"}
                       required={!false}
                       placeHolder={"Seleccionar Pais"}
                       selectOptions={[
@@ -117,41 +142,106 @@ export default function FormCreate() {
                       errorList={error_list}
                     />
                   </Col>
-                  <Col md="12" className="form-group">
+                  <Col md="4" className="form-group">
                     <InputSelect
-                     Controller={Controller}
-                     control={control}
-                     register={register}
-                     id={"status"}
-                     name={"status"}
-                     labelText={"Departamento"}
-                     required={!false}
-                     placeHolder={"Seleccionar Departamento"}
-                     selectOptions={[
-                       { value: "0", label: "Santander" },
-                       { value: "1", label: "Cundinamarca" },
-                       { value: "2", label: "Antioquia" },
-                       { value: "3", label: "Bolivar" }
-                     ]}
-                     information={"Information here!"}
-                     errorList={error_list}
+                      Controller={Controller}
+                      control={control}
+                      register={register}
+                      id={"person_type_id"}
+                      name={"person_type_id"}
+                      labelText={"Tipo de persona"}
+                      required={!false}
+                      placeHolder={"Seleccionar tipo"}
+                      selectOptions={[
+                        { value: "0", label: "Juridica" },
+                        { value: "1", label: "Natural" }
+                      ]}
+                      information={"Information here!"}
+                      errorList={error_list}
                     />
                   </Col>
-                  <Col md="12" className="form-group">
+                  <Col md="4" className="form-group">
+                    <InputSelect
+                      Controller={Controller}
+                      control={control}
+                      register={register}
+                      id={"identification_type_id"}
+                      name={"identification_type_id"}
+                      labelText={"Tipo de identificación"}
+                      required={!false}
+                      placeHolder={"Seleccionar tipo"}
+                      selectOptions={[
+                        { value: "0", label: "Cedula" },
+                        { value: "1", label: "Pasaporte" },
+                        { value: "2", label: "Cedula extranjera" }
+                      ]}
+                      information={"Information here!"}
+                      errorList={error_list}
+                    />
+                  </Col>
+                  <Col md="6" className="form-group">
                     <InputText
                       register={register}
-                      id={"identification_type"}
-                      name={"identification_type"}
-                      labelText={"Tipo de identificación"}
+                      id={"identification"}
+                      name={"identification"}
+                      labelText={"Identificación"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Escriba su tipo de identificación"}
+                      placeHolder={"Escriba su identificación"}
                       maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
                     />
-                  </Col>                  
+                  </Col>
+                  <Col md="6" className="form-group">
+                    <InputText
+                      register={register}
+                      id={"phone"}
+                      name={"phone"}
+                      labelText={"Telefono"}
+                      defaultValue={null}
+                      readOnly={false}
+                      required={true}
+                      placeHolder={"Escriba un telefono"}
+                      maxLength={null}
+                      information={"Information here!"}
+                      errorList={error_list}
+                    />
+                  </Col>
+                  <Col md="6" className="form-group">
+                    <InputText
+                      register={register}
+                      id={"email"}
+                      name={"email"}
+                      labelText={"Email"}
+                      defaultValue={null}
+                      readOnly={false}
+                      required={true}
+                      placeHolder={"Escriba un Email"}
+                      maxLength={null}
+                      information={"Information here!"}
+                      errorList={error_list}
+                    />
+                  </Col>
+                  <Col md="6" className="form-group">
+                    <InputSelect
+                      Controller={Controller}
+                      control={control}
+                      register={register}
+                      id={"status"}
+                      name={"status"}
+                      labelText={"Estado"}
+                      required={!false}
+                      placeHolder={"Seleccionar estado"}
+                      selectOptions={[
+                        { value: "0", label: "Activo" },
+                        { value: "1", label: "Inactivo" }
+                      ]}
+                      information={"Information here!"}
+                      errorList={error_list}
+                    />
+                  </Col>
                   <Col md="12" className="form-create-footer">
                     <Button
                       className="btn-text-icon-right mr-2"

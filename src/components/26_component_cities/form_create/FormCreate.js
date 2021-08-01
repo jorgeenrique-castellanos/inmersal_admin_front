@@ -117,9 +117,9 @@ export default function FormCreate() {
                       Controller={Controller}
                       control={control}
                       register={register}
-                      id={"state_id"}
-                      name={"state_id"}
-                      labelText={"Pais Id"}
+                      id={"country_id"}
+                      name={"country_id"}
+                      labelText={"Pais"}
                       required={!false}
                       placeHolder={"Seleccionar Pais"}
                       selectOptions={[
@@ -133,15 +133,35 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
+                    <InputSelect
+                      Controller={Controller}
+                      control={control}
+                      register={register}
+                      id={"state_id"}
+                      name={"state_id"}
+                      labelText={"Departamento"}
+                      required={!false}
+                      placeHolder={"Seleccionar departamento"}
+                      selectOptions={[
+                        { value: "0", label: "Antioquia" },
+                        { value: "1", label: "Santander" },
+                        { value: "2", label: "Boyaca" },
+                        { value: "3", label: "Cundinamarca" }
+                      ]}
+                      information={"Information here!"}
+                      errorList={error_list}
+                    />
+                  </Col>
+                  <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"status"}
-                      name={"status"}
-                      labelText={"Departamento"}
+                      id={"city"}
+                      name={"city"}
+                      labelText={"Ciudad"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Ingrese un departamento"}
+                      placeHolder={"Escribir una ciudad"}
                       maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
@@ -150,13 +170,13 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"city_name"}
-                      name={"city_name"}
-                      labelText={"Nombre de ciudad"}
+                      id={"status"}
+                      name={"status"}
+                      labelText={"Estado"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Ingrese un nombre"}
+                      placeHolder={"Escribir un estado"}
                       maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}

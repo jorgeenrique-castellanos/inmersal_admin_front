@@ -14,8 +14,10 @@ export default user => {
     //form_params: peticion GET
   };
 
-  form_params["validation_rules"] = {  
-    settings_language: yup
+  form_params["validation_rules"] = {
+    city: yup.string().required(),
+    status: yup.string().required(),
+    country_id: yup
       .object()
       .shape({
         value: yup.string().required(),
@@ -23,8 +25,14 @@ export default user => {
       })
       .default(undefined)
       .required(),
-      // property_
-      // property_
+    state_id: yup
+      .object()
+      .shape({
+        value: yup.string().required(),
+        label: yup.string().required()
+      })
+      .default(undefined)
+      .required(),
   };
 
   // form_params["parent_id"] = {

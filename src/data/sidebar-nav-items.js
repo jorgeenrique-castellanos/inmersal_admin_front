@@ -434,7 +434,7 @@ export default function() {
         },
         {
           id: "csa_01",
-          title: "Paises",
+          title: "Pais",
           show_title: true,
           type: "link" /*link,header,separator*/,
           view_url: "/countrys",

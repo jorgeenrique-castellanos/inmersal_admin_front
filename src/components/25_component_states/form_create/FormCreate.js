@@ -93,8 +93,8 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"state_id"}
-                      name={"state_id"}
+                      id={"state_code"}
+                      name={"state_code"}
                       labelText={"Codigo"}
                       defaultValue={null}
                       readOnly={false}
@@ -112,7 +112,7 @@ export default function FormCreate() {
                       register={register}
                       id={"country_id"}
                       name={"country_id"}
-                      labelText={"Pais Id"}
+                      labelText={"Pais"}
                       required={!false}
                       placeHolder={"Seleccionar Pais"}
                       selectOptions={[

@@ -22,16 +22,36 @@ export default usuario => {
 
   params["cols"] = [
     {
+      dataField: "name",
+      text: "Nombre"
+    },
+    {
       dataField: "country",
       text: "Pais"
     },
     {
-      dataField: "departament",
-      text: "Departamentos"
+      dataField: "persontype",
+      text: "T. P"
     },
     {
       dataField: "identificationtype",
-      text: "Tipo de identificación"
+      text: "T. I"
+    },
+    {
+      dataField: "identification",
+      text: "N°. D"
+    },
+    {
+      dataField: "clients",
+      text: "Cliente"
+    },
+    {
+      dataField: "phone",
+      text: "Telefono"
+    },
+    {
+      dataField: "email",
+      text: "Email"
     },
     {
       dataField: "acciones",
