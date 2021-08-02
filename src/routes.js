@@ -2,7 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 // Layout Types
-import { DefaultLayout, Login } from "./layouts";
+import { DefaultLayout, Login, Exit } from "./layouts";
 
 // Route Views
 import Imagenes from "./vistas/imagenes";
@@ -39,7 +39,7 @@ import Clients from "./views/30_view_clients";
 import Config_contacts from "./views/31_view_config_contacts";
 import Users from "./views/13_view_user";
 // import LoginUser from "./views/15_view_login_user";
-import LogoutUser from "./components/23_view_logout_user/form_create/FormCreate";
+import LogoutUser from "./views/23_view_logout_user";
 import BlogOverview from "./views/BlogOverview";
 
 export default [
@@ -192,7 +192,7 @@ export default [
     exact: true,
     layout: DefaultLayout,
     component: GeneralStatus
-  },  
+  },
   {
     path: "/countrys",
     exact: true,
@@ -238,7 +238,7 @@ export default [
   {
     path: "/logoutuser",
     exact: true,
-    layout: Login,
+    layout: Exit,
     component: LogoutUser
   },
   {

@@ -55,24 +55,7 @@ const SidebarNavHeader = ({
 
         {/* {children === item.id } */}
       </div>
-    </div>
-    // <NavItem>
-    //   <NavLink tag={RouteNavLink} to={item.view_url}>
-    //     {item.icon && (
-    //       <div
-    //         className="d-inline-block item-icon-wrapper"
-    //         dangerouslySetInnerHTML={{ __html: icons[item.icon].icon }}
-    //       />
-    //     )}
-    //     {item.title && <span>{item.title}</span>}
-    //     {item.htmlAfter && (
-    //       <div
-    //         className="d-inline-block item-icon-wrapper"
-    //         dangerouslySetInnerHTML={{ __html: item.htmlAfter }}
-    //       />
-    //     )}
-    //   </NavLink>
-    // </NavItem>
+    </div>  
   );
 };
 

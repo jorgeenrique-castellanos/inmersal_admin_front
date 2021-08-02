@@ -20,6 +20,7 @@ const Provider = props => {
     list: () => dispatch({ type: "LIST" }),
     create: () => dispatch({ type: "CREATE" }),
     cancel: () => dispatch({ type: "CANCEL" }),
+    exit: () => dispatch({ type: "EXIT" }),
     // ok: () => dispatch({ type: "OK" })
   };
 

@@ -10,6 +10,9 @@ export default function setUIMenus(state, action) {
     case "CANCEL":
       state = { ...state, state_action: "cancel" };
       return state;
+    case "EXIT":
+      state = { ...state, state_action: "exit" };
+      return state;
     // case "ROWSMARKED":
     //   state = { ...state, rowsmarked: action.rowsmarked };
     //   return state;

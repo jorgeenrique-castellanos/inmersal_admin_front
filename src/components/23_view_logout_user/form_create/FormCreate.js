@@ -51,27 +51,19 @@ export default function FormCreate() {
             <Col>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Row form>
-                  <Col
+                  <Col              
                     md="12"
-                    className="form-create-footer-login justify-content-center flex-column border"
+                    className="form-create-footer-login justify-content-center "
                   >
-                     <Button
-                      className="btn-text-icon-right mr-2 px-5"
-                      pill
-                      type="submit"
-                    >
-                      abrir
-                    </Button>
                     <Button
                       className="btn-text-icon-right mr-2 px-5"
                       pill
                       type="submit"
                     >
-                      Esta seguro de salir
+                      Si
                     </Button>
-
-                    <Button pill theme="danger" onClick={onCancel}>
-                      Cancel
+                    <Button className="btn-text-icon-right px-5"pill theme="danger" onClick={onCancel}>
+                      No
                     </Button>
                   </Col>
                 </Row>
