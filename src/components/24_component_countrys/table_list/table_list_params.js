@@ -6,14 +6,18 @@ import Icons from "../../../assets/icons";
 import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
 import filterFactory, { selectFilter } from "react-bootstrap-table2-filter";
 
-// DATA
-import data from "../../../data/data_05_view_datos.json";
+
 
 //prettier-ignore
 export default usuario => {
   const icons = Icons();
   const params = {};
   params["key"] = "id";
+  params["url"] = "http://127.0.0.1:8000/api/pais";
+  params["server"] = {
+    method: "get",
+    url: "http://127.0.0.1:8000/api/pais"
+  }
 
   const selectOptions = {
     1: "Activo",
@@ -32,7 +36,7 @@ export default usuario => {
     {
       dataField: "alpha3",
       text: "Alpha 3"
-    },     
+    },
     {
       dataField: "acciones",
       text: "Acciones",
@@ -51,7 +55,7 @@ export default usuario => {
         <li>
           <Button
             className="btn-icon-small"
-            onClick={() => {editDataRow(cell, row, rowIndex)}}
+            onClick={() => { editDataRow(cell, row, rowIndex) }}
           >
             {ReactHtmlParser(icons.edit.icon)}
           </Button>
@@ -60,7 +64,7 @@ export default usuario => {
           <Button
             className="btn-icon-small"
             theme={"danger"}
-            onClick={() => {deleteDataRow(cell, row, rowIndex)}}
+            onClick={() => { deleteDataRow(cell, row, rowIndex) }}
           >
             {ReactHtmlParser(icons.trash.icon)}
           </Button>
@@ -77,7 +81,7 @@ export default usuario => {
     alert(`BORRAR: los datos de la fila con el ID = ${row.id}`);
   };
 
-  params["data"] = data.salesroom;
+
 
   return params;
 };

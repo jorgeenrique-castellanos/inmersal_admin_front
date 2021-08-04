@@ -36,7 +36,6 @@ export const enviarAlServidor = (functionOk, functionError, config) => {
   axios(config)
     .then(function (response) {
       functionOk(response);
-
     })
     .catch(function (error) {
       functionError(error)
@@ -46,3 +45,4 @@ export const enviarAlServidor = (functionOk, functionError, config) => {
     });
 
 }
+
