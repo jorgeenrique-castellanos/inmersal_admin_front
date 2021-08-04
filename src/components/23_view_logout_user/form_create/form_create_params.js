@@ -5,7 +5,7 @@ export default user => {
 
   form_params["server_config"] = {
     method: "post",
-    url: "http://127.0.0.1:8000/api/auth/logout",
+    url: "http://127.0.0.1:8000/api/auth/",
     headers: {
       "Content-Type": "application/json"
     }

@@ -238,7 +238,7 @@ export default [
   {
     path: "/logoutuser",
     exact: true,
-    layout: Exit,
+    layout: DefaultLayout,
     component: LogoutUser
   },
   {

@@ -36,10 +36,18 @@ export default function FormCreate() {
     showMessage(error, true);
   };
 
-  const onCancel = data => {
-    var config = form_params["server_config"];
-    config["headers"]["Authorization"] = "Bearer " + mainContext.token;
-    enviarAlServidor(loginExitoso, loginErrado, config);
+  let onCancel = data => {
+    // var config = form_params;
+    // var config = "";
+    //   // config["headers"]["Authorization"] = "Bearer " + mainContext.token;
+    //   // enviarAlServidor(loginExitoso, loginErrado, config);
+    // if (data !== config) {
+    //   onCancel = () => {
+    //     mainContext.token = data;
+    //   };
+    // }
+    // console.log(config);
+    // console.log(data);
   };
 
   return (
@@ -51,9 +59,9 @@ export default function FormCreate() {
             <Col>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Row form>
-                  <Col              
+                  <Col
                     md="12"
-                    className="form-create-footer-login justify-content-center "
+                    className="form-create-footer-login justify-content-center p-0 "
                   >
                     <Button
                       className="btn-text-icon-right mr-2 px-5"
@@ -62,7 +70,13 @@ export default function FormCreate() {
                     >
                       Si
                     </Button>
-                    <Button className="btn-text-icon-right px-5"pill theme="danger" onClick={onCancel}>
+                    <Button
+                      className="btn-text-icon-right px-5"
+                      pill
+                      theme="danger"
+                      href="http://localhost:3000/blog-overview"
+                      // onClick={}
+                    >
                       No
                     </Button>
                   </Col>
