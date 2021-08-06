@@ -115,7 +115,7 @@ export default function FormCreate() {
                   <Col md="6" className="form-group">
                     <InputImage
                       id={"logo"}
-                      name={"log"}
+                      name={"logo"}
                       labelText={"Seleccionar imagen"}
                       setArchivos={setArchivos}
                       titulo="Arrastre o haga click para cargar logo"

@@ -16,6 +16,7 @@ import { ToastContainer, toast } from "react-toastify";
 //import { inicializar, validar } from "../../../helpers/form_validate";
 import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
+import StepWizard from "react-step-wizard";
 
 import {
   Form,
@@ -117,43 +118,45 @@ export default function FormCreate() {
             <Col>
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Row form>
-                  <Col md="6" className="form-group">
-                    <InputText
-                      register={register}
-                      id={"property_title"}
-                      name={"property_title"}
-                      labelText={"Titulo"}
-                      required={!false}
-                      placeHolder={"Ingrese el titulo"}
-                      maxLength={50}
-                      information={"Information here!"}
-                      errorList={error_list}
-                    />
-                  </Col>
-                  <Col md="6" className="form-group">
-                    <InputText
-                      register={register}
-                      id={"property_description"}
-                      name={"property_description"}
-                      labelText={"Tipo"}
-                      required={!false}
-                      placeHolder={"Ingrese el tipo"}
-                      maxLength={50}
-                      information={"Information here!"}
-                      errorList={error_list}
-                    />
-                  </Col>
-                  <Col md="6" className="form-group">
-                    <InputImage
-                      id={"property_image"}
-                      name={"property_image"}
-                      labelText={"Precio"}
-                      required={true}
-                      setArchivos={setArchivos}
-                      titulo="Arrastre su imagen"
-                      archivos={3}
-                    />
-                  </Col>
+                  <StepWizard>
+                    <Col md="6" className="form-group">
+                      <InputText
+                        register={register}
+                        id={"property_title"}
+                        name={"property_title"}
+                        labelText={"Titulo"}
+                        required={!false}
+                        placeHolder={"Ingrese el titulo"}
+                        maxLength={50}
+                        information={"Information here!"}
+                        errorList={error_list}
+                      />
+                    </Col>
+                    <Col md="6" className="form-group">
+                      <InputText
+                        register={register}
+                        id={"property_description"}
+                        name={"property_description"}
+                        labelText={"Tipo"}
+                        required={!false}
+                        placeHolder={"Ingrese el tipo"}
+                        maxLength={50}
+                        information={"Information here!"}
+                        errorList={error_list}
+                      />
+                    </Col>
+                    <Col md="6" className="form-group">
+                      <InputImage
+                        id={"property_image"}
+                        name={"property_image"}
+                        labelText={"Precio"}
+                        required={true}
+                        setArchivos={setArchivos}
+                        titulo="Arrastre su imagen"
+                        archivos={3}
+                      />
+                    </Col>
+                  </StepWizard>
                   <Col md="6" className="form-group">
                     <InputSelect
                       Controller={Controller}
@@ -317,7 +320,7 @@ export default function FormCreate() {
                       information={"Information here!"}
                       errorList={error_list}
                     />
-                  </Col>                  
+                  </Col>
                   <Col md="6" className="form-group">
                     <InputSelect
                       Controller={Controller}

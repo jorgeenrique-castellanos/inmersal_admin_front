@@ -3,6 +3,13 @@ import yup from "../../../helpers/form_validate_error_list";
 
 export default user => {
   const form_params = {};
+  const FILE_SIZE = 160 * 1024;
+  const SUPPORTED_FORMATS = [
+    "image/jpg",
+    "image/jpeg",
+    "image/gif",
+    "image/png"
+  ];
 
   form_params["record_config"] = {
     method: "post",
@@ -16,7 +23,12 @@ export default user => {
 
   form_params["validation_rules"] = {
     name: yup.string().required(),
-    // logo: yup.string().required(),
+    logo:  yup.mixed()
+    .required()
+    .test("FILE_SIZE", "Uploaded file is too big.", 
+        value => !value || (value && value.size <= FILE_SIZE))
+    .test("FILE_FORMAT", "Uploaded file has unsupported format.", 
+        value => !value || (value && SUPPORTED_FORMATS.includes(value.type))),
     identification: yup.string().required(),
     phone: yup.string().required(),
     email: yup.string().required(),
