@@ -1,24 +1,22 @@
-import React from "react";
+import React, { useContext} from "react";
+import { Context } from "../../../views/24_view_countrys/helpers/context";
 import ReactHtmlParser from "react-html-parser";
-import * as yup from "yup";
 import { Button } from "shards-react";
 import Icons from "../../../assets/icons";
-import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
-import filterFactory, { selectFilter } from "react-bootstrap-table2-filter";
-
 
 
 //prettier-ignore
-export default usuario => {
+export default () => {
+  const { view_global_state, view_global_actions } = useContext(Context);
   const icons = Icons();
   const params = {};
   params["key"] = "id";
-  params["url"] = "http://127.0.0.1:8000/api/pais";
+  
   params["server"] = {
     method: "get",
     url: "http://127.0.0.1:8000/api/pais"
   }
-
+ 
   const selectOptions = {
     1: "Activo",
     0: "Inactivo"
@@ -74,14 +72,12 @@ export default usuario => {
   };
 
   const editDataRow = (cell, row, rowIndex) => {
-    alert(`EDITAR: los datos de la fila con el ID = ${row.id}`);
+    view_global_actions.edit(row)
   };
 
   const deleteDataRow = (cell, row, rowIndex) => {
-    alert(`BORRAR: los datos de la fila con el ID = ${row.id}`);
+    view_global_actions.delete(row)
   };
-
-
 
   return params;
 };

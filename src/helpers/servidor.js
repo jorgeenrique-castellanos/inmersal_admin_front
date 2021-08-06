@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import _ from 'lodash';
 //export default ({data, estado, config}) => {
 export default function ServidorFormas(setDatos, config) {
 
@@ -35,10 +35,9 @@ export default function ServidorFormas(setDatos, config) {
 export const enviarAlServidor = (functionOk, functionError, config) => {
   axios(config)
     .then(function (response) {
-      functionOk(response);
+      _.has(response.data, 'data') ? functionOk(response) : functionError(response);
     })
     .catch(function (error) {
-      functionError(error)
       console.log('error entregado desde servidor');
       console.log(error);
       return error;

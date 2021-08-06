@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Context } from "../../views/24_view_countrys/helpers/context";
+import { Context } from "../../../views/24_view_countrys/helpers/context";
 import { Modal, ModalBody, ModalHeader } from "shards-react";
 
 //prettier-ignore
@@ -8,7 +8,7 @@ export default function({ title, subtitle, body, size }) {
   const { view_global_state } = useContext(Context);
 
   useEffect(() => {
-    view_global_state.state_action === "create" ? toggleModal(true) : toggleModal(false);
+    view_global_state.state_action === "edit" ? toggleModal(true) : toggleModal(false);
   }, [view_global_state]);
 
   return (
