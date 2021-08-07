@@ -22,6 +22,10 @@ export default usuario => {
 
   params["cols"] = [
     {
+      dataField: "status",
+      text: "Estado"
+    },
+    {
       dataField: "name",
       text: "Nombre"
     },

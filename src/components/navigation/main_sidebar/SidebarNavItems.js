@@ -69,56 +69,7 @@ class SidebarNavItems extends React.Component {
                       </>
                     );
                   })}
-                </SidebarNavHeader>
-                // <div className="nav-header">
-                //   <a
-                //     id={item.id}
-                //     href="#"
-                //     className="nav-link"
-                //     onClick={() => {
-                //       item.id === current_item_id
-                //         ? this.showSubItems(!visibility_sub_items, item.id)
-                //         : this.showSubItems(true, item.id);
-                //     }}
-                //   >
-                //     {item.icon && (
-                //       <div
-                //         className="d-inline-block item-icon-wrapper"
-                //         dangerouslySetInnerHTML={{
-                //           __html: icons[item.icon].icon
-                //         }}
-                //       />
-                //     )}
-                //     <span>{item.title}</span>
-                //     <div
-                //       className={`d-inline-block item-icon-wrapper icon-arrow-indicator ${
-                //         visibility_sub_items && item.id === current_item_id
-                //           ? "rotate-icon"
-                //           : ""
-                //       }`}
-                //       dangerouslySetInnerHTML={{
-                //         __html: icons.arrow_right_mini.icon
-                //       }}
-                //     />
-                //   </a>
-                //   <div
-                //     className={`nav-sub-items ${
-                //       visibility_sub_items && item.id === current_item_id
-                //         ? "show"
-                //         : ""
-                //     }`}
-                //   >
-                //     {item.sub_items.map((item, idx) => {
-                //       return (
-                //         <SidebarNavItem
-                //           key={idx}
-                //           item={item}
-                //           showIcon={false}
-                //         />
-                //       );
-                //     })}
-                //   </div>
-                // </div>
+                </SidebarNavHeader>             
               );
             } else if (item.type === "separator") {
               return <SidebarSeparator key={idx} item={item} />;
@@ -128,17 +79,6 @@ class SidebarNavItems extends React.Component {
           })}
         </Nav>
       </div>
-      // <div className="nav-wrapper">
-      //   <Nav className="nav--no-borders flex-column">
-      //     {items.map((item, idx) => {
-      //       if (item.type === "link") {
-      //         return <SidebarNavItem key={idx} item={item} />;
-      //       } else if (item.type === "separator") {
-      //         return <SidebarSeparatorItem key={idx} item={item} />;
-      //       }
-      //     })}
-      //   </Nav>
-      // </div>
     );
   }
 }

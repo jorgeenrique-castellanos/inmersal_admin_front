@@ -15,7 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./styles/style_1/inmersal_admin_style_1.css";
 import AppContext from "./components/app_context/general_context";
 import LoginUser from "./views/15_view_login_user";
-import { Login } from "./layouts";
+import { Login, DefaultLayout } from "./layouts";
 
 export default () => {
   const [token, setToken] = React.useState("");
@@ -31,6 +31,7 @@ export default () => {
     <AppContext.Provider value={alltokens}>
       <LoginUser />
       <Login />
+      {/* <DefaultLayout/> */}
     </AppContext.Provider>
   );
 

@@ -8,7 +8,7 @@ export default function({ title, subtitle, body, size }) {
   const { view_global_state } = useContext(Context);
 
   useEffect(() => {
-    view_global_state.state_action === "create" ? toggleModal(true) : toggleModal(false);
+    view_global_state.state_action === "exit" ? toggleModal(true) : toggleModal(false);
   }, [view_global_state]);
 
   return (

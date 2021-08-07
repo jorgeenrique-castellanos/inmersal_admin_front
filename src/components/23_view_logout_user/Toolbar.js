@@ -11,24 +11,21 @@ export default () => {
   const { view_global_state, view_global_actions } = React.useContext(Context);
 
   return (
-    <ButtonToolbar>
-      <ButtonGroup className="mr-2">
+    // <ButtonToolbar>
+    //   <ButtonGroup className="mr-2">
+      <div className="d-flex align-items-center flex-column">
         {view_global_state.state_action !== "crear" && (
-          <Button className="btn-text-icon-right" pill onClick={view_global_actions.create}>
-            Crear vista {ReactHtmlParser(icons.add.icon)}
+          <Button className="btn-text-icon-right mb-3" pill onClick={view_global_actions.exit}>
+            Esta seguro de salir
           </Button>
-        )}
-        {/* {_.get(view_global_state, "rowschanged", false) && (
-          <Button className="btn-text-icon-right" pill onClick={view_global_actions.cambiar}>
-            Guardar cambios 
+        )}     
+        {view_global_state.state_action && (
+          <Button className="btn-text-icon-right" theme="danger" pill onClick={view_global_actions.cancel}>
+            Cancelar
           </Button>
-        )}
-        {!_.isEmpty(_.get(view_global_state, "rowsmarked", "")) && (
-          <Button className="btn-text-icon-right" pill onClick={view_global_actions.borrar}>
-            Borrar
-          </Button>
-        )} */}
-      </ButtonGroup>
-    </ButtonToolbar>
+        )}  
+      </div>
+    //   </ButtonGroup>
+    // </ButtonToolbar>
   );
 };

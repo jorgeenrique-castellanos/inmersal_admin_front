@@ -1,41 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
-import { Container, Row, Col, Card, CardHeader, CardBody } from "shards-react";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardHeader,
+  CardBody,
+  ButtonGroup,
+  Button
+} from "shards-react";
 import { Provider } from "./helpers/context";
 import PageTitle from "../../components/common/PageTitle";
 import Toolbar from "../../components/23_view_logout_user/Toolbar";
 import ModalContainer from "../../components/23_view_logout_user/ModalContainer";
 //import ViewMessages from "../../components/02_view_views/ViewMessages";
 import FormCreate from "../../components/23_view_logout_user/form_create/FormCreate";
-import TableList from "../../components/23_view_logout_user/table_list/TableList";
+import { Context } from "../../views/23_view_logout_user/helpers/context";
 
 function ViewViews({ usuario }) {
+  // const [open_modal, toggleModal] = useState(false);
+  // const { view_global_state } = useContext(Context);
+
+  // useEffect(() => {
+  //   view_global_state.state_action === "exit" ? toggleModal(true) : toggleModal(false);
+  // }, [view_global_state]);
+
   return (
-    <Container fluid className="main-content-container px-4">
-      <Row noGutters className="page-header py-4">
-        <PageTitle
-          title="Información general"
-          subtitle="Informacion general de la constructora"
-          className="text-sm-left mb-3"
-        />
-      </Row>
-      <Row>
-        <Col lg="12" md="12" sm="12" className="mb-4">
+    <Container fluid className="main-content-container px-4 position-relative">
+      <Row
+        className="position-absolute col-lg-12 col-md-12 m-0"
+        style={{ bottom: 0, left: 0, right: 0, top: 0 }}
+      >
+        <Col lg="6" md="12" className="m-auto">
           <Provider>
-            {/* <ViewMessages /> */}
-            <Card>
-              <CardHeader className="in-card-view__header">
-                <h5 className="m-0">Proyecto</h5>
-                <Toolbar />
-              </CardHeader>
-              <CardBody>
-                <ToastContainer />
-                <ModalContainer
-                  title="Informacion para crear la vista"
-                  body={<FormCreate />}
-                  size="lg"
+            <Card className="">
+              <CardHeader>
+                <PageTitle
+                  title="Terminar sesión"
+                  subtitle="¿Esta seguro de salir?, De lo contrario dar click en NO"
+                  className="text-center mb-1"
                 />
-                <TableList title={"Vistas activas"} />
+              </CardHeader>
+              <CardBody className="pt-1 mb-2">
+                {/* <Toolbar /> */}
+                <ToastContainer />
+                <FormCreate />
+                {/* <ModalContainer
+                  title="Cerrar sesión"
+                  subtitle="Compruebe si dejo algun cambio pendiente, de lo contrario oprimir SI para salir"
+                  body={<FormCreate />}
+                  size="md"
+                /> */}
               </CardBody>
             </Card>
           </Provider>
