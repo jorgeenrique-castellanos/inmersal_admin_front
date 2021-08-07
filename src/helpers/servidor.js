@@ -3,10 +3,6 @@ import _ from 'lodash';
 //export default ({data, estado, config}) => {
 export default function ServidorFormas(setDatos, config) {
 
-  //var data = JSON.stringify({ "name": "abiledia", "email": "abiledia@hotmail.com", "password": "abiledia", "c_password": "abiledia" });
-
-
-
   axios(config)
     .then(function (response) {
       setDatos(response);
@@ -33,13 +29,15 @@ export default function ServidorFormas(setDatos, config) {
 }
 
 export const enviarAlServidor = (functionOk, functionError, config) => {
+  console.log('enviar al servidor comp');
   axios(config)
     .then(function (response) {
       _.has(response.data, 'data') ? functionOk(response) : functionError(response);
     })
     .catch(function (error) {
-      console.log('error entregado desde servidor');
+      console.log('1 error entregado desde servidor');
       console.log(error);
+      console.log('2 error entregado desde servidor');
       return error;
     });
 

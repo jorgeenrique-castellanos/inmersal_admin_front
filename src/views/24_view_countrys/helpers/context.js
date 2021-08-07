@@ -8,8 +8,12 @@ const Provider = props => {
   const [view_global_state, dispatch] = useReducer(reducer, init_view_global_state);
   const view_global_actions = {
     list: () => dispatch({ type: "LIST" }),
-    create: (data) => dispatch({ type: "CREATE", data: data }),
-    edit: () => dispatch({ type: "EDIT", mensaje: 'Holas este es', mensaje1: 'uuuuu' }),
+    create: () => dispatch({ type: "CREATE" }),
+    created: () => dispatch({ type: "CREATED" }),
+    edit: (row) => dispatch({ type: "EDIT", row: row }),
+    edited: () => dispatch({ type: "EDITED" }),
+    delete: (row) => dispatch({ type: "DELETE", row: row }),
+    deleted: (row) => dispatch({ type: "DELETED", row: row }),
     cancel: () => dispatch({ type: "CANCEL" }),
   };
 

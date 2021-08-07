@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import ReactHtmlParser from "react-html-parser";
 import Icons from "../../../assets/icons";
 import { Context } from "../../../views/24_view_countrys/helpers/context";
 import { useForm, Controller } from "react-hook-form";
-import InputText from "../../inputs/InputText";
-import Servidor from "../../../helpers/servidor";
+import InputText from "../../inputs/v1/InputText";
 import { ToastContainer, toast } from "react-toastify";
-import { validateFormData } from "../../../helpers/form_validate";
-import formCreateParams from "../form_create/form_create_params";
+import { validateFormData } from "../../../helpers/v1/form_validate";
+import formEditParams from "./form_edit_params";
+import showMessage from "../../../helpers/messages";
+import { enviarAlServidor } from "../../../helpers/servidor";
+
 
 import {
   Form,
@@ -17,89 +19,55 @@ import {
   Col,
   ListGroupItem,
   ListGroup,
-  Badge
 } from "shards-react";
 
-export default function FormEdit() {
-  const { register, handleSubmit, control, reset } = useForm();
-  const [error_list, setErrorList] = useState({});
-  const { view_global_actions } = React.useContext(Context);
+export default function FormCreate() {
+
+
+  const [error_list, setErrorList] = useState('init');
+  const [parametrosdeserver, setParametrosDeServer] = useState();
+  const { view_global_actions, view_global_state } = React.useContext(Context);
   const icons = Icons();
-  const form_params = formCreateParams(null);
+  const form_params = formEditParams(null);
 
 
-  const [startDate, setStartDate] = useState(new Date());
-  let handleColor = time => {
-    return time.getHours() > 12 ? "text-success" : "text-error";
-  };
+  const { register, handleSubmit, control, reset } = useForm({ defaultValues: view_global_state.row });
 
-  /*****************    Begin Select  ***********************/
-  // React.useEffect(() => {
-  //   register("parent_id");
-  // }, [register]);
+  useEffect(() => {
+    const getData = async () => enviarAlServidor(respuestaEditOk, respuestaEditErr, parametrosdeserver);
+    if (!_.isEmpty(parametrosdeserver))
+      getData();
+  }, [parametrosdeserver])
 
-  /*****************    End Select  ***********************/
 
   const onCancel = () => {
     reset();
     view_global_actions.cancel();
   };
 
-  const onSubmit = data => {
-    console.log(data);
-    validateFormData(form_params, data, processValidation);
-  };
+  const onSubmit = data => validateFormData(form_params["validation_rules"], data, sendToServer, viewErrors);
 
-  const processValidation = result => {
-    console.log(result);
-    result.error ? viewErrors(result) : sendToServer(result.data);
-  };
-
-  function viewErrors(result) {
+  function viewErrors(errors) {
+    console.log(errors)
     showMessage("Verifique los datos para guardar los cambios");
-    setErrorList(result.data);
+    setErrorList(errors);
   }
 
   const sendToServer = data => {
-    const formData = new FormData();
-    const newdata = JSON.stringify(data);
-    const config = form_params["record_config"];
-    formData.append("data", newdata);
-    config["data"] = formData;
-    Servidor(responseFromServer, config);
+    data.tag = Math.random;
+    const parametros = { ...form_params["edit_server"], method: 'PUT', url: `${form_params.edit_server.url}/${data.id}`, data: data };
+    setParametrosDeServer(parametros);
   };
 
-  function responseFromServer(response) {
-    const status = _.get(response, "data.status", "Error");
-    return status === "Success" ? recordCreated() : recordWrong(response.data);
+  function respuestaEditOk(data) {
+    view_global_actions.edited()
+    showMessage("Registro cambiado!", false);
+  };
+
+  function respuestaEditErr(error) {
+    console.log(error);
+    showMessage(error.data.message);
   }
-
-  const recordCreated = () => {
-    view_global_actions.ok();
-    showMessage("Registro creado!", false);
-  };
-
-  const recordWrong = data => {
-    const error = _.get(data, "message", "Error: consulte administrador");
-    showMessage(error, true);
-  };
-
-  function showMessage(message, error = true) {
-    const config = {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    };
-    return error
-      ? toast.error(message, config)
-      : toast.success(message, config);
-  }
-
-  // const check =
 
   return (
     <>
@@ -113,13 +81,13 @@ export default function FormEdit() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"country_code"}
-                      name={"country_code"}
+                      id={"id"}
+                      name={"id"}
                       labelText={"Codigo"}
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"170"}
+                      placeHolder={"Codigo 170"}
                       maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
@@ -143,8 +111,8 @@ export default function FormEdit() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"country_alpha_2"}
-                      name={"country_alpha_2"}
+                      id={"alpha2"}
+                      name={"alpha2"}
                       labelText={"Tipo alpha 2"}
                       defaultValue={null}
                       readOnly={false}
@@ -158,8 +126,8 @@ export default function FormEdit() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"country_alpha_3"}
-                      name={"country_alpha_3"}
+                      id={"alpha3"}
+                      name={"alpha3"}
                       labelText={"Tipo alpha 3"}
                       defaultValue={null}
                       readOnly={false}
@@ -176,7 +144,7 @@ export default function FormEdit() {
                       pill
                       type="submit"
                     >
-                      Crear {ReactHtmlParser(icons.check.icon)}
+                      Guardar {ReactHtmlParser(icons.check.icon)}
                     </Button>
                     <Button pill theme="danger" onClick={onCancel}>
                       Cancelar

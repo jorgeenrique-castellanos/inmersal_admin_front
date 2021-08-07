@@ -25,15 +25,18 @@ export default () => {
   params["cols"] = [
     {
       dataField: "country",
-      text: "Pais"
+      text: "Pais",
+      sort:true
     },
     {
       dataField: "alpha2",
-      text: "Alpha 2"
+      text: "Alpha 2",
+      sort:true
     },
     {
       dataField: "alpha3",
-      text: "Alpha 3"
+      text: "Alpha 3",
+      sort:true
     },
     {
       dataField: "acciones",

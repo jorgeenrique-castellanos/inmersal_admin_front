@@ -27,19 +27,38 @@ export default function Table({ state, actions, params }) {
     getData();
   }, [parametrosdeserver])
 
+  /*
+   Cada cambio de estado que sea editado o creado refresca la tabla
+   Si es creado se debe ordenar por fecha de cambio descendenta para mostra el registo creado
+*/
+  useEffect(() => {
+    if (_.indexOf(['edited', 'created', 'deleted'], state.state_action) >= 0) {
+      const parametros = state.state_action === 'created' ? stateCreated() : parametrosdeserver;
+      const getData = async () => enviarAlServidor(respuestaPaginationOk, respuestaPaginationErr, parametros);
+      getData();
+    }
+  }, [state.state_action])
+
+
+  function stateCreated() {
+    let parametros = _.get(parametrosdeserver, 'params', {});
+    parametros = { ...parametros, type: 'sort', sortField: 'created_at', sortOrder: 'DESC' }
+    const parametrosnuevos = { ...parametrosdeserver, 'params': { ...parametros } };
+    setParametrosDeServer(parametrosnuevos);
+  }
+
   const respuestaPaginationOk = (data) => setTableData(data.data);
 
   const respuestaPaginationErr = (error) => showMessage(error.message)
 
-  function handlePagination(type, page, sizePerPage, filters, sortField, sortOrder, cellEdit) {
-    const parametros = { ...params.server, params: { type: type, page: page, sizePerPage: sizePerPage, filters: filters, sortField: sortField, sortOrder: sortOrder, cellEdit: cellEdit } };
-    setParametrosDeServer(parametros);
+  function handleTableChange(type, { page, sizePerPage, filters, sortField, sortOrder, cellEdit }) {
+    let parametros = _.get(parametrosdeserver, 'params', {});
+    parametros = type === 'pagination' ? { ...parametros, type: type, page: page, sizePerPage: sizePerPage } : parametros;
+    parametros = type === 'sort' ? { ...parametros, type: type, page: 1, sortField: sortField, sortOrder: sortOrder } : parametros;
+    const newparametros = { ...parametrosdeserver, 'params': { ...parametros } };
+    setParametrosDeServer(newparametros);
   }
 
-  function handleTableChange(type, { page, sizePerPage, filters, sortField, sortOrder, cellEdit }) {
-    if (type === 'pagination')
-      return handlePagination(type, page, sizePerPage, filters, sortField, sortOrder, cellEdit);
-  }
 
   function respuestaEdicionOk(done) {
     return (data) => {
@@ -51,7 +70,6 @@ export default function Table({ state, actions, params }) {
 
   function respuestaEdicionErr(done) {
     return (error) => {
-      console.log(error);
       showMessage(error.data.message);
       done(true);
     }

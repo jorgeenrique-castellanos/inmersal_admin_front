@@ -4,16 +4,28 @@ export default function setUIMenus(state, action) {
   console.log(action);
   switch (action.type) {
     case "LIST":
-      state = { ...state, state_action: "list" };
+      state = { state_action: "list" };
       return state;
     case "CREATE":
-      state = { ...state, state_action: "create" };
+      state = { state_action: "create" };
+      return state;
+    case "CREATED":
+      state = { state_action: "created" };
       return state;
     case "EDIT":
-      state = { ...state, state_action: "edit" };
+      state = { state_action: "edit", row: action.row };
+      return state;
+    case "EDITED":
+      state = { state_action: "edited" };
+      return state;
+    case "DELETE":
+      state = { state_action: "delete", row: action.row };
+      return state;
+    case "DELETED":
+      state = { state_action: "deleted" };
       return state;
     case "CANCEL":
-      state = { ...state, state_action: "cancel" };
+      state = { state_action: "cancel" };
       return state;
     default:
       state = { ...state, state_action: "list" };

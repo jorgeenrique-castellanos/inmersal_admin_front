@@ -6,8 +6,11 @@ import PageTitle from "../../components/common/PageTitle";
 import Toolbar from "../../components/24_component_countrys/Toolbar";
 import ModalCreateContainer from "../../components/24_component_countrys/form_create/ModalCreateContainer";
 import ModalEditContainer from "../../components/24_component_countrys/form_edit/ModalEditContainer";
+import ModalDeleteContainer from "../../components/24_component_countrys/form_delete/ModalDeleteContainer";
 
 import FormCreate from "../../components/24_component_countrys/form_create/FormCreate";
+import FormEdit from "../../components/24_component_countrys/form_edit/FormEdit";
+import FormDelete from "../../components/24_component_countrys/form_delete/FormDelete";
 import TableList from "../../components/24_component_countrys/table_list/TableList";
 
 function ViewViews({ usuario }) {
@@ -40,7 +43,13 @@ function ViewViews({ usuario }) {
                 <ModalEditContainer
                   title="Editar Pais"
                   subtitle="Modificar la informacion de pais"
-                  body={<FormCreate />}
+                  body={<FormEdit />}
+                  size="lg"
+                />
+                <ModalDeleteContainer
+                  title="Borrar Pais"
+                  subtitle=""
+                  body={<FormDelete />}
                   size="lg"
                 />
                 <TableList title={"Vistas activas"} />

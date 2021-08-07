@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import Icons from "../../assets/icons";
+import Icons from "../../../assets/icons";
 import ReactHtmlParser from "react-html-parser";
 import { Badge, Button, Tooltip } from "shards-react";
+import _ from "lodash";
+
 
 //prettier-ignore
 const InputText = ({
@@ -20,19 +22,10 @@ const InputText = ({
   const [tooltip_state, setTooltipState] = useState(false);
   const icons = Icons();
   
-  const validate = name => {
-    if (!errorList[name] || errorList[name] === "init") {
-      return "valido"
-    }
-    else  {
-      return errorList[name] === "is-valid" ? "is-valid" : "is-invalid";
-    }
-  };
+  const validate = name => errorList === 'init' ? 'valido' : (_.has(errorList, name) ? "is-invalid" : "is-valid") ;
 
-  const getErrorMessage = name => {
-    return errorList[name] && errorList.error_messages[name] ? errorList.error_messages[name] : false;
-  }
- 
+  const getErrorMessage = name => _.get(errorList, name, false);
+  
   return (
     <>
       {labelText ? <label htmlFor={id}>{labelText}</label> : ""}

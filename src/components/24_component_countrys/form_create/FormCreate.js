@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import ReactHtmlParser from "react-html-parser";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import Icons from "../../../assets/icons";
 import { Context } from "../../../views/24_view_countrys/helpers/context";
 import { useForm, Controller } from "react-hook-form";
-import InputText from "../../inputs/InputText";
-import Servidor from "../../../helpers/servidor";
+import InputText from "../../inputs/v1/InputText";
 import { ToastContainer, toast } from "react-toastify";
-//import { inicializar, validar } from "../../../helpers/form_validate";
-import { validateFormData } from "../../../helpers/form_validate";
+import { validateFormData } from "../../../helpers/v1/form_validate";
 import formCreateParams from "./form_create_params";
+import showMessage from "../../../helpers/messages";
+import { enviarAlServidor } from "../../../helpers/servidor";
+
 
 import {
   Form,
@@ -20,89 +19,54 @@ import {
   Col,
   ListGroupItem,
   ListGroup,
-  Badge
 } from "shards-react";
 
 export default function FormCreate() {
   const { register, handleSubmit, control, reset } = useForm();
-  const [error_list, setErrorList] = useState({});
+  const [error_list, setErrorList] = useState('init');
+  const [parametrosdeserver, setParametrosDeServer] = useState();
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
-  const [archivos, setArchivos] = useState(null);
 
-  const [startDate, setStartDate] = useState(new Date());
-  let handleColor = time => {
-    return time.getHours() > 12 ? "text-success" : "text-error";
-  };
+  useEffect(() => {
+    const getData = async () => enviarAlServidor(respuestaCreateOk, respuestaCreateErr, parametrosdeserver);
+    getData();
+  }, [parametrosdeserver])
 
-  /*****************    Begin Select  ***********************/
-  // React.useEffect(() => {
-  //   register("parent_id");
-  // }, [register]);
-
-  /*****************    End Select  ***********************/
 
   const onCancel = () => {
     reset();
     view_global_actions.cancel();
   };
 
-  const onSubmit = data => {
-    console.log(data);
-    validateFormData(form_params, data, processValidation);
-  };
+  const onSubmit = data => validateFormData(form_params["validation_rules"], data, sendToServer, viewErrors);
 
-  const processValidation = result => {
-    console.log(result);
-    result.error ? viewErrors(result) : sendToServer(result.data);
-  };
-
-  function viewErrors(result) {
+  function viewErrors(errors) {
+    console.log(errors)
     showMessage("Verifique los datos para guardar los cambios");
-    setErrorList(result.data);
+    setErrorList(errors);
   }
 
   const sendToServer = data => {
-    const formData = new FormData();
-    const newdata = JSON.stringify(data);
-    const config = form_params["record_config"];
-    formData.append("data", newdata);
-    config["data"] = formData;
-    Servidor(responseFromServer, config);
+    data.tag = Math.random;
+    const config = { ...form_params["create_server"], "data": data };
+    console.log('prametros send to server create')
+    console.log(  config)
+    
+    setParametrosDeServer(config);
   };
 
-  function responseFromServer(response) {
-    const status = _.get(response, "data.status", "Error");
-    return status === "Success" ? recordCreated() : recordWrong(response.data);
-  }
-
-  const recordCreated = () => {
-    view_global_actions.ok();
+  function respuestaCreateOk(data) {
+    view_global_actions.created()
     showMessage("Registro creado!", false);
   };
 
-  const recordWrong = data => {
-    const error = _.get(data, "message", "Error: consulte administrador");
-    showMessage(error, true);
-  };
-
-  function showMessage(message, error = true) {
-    const config = {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined
-    };
-    return error
-      ? toast.error(message, config)
-      : toast.success(message, config);
+  function respuestaCreateErr(error) {
+    console.log('respuestaCreateErr');
+    console.log(error);
+    showMessage(error.data.message);
   }
-
-  // const check =
 
   return (
     <>
@@ -116,8 +80,8 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"country_code"}
-                      name={"country_code"}
+                      id={"id"}
+                      name={"id"}
                       labelText={"Codigo"}
                       defaultValue={null}
                       readOnly={false}
@@ -146,8 +110,8 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"country_alpha_2"}
-                      name={"country_alpha_2"}
+                      id={"alpha2"}
+                      name={"alpha2"}
                       labelText={"Tipo alpha 2"}
                       defaultValue={null}
                       readOnly={false}
@@ -161,8 +125,8 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"country_alpha_3"}
-                      name={"country_alpha_3"}
+                      id={"alpha3"}
+                      name={"alpha3"}
                       labelText={"Tipo alpha 3"}
                       defaultValue={null}
                       readOnly={false}
