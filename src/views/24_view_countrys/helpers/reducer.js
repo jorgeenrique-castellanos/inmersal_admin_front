@@ -27,6 +27,9 @@ export default function setUIMenus(state, action) {
     case "CANCEL":
       state = { state_action: "cancel" };
       return state;
+    // case "DOMINGO":
+    //   state = { state_action: "cualquier cosa" };
+    //   return state;
     default:
       state = { ...state, state_action: "list" };
       return state;

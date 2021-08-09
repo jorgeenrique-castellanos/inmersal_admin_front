@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import InputImage from "../../inputs/inputImage";
 import InputText from "../../inputs/InputText";
 import { useForm, Controller } from "react-hook-form";
+import { validateFormData } from "../../../helpers/form_validate";
+import formCreateParams from "./form_create_params";
 
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-} from "shards-react";
+import { Form, Button, Row, Col } from "shards-react";
 // import "./styles.css";
 
 const WizardContext = React.createContext();
@@ -68,39 +65,54 @@ const WizardPages = props => {
 const Page1 = () => {
   const { register, handleSubmit, control, reset } = useForm();
   const [error_list, setErrorList] = useState({});
+  const form_params = formCreateParams(null);
 
+  const onSubmit = data => {
+    console.log(data);
+    validateFormData(form_params, data, processValidation);
+  };
+
+  const processValidation = result => {
+    console.log(result);
+    // result.error ? viewErrors(result) : sendToServer(result.data);
+  };
   return (
     // <div>
-      <Form onSubmit={handleSubmit(WizardButtonNext)}>
-        <Row form>
-          <Col md="12" className="form-group">
-            <InputText
-              register={register}
-              id={"project_name"}
-              name={"project_name"}
-              labelText={"Nombres"}
-              required={!false}
-              placeHolder={"Escribir nombres"}
-              // maxLength={50}s
-              information={"Information here!"}
-              errorList={error_list}
-            />
-          </Col>
-          <Col md="12" className="form-group">
-            <InputText
-              register={register}
-              id={"project_description"}
-              name={"project_description"}
-              labelText={"Apellidos"}
-              required={!false}
-              placeHolder={"Escribir apellidos"}
-              // maxLength={50}
-              information={"Information here!"}
-              errorList={error_list}
-            />
-          </Col>
-        </Row>
-      </Form>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <Row form>
+        <Col md="12" className="form-group">
+          <InputText
+            register={register}
+            id={"project_name"}
+            name={"project_name"}
+            labelText={"Nombres"}
+            required={!false}
+            placeHolder={"Escribir nombres"}
+            // maxLength={50}s
+            information={"Information here!"}
+            errorList={error_list}
+          />
+        </Col>
+        <Col md="12" className="form-group">
+          <InputText
+            register={register}
+            id={"project_description"}
+            name={"project_description"}
+            labelText={"Apellidos"}
+            required={!false}
+            placeHolder={"Escribir apellidos"}
+            // maxLength={50}
+            information={"Information here!"}
+            errorList={error_list}
+          />
+        </Col>
+        <Col md="12" className="form-create-footer">
+          <Button className="btn-text-icon-right mr-2" pill type="submit">
+            Guardar
+          </Button>
+        </Col>
+      </Row>
+    </Form>
     // </div>
   );
 };
@@ -111,36 +123,36 @@ const Page2 = () => {
 
   return (
     // <div>
-      <Form onSubmit={handleSubmit(WizardButtonNext)}>
-        <Row form>
-          <Col md="12" className="form-group">
-            <InputText
-              register={register}
-              id={"project_name"}
-              name={"project_name"}
-              labelText={"Telefono"}
-              required={!false}
-              placeHolder={"Escribir telefono"}
-              // maxLength={50}
-              information={"Information here!"}
-              errorList={error_list}
-            />
-          </Col>
-          <Col md="12" className="form-group">
-            <InputText
-              register={register}
-              id={"project_description"}
-              name={"project_description"}
-              labelText={"Description"}
-              required={!false}
-              placeHolder={"Escribir la descripcion"}
-              // maxLength={50}
-              information={"Information here!"}
-              errorList={error_list}
-            />
-          </Col>
-        </Row>
-      </Form>
+    <Form onSubmit={handleSubmit(WizardButtonNext)}>
+      <Row form>
+        <Col md="12" className="form-group">
+          <InputText
+            register={register}
+            id={"project_name"}
+            name={"project_name"}
+            labelText={"Telefono"}
+            required={!false}
+            placeHolder={"Escribir telefono"}
+            // maxLength={50}
+            information={"Information here!"}
+            errorList={error_list}
+          />
+        </Col>
+        <Col md="12" className="form-group">
+          <InputText
+            register={register}
+            id={"project_description"}
+            name={"project_description"}
+            labelText={"Description"}
+            required={!false}
+            placeHolder={"Escribir la descripcion"}
+            // maxLength={50}
+            information={"Information here!"}
+            errorList={error_list}
+          />
+        </Col>
+      </Row>
+    </Form>
     // </div>
   );
 };

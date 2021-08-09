@@ -7,6 +7,9 @@ export default function({ title, subtitle, body, size }) {
   const [open_modal, toggleModal] = useState(false);
   const { view_global_state } = useContext(Context);
 
+  // alert("la var global vale")
+  // alert(view_global_state.state_action)
+
   useEffect(() => {
     view_global_state.state_action === "exit" ? toggleModal(true) : toggleModal(false);
   }, [view_global_state]);

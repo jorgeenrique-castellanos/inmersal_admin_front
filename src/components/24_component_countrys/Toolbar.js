@@ -10,6 +10,8 @@ export default () => {
   const icons = Icons();
   const { view_global_state, view_global_actions } = React.useContext(Context);
 
+  // alert("la var de estado vale")
+  // alert(view_global_state.state_action)
 
   return (
     <ButtonToolbar>
@@ -19,6 +21,11 @@ export default () => {
             Crear Pais {ReactHtmlParser(icons.add.icon)}
           </Button>
         )}        
+        {/* {view_global_state.state_action !== "crear" && (
+          <Button className="btn-text-icon-right" pill onClick={view_global_actions.kevin}>
+            prueba modal {ReactHtmlParser(icons.add.icon)}
+          </Button>
+        )}  */}
       </ButtonGroup>
     </ButtonToolbar>
   );

@@ -7,6 +7,7 @@ import Toolbar from "../../components/24_component_countrys/Toolbar";
 import ModalCreateContainer from "../../components/24_component_countrys/form_create/ModalCreateContainer";
 import ModalEditContainer from "../../components/24_component_countrys/form_edit/ModalEditContainer";
 import ModalDeleteContainer from "../../components/24_component_countrys/form_delete/ModalDeleteContainer";
+import ModalPruebaContainer from "../../components/24_component_countrys/prueba/ModalPruebaContainer";
 
 import FormCreate from "../../components/24_component_countrys/form_create/FormCreate";
 import FormEdit from "../../components/24_component_countrys/form_edit/FormEdit";
@@ -37,6 +38,12 @@ function ViewViews({ usuario }) {
                 <ModalCreateContainer
                   title="Crear Pais"
                   subtitle="Completa la informacion para crear pais"
+                  body={<FormCreate />}
+                  size="lg"
+                />
+                <ModalPruebaContainer
+                  title="Crear Pais"
+                  subtitle="Completa la informacion para crear pais de prueba"
                   body={<FormCreate />}
                   size="lg"
                 />

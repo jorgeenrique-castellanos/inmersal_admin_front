@@ -22,8 +22,6 @@ import {
 } from "shards-react";
 
 export default function FormCreate() {
-
-
   const [error_list, setErrorList] = useState('init');
   const [parametrosdeserver, setParametrosDeServer] = useState();
   const { view_global_actions, view_global_state } = React.useContext(Context);
@@ -38,7 +36,6 @@ export default function FormCreate() {
     if (!_.isEmpty(parametrosdeserver))
       getData();
   }, [parametrosdeserver])
-
 
   const onCancel = () => {
     reset();

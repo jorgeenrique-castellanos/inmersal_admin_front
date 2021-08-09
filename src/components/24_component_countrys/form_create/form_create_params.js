@@ -13,13 +13,8 @@ export default user => {
   form_params["validation_rules"] = {  
     id: yup.string().required(),
     country: yup.string().required(),
-<<<<<<< HEAD
-    alpha2: yup.string().required(),
-    alpha3: yup.string().required(),
-=======
     country_alpha_2: yup.string().max(2, "Maximo dos caracteres").required(),
     country_alpha_3: yup.string().max(3, "Maximo tres caracteres").required(),
->>>>>>> e945b1890b5c63241b6815e0bec39291613ad1de
   };
 
   // form_params["parent_id"] = {
