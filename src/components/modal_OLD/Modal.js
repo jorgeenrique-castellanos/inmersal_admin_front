@@ -11,8 +11,6 @@ export default function({
   const [abierto, setAbierto] = useState(false);
 
   useEffect(() => {
-    console.log("Estado de Modal");
-    console.log(estado);
     setAbierto(estado);
   }, [switche]);
 

@@ -50,8 +50,8 @@ const SidebarNavHeader = ({
         }`}
       >
         {children}
-        {console.log(item)}
-        {console.log(item.sub_items)}
+        {/* {console.log(item)}
+        {console.log(item.sub_items)} */}
 
         {/* {children === item.id } */}
       </div>

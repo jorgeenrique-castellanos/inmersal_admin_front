@@ -8,7 +8,7 @@ import ModalContainer from "../../components/15_view_project_center_multimedia/M
 //import ViewMessages from "../../components/02_view_views/ViewMessages";
 import FormCreate from "../../components/15_view_project_center_multimedia/form_create/FormCreate";
 import TableList from "../../components/15_view_project_center_multimedia/table_list/TableList";
-import StepWizard from "react-step-wizard";
+//import StepWizard from "react-step-wizard";
 
 function ViewViews({ usuario }) {
   return (

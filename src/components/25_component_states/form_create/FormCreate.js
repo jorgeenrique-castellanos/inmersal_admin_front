@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import ReactHtmlParser from "react-html-parser";
 import DatePicker from "react-datepicker";
@@ -11,6 +11,7 @@ import InputSelect from "../../inputs/InputSelect";
 import Servidor from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 import { validateFormData } from "../../../helpers/form_validate";
+import { enviarAlServidor } from "../../../helpers/servidor";
 import formCreateParams from "./form_create_params";
 import showMessage from "../../../helpers/messages";
 
@@ -26,60 +27,60 @@ import {
 
 export default function FormCreate() {
   const { register, handleSubmit, control, reset } = useForm();
-  const [error_list, setErrorList] = useState({});
+  const [error_list, setErrorList] = useState("init");
+  const [parametrosdeserver, setParametrosDeServer] = useState();
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
-  const [archivos, setArchivos] = useState(null);
 
-  const [startDate, setStartDate] = useState(new Date());
-  let handleColor = time => {
-    return time.getHours() > 12 ? "text-success" : "text-error";
-  };
+  useEffect(() => {
+    const getData = async () =>
+      enviarAlServidor(
+        respuestaCreateOk,
+        respuestaCreateErr,
+        parametrosdeserver
+      );
+    getData();
+  }, [parametrosdeserver]);
 
   const onCancel = () => {
     reset();
     view_global_actions.cancel();
   };
 
-  const onSubmit = data => {
-    console.log(data);
-    validateFormData(form_params, data, processValidation);
-  };
+  const onSubmit = data =>
+    validateFormData(
+      form_params["validation_rules"],
+      data,
+      sendToServer,
+      viewErrors
+    );
 
-  const processValidation = result => {
-    console.log(result);
-    result.error ? viewErrors(result) : sendToServer(result.data);
-  };
-
-  function viewErrors(result) {
+  function viewErrors(errors) {
+    console.log(errors);
     showMessage("Verifique los datos para guardar los cambios");
-    setErrorList(result.data);
+    setErrorList(errors);
   }
 
   const sendToServer = data => {
-    const formData = new FormData();
-    const newdata = JSON.stringify(data);
-    const config = form_params["record_config"];
-    formData.append("data", newdata);
-    config["data"] = formData;
-    Servidor(responseFromServer, config);
+    data.tag = Math.random;
+    const config = { ...form_params["create_server"], data: data };
+    console.log("prametros send to server create");
+    console.log(config);
+
+    setParametrosDeServer(config);
   };
 
-  function responseFromServer(response) {
-    const status = _.get(response, "data.status", "Error");
-    return status === "Success" ? recordCreated() : recordWrong(response.data);
+  function respuestaCreateOk(data) {
+    view_global_actions.created();
+    showMessage("Registro creado!", false);
   }
 
-  const recordCreated = () => {
-    view_global_actions.ok();
-    showMessage("Registro creado!", false);
-  };
-
-  const recordWrong = data => {
-    const error = _.get(data, "message", "Error: consulte administrador");
-    showMessage(error, true);
-  };
+  function respuestaCreateErr(error) {
+    console.log("respuestaCreateErr");
+    console.log(error);
+    showMessage(error.data.message);
+  }
 
   return (
     <>
@@ -153,12 +154,12 @@ export default function FormCreate() {
                       placeHolder={"Seleccionar Estado"}
                       selectOptions={[
                         { value: "0", label: "Activo" },
-                        { value: "1", label: "Inactivo" },                        
+                        { value: "1", label: "Inactivo" }
                       ]}
                       information={"Information here!"}
                       errorList={error_list}
                     />
-                  </Col>                  
+                  </Col>
                   <Col md="12" className="form-create-footer">
                     <Button
                       className="btn-text-icon-right mr-2"

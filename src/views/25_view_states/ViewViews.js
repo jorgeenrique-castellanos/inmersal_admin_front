@@ -4,8 +4,14 @@ import { Container, Row, Col, Card, CardHeader, CardBody } from "shards-react";
 import { Provider } from "./helpers/context";
 import PageTitle from "../../components/common/PageTitle";
 import Toolbar from "../../components/25_component_states/Toolbar";
-import ModalContainer from "../../components/25_component_states/ModalContainer";
+// import ModalContainer from "../../components/25_component_states/ModalContainer";
+import ModalCreateContainer from "../../components/25_component_states/form_create/ModalCreateContainer";
+import ModalEditContainer from "../../components/25_component_states/form_edit/ModalEditContainer";
+import ModalDeleteContainer from "../../components/25_component_states/form_delete/ModalDeleteContainer";
+
 import FormCreate from "../../components/25_component_states/form_create/FormCreate";
+import FormEdit from "../../components/25_component_states/form_edit/FormEdit";
+import FormDelete from "../../components/25_component_states/form_delete/FormDelete";
 import TableList from "../../components/25_component_states/table_list/TableList";
 
 function ViewViews({ usuario }) {
@@ -28,10 +34,22 @@ function ViewViews({ usuario }) {
               </CardHeader>
               <CardBody>
                 <ToastContainer />
-                <ModalContainer
-                  title="Crear el departamento"
-                  subtitle="Informacion de crear el departamento"
+                <ModalCreateContainer
+                  title="Crear Pais"
+                  subtitle="Completa la informacion para crear pais"
                   body={<FormCreate />}
+                  size="lg"
+                />
+                <ModalEditContainer
+                  title="Editar Pais"
+                  subtitle="Modificar la informacion de pais"
+                  body={<FormEdit />}
+                  size="lg"
+                />
+                <ModalDeleteContainer
+                  title="Borrar Pais"
+                  subtitle=""
+                  body={<FormDelete />}
                   size="lg"
                 />
                 <TableList title={"Vistas activas"} />

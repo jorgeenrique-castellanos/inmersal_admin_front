@@ -17,47 +17,47 @@ import {
 
 const Ingresar = () => {
 
-  const { register, handleSubmit} = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
-  
+
   return (
     <>
-    <div>
-      <Form onSubmit={handleSubmit(onSubmit)} className="formlogin d-flex flex-column p-3">
-        <FormGroup>
-        <label htmlFor="emailAddress">Correo Electronico</label>
-        <FormInput innerRef={register}
-          name="emailAddress"
-          placeholder="Ingrese su correo"
-          valid= {true}
-        />
-        <FormFeedback valid>Correo aceptado!</FormFeedback>
-      </FormGroup>
+      <div>
+        <Form onSubmit={handleSubmit(onSubmit)} className="formlogin d-flex flex-column p-3">
+          <FormGroup>
+            <label htmlFor="emailAddress">Correo Electronico</label>
+            <FormInput innerRef={register}
+              name="emailAddress"
+              placeholder="Ingrese su correo"
+              valid={true}
+            />
+            <FormFeedback valid>Correo aceptado!</FormFeedback>
+          </FormGroup>
 
-      <FormGroup> 
-        <label htmlFor="password">Contraseña</label>
-        <FormInput innerRef={register}
-          name="password"
-          type="password"
-          placeholder="Ingrese su contraseña"
-          invalid= {true}
-        />
-      </FormGroup>
+          <FormGroup>
+            <label htmlFor="password">Contraseña</label>
+            <FormInput innerRef={register}
+              name="password"
+              type="password"
+              placeholder="Ingrese su contraseña"
+              invalid={true}
+            />
+          </FormGroup>
 
-      <ButtonGroup className="mb-3">
-        <Button type="submit" theme="primary">Ingresar</Button>
-        <Button theme="white">Cancelar</Button>    
-      </ButtonGroup>
-      <div className="text-center">
-        <a href="#" className="p-2">Olvide Contraseña</a>
-        <a href="#" className="p-2">Registrate</a>
+          <ButtonGroup className="mb-3">
+            <Button type="submit" theme="primary">Ingresar</Button>
+            <Button theme="white">Cancelar</Button>
+          </ButtonGroup>
+          <div className="text-center">
+            <a href="#" className="p-2">Olvide Contraseña</a>
+            <a href="#" className="p-2">Registrate</a>
+          </div>
+        </Form>
       </div>
-    </Form>
-  </div>
-  
-  </>
-);
- 
+
+    </>
+  );
+
 };
 
 export default Ingresar;

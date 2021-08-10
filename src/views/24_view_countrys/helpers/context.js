@@ -15,7 +15,6 @@ const Provider = props => {
     delete: (row) => dispatch({ type: "DELETE", row: row }),
     deleted: (row) => dispatch({ type: "DELETED", row: row }),
     cancel: () => dispatch({ type: "CANCEL" }),
-    // kevin: () => dispatch({ type: "DOMINGO" }),
 
   };
 

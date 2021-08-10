@@ -28,7 +28,6 @@ export default function FormCreate() {
   const icons = Icons();
   const form_params = formEditParams(null);
 
-
   const { register, handleSubmit, control, reset } = useForm({ defaultValues: view_global_state.row });
 
   useEffect(() => {
