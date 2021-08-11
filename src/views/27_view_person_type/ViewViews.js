@@ -4,9 +4,13 @@ import { Container, Row, Col, Card, CardHeader, CardBody } from "shards-react";
 import { Provider } from "./helpers/context";
 import PageTitle from "../../components/common/PageTitle";
 import Toolbar from "../../components/27_component_person_type/Toolbar";
-import ModalContainer from "../../components/27_component_person_type/ModalContainer";
-//import ViewMessages from "../../components/02_view_views/ViewMessages";
+import ModalCreateContainer from "../../components/27_component_person_type/form_create/ModalCreateContainer";
+import ModalEditContainer from "../../components/27_component_person_type/form_edit/ModalEditContainer";
+import ModalDeleteContainer from "../../components/27_component_person_type/form_delete/ModalDeleteContainer";
+
 import FormCreate from "../../components/27_component_person_type/form_create/FormCreate";
+import FormEdit from "../../components/27_component_person_type/form_edit/FormEdit";
+import FormDelete from "../../components/27_component_person_type/form_delete/FormDelete";
 import TableList from "../../components/27_component_person_type/table_list/TableList";
 
 function ViewViews({ usuario }) {
@@ -21,7 +25,7 @@ function ViewViews({ usuario }) {
       </Row>
       <Row>
         <Col lg="12" md="12" sm="12" className="mb-4">
-          <Provider>            
+          <Provider>
             <Card>
               <CardHeader className="in-card-view__header">
                 <h5 className="m-0">Datos tipo de persona</h5>
@@ -29,10 +33,22 @@ function ViewViews({ usuario }) {
               </CardHeader>
               <CardBody>
                 <ToastContainer />
-                <ModalContainer
-                  title="Crear tipo de persona"
-                  subtitle="Informacion general de crear de tipo de persona"
+                <ModalCreateContainer
+                  title="Crear Pais"
+                  subtitle="Completa la informacion para crear pais"
                   body={<FormCreate />}
+                  size="lg"
+                />
+                <ModalEditContainer
+                  title="Editar Pais"
+                  subtitle="Modificar la informacion de pais"
+                  body={<FormEdit />}
+                  size="lg"
+                />
+                <ModalDeleteContainer
+                  title="Borrar Pais"
+                  subtitle=""
+                  body={<FormDelete />}
                   size="lg"
                 />
                 <TableList title={"Vistas activas"} />

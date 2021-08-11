@@ -1,71 +1,34 @@
 export default function setUIMenus(state, action) {
   alert(action.type);
+
+  console.log(action);
   switch (action.type) {
     case "LIST":
-      state = { ...state, state_action: "list" };
+      state = { state_action: "list" };
       return state;
     case "CREATE":
-      state = { ...state, state_action: "create" };
+      state = { state_action: "create" };
+      return state;
+    case "CREATED":
+      state = { state_action: "created" };
+      return state;
+    case "EDIT":
+      state = { state_action: "edit", row: action.row };
+      return state;
+    case "EDITED":
+      state = { state_action: "edited" };
+      return state;
+    case "DELETE":
+      state = { state_action: "delete", row: action.row };
+      return state;
+    case "DELETED":
+      state = { state_action: "deleted" };
       return state;
     case "CANCEL":
-      state = { ...state, state_action: "cancel" };
+      state = { state_action: "cancel" };
       return state;
-    // case "ROWSMARKED":
-    //   state = { ...state, rowsmarked: action.rowsmarked };
-    //   return state;
-    // case "ROWSCHANGED":
-    //   state = { ...state, rowschanged: true };
-    //   return state;
-
-    // case "BORRAR":
-    //   state = { ...state, borrar: true };
-    //   return state;
-    // case "BORRADORESET":
-    //   state = { ...state, borrar: false };
-    //   return state;
-    // case "BORRADOOK":
-    //   state = {
-    //     ...state,
-    //     rowsmarked: [],
-    //     notificacion: true,
-    //     tipo: "success",
-    //     mensaje: action.mensaje
-    //   };
-    //   return state;
-    // case "NOTIFICACION":
-    //   state = {
-    //     ...state,
-    //     notificacion: true,
-    //     tipo: action.tipo,
-    //     mensaje: action.mensaje
-    //   };
-    //   return state;
-    // case "NOTIFICACIONRESET":
-    //   state = { ...state, notificacion: false, mensaje: null };
-    //   return state;
-    // case "CAMBIAR":
-    //   state = { ...state, cambiar: true };
-    //   return state;
-    // case "CAMBIARESET":
-    //   state = { ...state, cambiar: false };
-    //   return state;
-    // case "CAMBIAROK":
-    //   state = {
-    //     ...state,
-    //     cambiar: false,
-    //     rowschanged: false,
-    //     notificacion: true,
-    //     tipo: "success",
-    //     mensaje: action.mensaje
-    //   };
-    //   return state;
-
-    // case "EDITAR":
-    //   state = { ...state, state_action: "editar" };
-    //   return state;
-
-    // case "OK":
-    //   state = { ...state, state_action: "ok" };
+    // case "DOMINGO":
+    //   state = { state_action: "cualquier cosa" };
     //   return state;
     default:
       state = { ...state, state_action: "list" };
@@ -75,10 +38,4 @@ export default function setUIMenus(state, action) {
 
 export const init_view_global_state = {
   state_action: "list"
-  // notificacion: false,
-  // mensaje: "",
-  // borrar: false,
-  // rowsmarked: [],
-  // cambiar: false,
-  // rowschanged: false
 };

@@ -8,7 +8,6 @@ import { Context } from "../../../views/25_view_states/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
 import InputSelect from "../../inputs/InputSelect";
-import Servidor from "../../../helpers/servidor";
 import { ToastContainer, toast } from "react-toastify";
 import { validateFormData } from "../../../helpers/form_validate";
 import { enviarAlServidor } from "../../../helpers/servidor";

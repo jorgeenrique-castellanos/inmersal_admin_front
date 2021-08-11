@@ -4,9 +4,13 @@ import { Container, Row, Col, Card, CardHeader, CardBody } from "shards-react";
 import { Provider } from "./helpers/context";
 import PageTitle from "../../components/common/PageTitle";
 import Toolbar from "../../components/28_component_identification_types/Toolbar";
-import ModalContainer from "../../components/28_component_identification_types/ModalContainer";
-//import ViewMessages from "../../components/02_view_views/ViewMessages";
+import ModalCreateContainer from "../../components/28_component_identification_types/form_create/ModalCreateContainer";
+import ModalEditContainer from "../../components/28_component_identification_types/form_edit/ModalEditContainer";
+import ModalDeleteContainer from "../../components/28_component_identification_types/form_delete/ModalDeleteContainer";
+
 import FormCreate from "../../components/28_component_identification_types/form_create/FormCreate";
+import FormEdit from "../../components/28_component_identification_types/form_edit/FormEdit";
+import FormDelete from "../../components/28_component_identification_types/form_delete/FormDelete";
 import TableList from "../../components/28_component_identification_types/table_list/TableList";
 
 function ViewViews({ usuario }) {
@@ -30,10 +34,22 @@ function ViewViews({ usuario }) {
               </CardHeader>
               <CardBody>
                 <ToastContainer />
-                <ModalContainer
-                  title="Crear tipo de identificación"
-                  subtitle="Informacion general de crear tipo de identificación"
+                <ModalCreateContainer
+                  title="Crear Pais"
+                  subtitle="Completa la informacion para crear pais"
                   body={<FormCreate />}
+                  size="lg"
+                />
+                <ModalEditContainer
+                  title="Editar Pais"
+                  subtitle="Modificar la informacion de pais"
+                  body={<FormEdit />}
+                  size="lg"
+                />
+                <ModalDeleteContainer
+                  title="Borrar Pais"
+                  subtitle=""
+                  body={<FormDelete />}
                   size="lg"
                 />
                 <TableList title={"Vistas activas"} />

@@ -7,20 +7,14 @@ const Context = createContext();
 const Provider = props => {
   const [view_global_state, dispatch] = useReducer(reducer, init_view_global_state);
   const view_global_actions = {
-    // rowsmarked: data => dispatch({ type: "ROWSMARKED", rowsmarked: data }),
-    // rowschanged: () => dispatch({ type: "ROWSCHANGED" }),
-    // borrar: () => dispatch({ type: "BORRAR" }),
-    // borradoreset: () => dispatch({ type: "BORRADORESET" }),
-    // borradook: mensaje => dispatch({ type: "BORRADOOK", mensaje: mensaje }),
-    // notificacion: (tipo, mensaje) => dispatch({ type: "NOTIFICACION", tipo: tipo, mensaje: mensaje }),
-    // notificacionreset: () => dispatch({ type: "NOTIFICACIONRESET" }),
-    // cambiar: () => dispatch({ type: "CAMBIAR" }),
-    // cambiareset: () => dispatch({ type: "CAMBIARESET" }),
-    // cambiarok: mensaje => dispatch({ type: "CAMBIAROK", mensaje: mensaje }),
     list: () => dispatch({ type: "LIST" }),
     create: () => dispatch({ type: "CREATE" }),
+    created: () => dispatch({ type: "CREATED" }),
+    edit: (row) => dispatch({ type: "EDIT", row: row }),
+    edited: () => dispatch({ type: "EDITED" }),
+    delete: (row) => dispatch({ type: "DELETE", row: row }),
+    deleted: (row) => dispatch({ type: "DELETED", row: row }),
     cancel: () => dispatch({ type: "CANCEL" }),
-    // ok: () => dispatch({ type: "OK" })
   };
 
   return (

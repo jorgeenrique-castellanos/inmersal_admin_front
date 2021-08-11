@@ -29,7 +29,7 @@ export default function ServidorFormas(setDatos, config) {
 }
 
 export const enviarAlServidor = (functionOk, functionError, config) => {
-  console.log('enviar al servidor comp');
+  console.log('enviar al servidor como:');
   axios(config)
     .then(function (response) {
       _.has(response.data, 'data') ? functionOk(response) : functionError(response);
