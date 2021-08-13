@@ -4,8 +4,7 @@ import * as yup from "yup";
 import { Context } from "../../../views/28_view_identificatioin_type/helpers/context";
 import { Button } from "shards-react";
 import Icons from "../../../assets/icons";
-import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
-import filterFactory, { selectFilter } from "react-bootstrap-table2-filter";
+import { textFilter } from "react-bootstrap-table2-filter";
 // DATA
 // import data from "../../../data/data_05_view_datos.json";
 
@@ -29,19 +28,27 @@ export default usuario => {
   params["cols"] = [
     {
       dataField: "status",
-      text: "Estado"
+      text: "Estado",
+      sort:true,
+      filter: textFilter()
     },
     {
       dataField: "country",
-      text: "Pais"
+      text: "Pais",
+      sort:true,
+      filter: textFilter()
     },
     {
       dataField: "persontype",
-      text: "Tipo de persona"
+      text: "Tipo de persona",
+      sort:true,
+      filter: textFilter()
     },
     {
       dataField: "identificationtype",
-      text: "Tipo de identificación"
+      text: "Tipo de identificación",
+      sort:true,
+      filter: textFilter()
     },
     {
       dataField: "acciones",

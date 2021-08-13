@@ -4,8 +4,7 @@ import * as yup from "yup";
 import { Context } from "../../../views/26_view_cities/helpers/context";
 import { Button } from "shards-react";
 import Icons from "../../../assets/icons";
-import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
-import filterFactory, { selectFilter } from "react-bootstrap-table2-filter";
+import { textFilter } from "react-bootstrap-table2-filter";
 
 // DATA
 // import data from "../../../data/data_05_view_datos.json";
@@ -25,15 +24,21 @@ export default usuario => {
   params["cols"] = [  
     {
       dataField: "country",
-      text: "Pais"
+      text: "Pais",
+      sort:true,
+      filter: textFilter(),            
     },
     {
       dataField: "departament",
-      text: "Departamentos"
+      text: "Departamentos",
+      sort:true,
+      filter: textFilter(),            
     },
     {
       dataField: "city",
-      text: "Ciudad"
+      text: "Ciudad",
+      sort:true,
+      filter: textFilter(),            
     },
     {
       dataField: "acciones",
