@@ -4,7 +4,6 @@ import ReactHtmlParser from "react-html-parser";
 import { Badge, Button, Tooltip } from "shards-react";
 import _ from "lodash";
 
-
 //prettier-ignore
 const InputText = ({
   register,
@@ -25,25 +24,17 @@ const InputText = ({
   const validate = name => errorList === 'init' ? 'valido' : (_.has(errorList, name) ? "is-invalid" : "is-valid") ;
 
   const getErrorMessage = name => _.get(errorList, name, false);
+
+  const message = name => validate === "init" ? "valido" : (_.has(errorList, name) ? "is-invalid" : "Campo completado")
   
   return (
     <>
       {labelText ? <label htmlFor={id}>{labelText}</label> : ""}
       {!required && <Badge className="badge-input-optional">*</Badge>}
-      {information && (
-        <>
-          {/* <Button onClick={(e)=>{e.preventDefault()}} className="btn-icon-mini" id={`${id}_information`}>{ReactHtmlParser(icons.information.icon)}</Button> */}
-          {/* <Button onClick={(e)=>{e.preventDefault()}} className="btn" id={`${id}_information`}>*</Button> */}
-          {/* <Tooltip
-            trigger="click"
-            open={tooltip_state}
-            target={`#${id}_information`}
-            toggle={()=>{setTooltipState(!tooltip_state)}}
-          >
-            {information}
-          </Tooltip> */}
+      {/* {information && (
+        <>        
         </>
-      )}
+      )} */}
       <input
         ref={register({readOnly: readOnly, maxLength: maxLength})}
         id={id}
@@ -54,6 +45,8 @@ const InputText = ({
         placeHolder={placeHolder}
       />
       {getErrorMessage(name) && (<div className="invalid-feedback">{getErrorMessage(name)}</div>)}
+      {message(name) && (<div className="valid-feedback">{message(name)}</div>)}
+
     </>
   );
 };

@@ -11,59 +11,64 @@ import formCreateParams from "./form_create_params";
 import showMessage from "../../../helpers/messages";
 import { enviarAlServidor } from "../../../helpers/servidor";
 
-
-import {
-  Form,
-  Button,
-  Row,
-  Col,
-  ListGroupItem,
-  ListGroup,
-} from "shards-react";
+import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
 
 export default function FormCreate() {
   const { register, handleSubmit, control, reset } = useForm();
-  const [error_list, setErrorList] = useState('init');
+  const [error_list, setErrorList] = useState("init");
   const [parametrosdeserver, setParametrosDeServer] = useState();
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
 
   useEffect(() => {
-    const getData = async () => enviarAlServidor(respuestaCreateOk, respuestaCreateErr, parametrosdeserver);
+    const getData = async () =>
+      enviarAlServidor(
+        respuestaCreateOk,
+        respuestaCreateErr,
+        parametrosdeserver
+      );
     getData();
-  }, [parametrosdeserver])
-
+  }, [parametrosdeserver]);
 
   const onCancel = () => {
     reset();
     view_global_actions.cancel();
   };
 
-  const onSubmit = data => validateFormData(form_params["validation_rules"], data, sendToServer, viewErrors);
+  const onSubmit = data => {
+    validateFormData(
+      form_params["validation_rules"],
+      data,
+      sendToServer,
+      viewErrors
+    );
+
+    console.log(validateFormData);
+  };
 
   function viewErrors(errors) {
-    console.log(errors)
+    console.log(errors);
     showMessage("Verifique los datos para guardar los cambios");
     setErrorList(errors);
   }
 
   const sendToServer = data => {
     data.tag = Math.random;
-    const config = { ...form_params["create_server"], "data": data };
-    console.log('prametros send to server create')
-    console.log(  config)
-    
+    const config = { ...form_params["create_server"], data: data };
+    console.log("prametros send to server create");
+    console.log(config);
+
     setParametrosDeServer(config);
   };
 
   function respuestaCreateOk(data) {
-    view_global_actions.created()
+    view_global_actions.created();
     showMessage("Registro creado!", false);
-  };
+  }
 
   function respuestaCreateErr(error) {
-    console.log('respuestaCreateErr');
+    console.log("respuestaCreateErr");
     console.log(error);
     showMessage(error.data.message);
   }

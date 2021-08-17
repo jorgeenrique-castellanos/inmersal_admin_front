@@ -14,6 +14,7 @@ export default function Table({ state, actions, params }) {
     params["server"]
   );
 
+  
   const keyField = params.key;
   const cols = params.cols;
   const data = tabledata.data;
@@ -28,8 +29,9 @@ export default function Table({ state, actions, params }) {
         respuestaPaginationErr,
         parametrosdeserver
       );
-    getData();
+      getData();
   }, [parametrosdeserver]);
+
 
   /*
    Cada cambio de estado que sea editado o creado refresca la tabla
