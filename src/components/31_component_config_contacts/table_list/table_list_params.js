@@ -32,15 +32,8 @@ export default usuario => {
       text: "Estado"
     },
     {
-<<<<<<< HEAD
       dataField: "contact",
       text: "Nombre"
-=======
-      dataField: "name",
-      text: "Nombre",
-      sort:true,
-      filter: textFilter()
->>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     },
     {
       dataField: "country",
@@ -48,43 +41,12 @@ export default usuario => {
       filter: textFilter()
     },
     {
-<<<<<<< HEAD
       dataField: "client",
       text: "Cliente"
     },
     {
       dataField: "primary_phone",
       text: "Telefono"
-=======
-      dataField: "persontype",
-      text: "T. P",
-      sort:true,
-      filter: textFilter()
-    },
-    {
-      dataField: "identificationtype",
-      text: "T. I",
-      sort:true,
-      filter: textFilter()
-    },
-    {
-      dataField: "identification",
-      text: "N°. D",
-      sort:true,
-      filter: textFilter()
-    },
-    {
-      dataField: "clients",
-      text: "Cliente",
-      sort:true,
-      filter: textFilter()
-    },
-    {
-      dataField: "phone",
-      text: "Telefono",
-      sort:true,
-      filter: textFilter()
->>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     },
     {
       dataField: "email",

@@ -39,25 +39,12 @@ export default usuario => {
       filter: textFilter()
     },
     {
-<<<<<<< HEAD
       dataField: "person_type",
       text: "Tipo de persona"
     },
     {
       dataField: "identification_type",
       text: "Tipo de identificación"
-=======
-      dataField: "persontype",
-      text: "Tipo de persona",
-      sort:true,
-      filter: textFilter()
-    },
-    {
-      dataField: "identificationtype",
-      text: "Tipo de identificación",
-      sort:true,
-      filter: textFilter()
->>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     },
     {
       dataField: "acciones",

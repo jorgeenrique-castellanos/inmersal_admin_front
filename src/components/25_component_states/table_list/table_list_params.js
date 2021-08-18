@@ -41,16 +41,9 @@ export default usuario => {
       filter: textFilter()
     },
     {
-<<<<<<< HEAD
       dataField: "state",
       text: "Departamento"
     },    
-=======
-      dataField: "departament",
-      text: "Departamento",      
-      filter: textFilter(),      
-    },      
->>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     {
       dataField: "acciones",
       text: "Actions",

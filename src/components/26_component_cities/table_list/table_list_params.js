@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import ReactHtmlParser from "react-html-parser";
 import * as yup from "yup";
 import { Context } from "../../../views/26_view_cities/helpers/context";
@@ -29,15 +29,8 @@ export default usuario => {
       filter: textFilter(),            
     },
     {
-<<<<<<< HEAD
       dataField: "state",
       text: "Departamentos"
-=======
-      dataField: "departament",
-      text: "Departamentos",
-      sort:true,
-      filter: textFilter(),            
->>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     },
     {
       dataField: "city",
