@@ -18,7 +18,8 @@ export default usuario => {
 
   params["server"] = {
     method: "get",
-    url: "http://127.0.0.1:8000/api/v1/city"
+    url: "https://inmersal-back.lopublicaste.co/public/api/v1/city",
+    e:0
   }
 
   params["cols"] = [  
@@ -29,15 +30,8 @@ export default usuario => {
       filter: textFilter(),            
     },
     {
-<<<<<<< HEAD
       dataField: "state",
       text: "Departamentos"
-=======
-      dataField: "departament",
-      text: "Departamentos",
-      sort:true,
-      filter: textFilter(),            
->>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     },
     {
       dataField: "city",

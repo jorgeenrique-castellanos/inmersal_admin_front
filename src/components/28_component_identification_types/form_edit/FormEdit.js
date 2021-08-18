@@ -22,15 +22,6 @@ export default function FormCreate() {
   const form_params = formEditParams(null);
   console.log(form_params.validation_rules);
 
-  let x = {};
-  // fetch("https://inmersal-back.lopublicaste.co/public/api/pais")
-  //   .then(response => response.json())
-  //   .then(commits => {
-  //     x = commits.data.map(datos => {
-  //       return datos.country;
-  //     }).join();
-  //     console.log(x);
-  //   });
 
   const { register, handleSubmit, control, reset } = useForm({
     defaultValues: view_global_state.row

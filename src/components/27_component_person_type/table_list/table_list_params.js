@@ -18,7 +18,7 @@ export default usuario => {
 
   params["server"] = {
     method: "get",
-    url: "http://127.0.0.1:8000/api/v1/persontype"
+    url: "https://inmersal-back.lopublicaste.co/public/api/v1/persontype"
   }
 
   const selectOptions = {
@@ -34,15 +34,8 @@ export default usuario => {
       filter: textFilter()
     },    
     {
-<<<<<<< HEAD
       dataField: "person_type",
       text: "Tipo de persona"
-=======
-      dataField: "persontype",
-      text: "Tipo de persona",
-      sort:true,
-      filter: textFilter()
->>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     },
     {
       dataField: "status",

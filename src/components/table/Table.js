@@ -23,6 +23,8 @@ export default function Table({ state, actions, params }) {
   const totalSize = tabledata.meta.total;
 
   useEffect(() => {
+    console.log('parametrosdeserver');
+    console.log(parametrosdeserver);
     const getData = async () =>
       enviarAlServidor(
         respuestaPaginationOk,
