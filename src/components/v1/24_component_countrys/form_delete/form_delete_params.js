@@ -5,7 +5,7 @@ export default user => {
 
   form_params["delete_server"] = {
     method: "DELETE",
-    url: "http://127.0.0.1:8000/api/v1/status",
+    url: "https://inmersal-back.lopublicaste.co/public/api/pais"
     //data: peticionn POST
     //form_params: peticion GET
   };

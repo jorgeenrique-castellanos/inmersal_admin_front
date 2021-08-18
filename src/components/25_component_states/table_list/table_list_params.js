@@ -19,7 +19,8 @@ export default usuario => {
 
   params["server"] = {
     method: "get",
-    url: "https://inmersal-back.lopublicaste.co/public/api/pais"
+    // url: "https://inmersal-back.lopublicaste.co/public/api/v1/status"
+    url: "http://127.0.0.1:8000/api/v1/state"
   }
 
   const selectOptions = {
@@ -38,7 +39,7 @@ export default usuario => {
       text: "Pais"
     },
     {
-      dataField: "departament",
+      dataField: "state",
       text: "Departamento"
     },    
     {

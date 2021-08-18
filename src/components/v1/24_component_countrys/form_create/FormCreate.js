@@ -7,7 +7,7 @@ import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/v1/InputText";
 import { ToastContainer, toast } from "react-toastify";
 import { validateFormData } from "../../../helpers/v1/form_validate";
-import formEditParams from "./form_edit_params";
+import formCreateParams from "./form_create_params";
 import showMessage from "../../../helpers/messages";
 import { enviarAlServidor } from "../../../helpers/servidor";
 
@@ -22,19 +22,18 @@ import {
 } from "shards-react";
 
 export default function FormCreate() {
+  const { register, handleSubmit, control, reset } = useForm();
   const [error_list, setErrorList] = useState('init');
   const [parametrosdeserver, setParametrosDeServer] = useState();
-  const { view_global_actions, view_global_state } = React.useContext(Context);
+  const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
-  const form_params = formEditParams(null);
-
-  const { register, handleSubmit, control, reset } = useForm({ defaultValues: view_global_state.row });
+  const form_params = formCreateParams(null);
 
   useEffect(() => {
-    const getData = async () => enviarAlServidor(respuestaEditOk, respuestaEditErr, parametrosdeserver);
-    if (!_.isEmpty(parametrosdeserver))
-      getData();
+    const getData = async () => enviarAlServidor(respuestaCreateOk, respuestaCreateErr, parametrosdeserver);
+    getData();
   }, [parametrosdeserver])
+
 
   const onCancel = () => {
     reset();
@@ -50,18 +49,21 @@ export default function FormCreate() {
   }
 
   const sendToServer = data => {
-    const key = view_global_state.row.id 
     data.tag = Math.random;
-    const parametros = { ...form_params["edit_server"], method: 'PUT', url: `${form_params.edit_server.url}/${key}`, data: data };
-    setParametrosDeServer(parametros);
+    const config = { ...form_params["create_server"], "data": data };
+    console.log('prametros send to server create')
+    console.log(  config)
+    
+    setParametrosDeServer(config);
   };
 
-  function respuestaEditOk(data) {
-    view_global_actions.edited()
-    showMessage("Registro cambiado!", false);
+  function respuestaCreateOk(data) {
+    view_global_actions.created()
+    showMessage("Registro creado!", false);
   };
 
-  function respuestaEditErr(error) {
+  function respuestaCreateErr(error) {
+    console.log('respuestaCreateErr');
     console.log(error);
     showMessage(error.data.message);
   }
@@ -84,7 +86,7 @@ export default function FormCreate() {
                       defaultValue={null}
                       readOnly={false}
                       required={true}
-                      placeHolder={"Codigo 170"}
+                      placeHolder={"170"}
                       maxLength={null}
                       information={"Information here!"}
                       errorList={error_list}
@@ -141,7 +143,7 @@ export default function FormCreate() {
                       pill
                       type="submit"
                     >
-                      Guardar {ReactHtmlParser(icons.check.icon)}
+                      Crear {ReactHtmlParser(icons.check.icon)}
                     </Button>
                     <Button pill theme="danger" onClick={onCancel}>
                       Cancelar

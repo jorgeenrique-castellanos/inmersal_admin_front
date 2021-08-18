@@ -1,27 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext} from "react";
+import { Context } from "../../../views/24_view_countrys/helpers/context";
 import ReactHtmlParser from "react-html-parser";
-import * as yup from "yup";
-import { Context } from "../../../views/27_view_person_type/helpers/context";
 import { Button } from "shards-react";
 import Icons from "../../../assets/icons";
-import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
-import filterFactory, { selectFilter } from "react-bootstrap-table2-filter";
 
-// DATA
-// import data from "../../../data/data_05_view_datos.json";
 
 //prettier-ignore
-export default usuario => {
+export default () => {
   const { view_global_state, view_global_actions } = useContext(Context);
   const icons = Icons();
   const params = {};
   params["key"] = "id";
-
+  
   params["server"] = {
     method: "get",
-    url: "http://127.0.0.1:8000/api/v1/persontype"
+    url: "https://inmersal-back.lopublicaste.co/public/api/pais"
   }
-
+ 
   const selectOptions = {
     1: "Activo",
     0: "Inactivo"
@@ -30,15 +25,18 @@ export default usuario => {
   params["cols"] = [
     {
       dataField: "country",
-      text: "Pais"
-    },    
-    {
-      dataField: "person_type",
-      text: "Tipo de persona"
+      text: "Pais",
+      sort:true
     },
     {
-      dataField: "status",
-      text: "Estado"
+      dataField: "alpha2",
+      text: "Alpha 2",
+      sort:true
+    },
+    {
+      dataField: "alpha3",
+      text: "Alpha 3",
+      sort:true
     },
     {
       dataField: "acciones",
@@ -55,24 +53,24 @@ export default usuario => {
   const setColumnActions = (cell, row, rowIndex) => {
     return (
       <ul className="table-list-actions">
-      <li>
-        <Button
-          className="btn-icon-small"
-          onClick={() => { editDataRow(cell, row, rowIndex) }}
-        >
-          {ReactHtmlParser(icons.edit.icon)}
-        </Button>
-      </li>
-      <li>
-        <Button
-          className="btn-icon-small"
-          theme={"danger"}
-          onClick={() => { deleteDataRow(cell, row, rowIndex) }}
-        >
-          {ReactHtmlParser(icons.trash.icon)}
-        </Button>
-      </li>
-    </ul>
+        <li>
+          <Button
+            className="btn-icon-small"
+            onClick={() => { editDataRow(cell, row, rowIndex) }}
+          >
+            {ReactHtmlParser(icons.edit.icon)}
+          </Button>
+        </li>
+        <li>
+          <Button
+            className="btn-icon-small"
+            theme={"danger"}
+            onClick={() => { deleteDataRow(cell, row, rowIndex) }}
+          >
+            {ReactHtmlParser(icons.trash.icon)}
+          </Button>
+        </li>
+      </ul>
     );
   };
 

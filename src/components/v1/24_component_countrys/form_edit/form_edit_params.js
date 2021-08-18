@@ -5,11 +5,16 @@ export default user => {
 
   form_params["edit_server"] = {
     method: "PUT",
-    url: "http://127.0.0.1:8000/api/v1/status"
+    url: "https://inmersal-back.lopublicaste.co/public/api/pais"
+    //data: peticionn POST
+    //form_params: peticion GET
   };
 
+
   form_params["validation_rules"] = {
-    status: yup.string().required(),
+    country: yup.string().required(),
+    alpha2: yup.string().required(),
+    alpha3: yup.string().required(),
   };
 
   return form_params;

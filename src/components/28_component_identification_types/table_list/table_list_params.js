@@ -18,7 +18,7 @@ export default usuario => {
 
   params["server"] = {
     method: "get",
-    url: "https://inmersal-back.lopublicaste.co/public/api/pais"
+    url: "http://127.0.0.1:8000/api/v1/identificationtype"
   }
 
   const selectOptions = {
@@ -36,11 +36,11 @@ export default usuario => {
       text: "Pais"
     },
     {
-      dataField: "persontype",
+      dataField: "person_type",
       text: "Tipo de persona"
     },
     {
-      dataField: "identificationtype",
+      dataField: "identification_type",
       text: "Tipo de identificación"
     },
     {

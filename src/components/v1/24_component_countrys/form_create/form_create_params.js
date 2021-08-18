@@ -4,34 +4,17 @@ import yup from "../../../helpers/form_validate_error_list";
 export default user => {
   const form_params = {};
 
-  form_params["record_config"] = {
-    method: "post",
-    url: "http://127.0.0.1:8000/api/v1/state",
-    headers: {
-      "Content-Type": "multipart/form-data"
-    }
-    //data: peticionn POST
-    //form_params: peticion GET
+  form_params["create_server"] = {
+    method: "POST",
+    url: "https://inmersal-back.lopublicaste.co/public/api/v1/country"
   };
+  
 
   form_params["validation_rules"] = {  
-    state: yup.string().required(),
-    country_id: yup
-      .object()
-      .shape({
-        value: yup.string().required(),
-        label: yup.string().required()
-      })
-      .default(undefined)
-      .required(),
-    status_id: yup
-      .object()
-      .shape({
-        value: yup.string().required(),
-        label: yup.string().required()
-      })
-      .default(undefined)
-      .required(),
+    id: yup.string().required(),
+    country: yup.string().required(),
+    alpha2: yup.string().max(2, "Maximo dos caracteres").required(),
+    alpha3: yup.string().max(3, "Maximo tres caracteres").required(),
   };
 
   // form_params["parent_id"] = {
