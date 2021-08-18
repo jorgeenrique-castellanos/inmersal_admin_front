@@ -35,19 +35,19 @@ function ViewViews({ usuario }) {
               <CardBody>
                 <ToastContainer />
                 <ModalCreateContainer
-                  title="Crear Pais"
-                  subtitle="Completa la informacion para crear pais"
+                  title="Crear Departamento"
+                  subtitle="Completa la informacion para crear departamento"
                   body={<FormCreate />}
                   size="lg"
                 />
                 <ModalEditContainer
-                  title="Editar Pais"
-                  subtitle="Modificar la informacion de pais"
+                  title="Editar Departamento"
+                  subtitle="Modificar la informacion de departamento"
                   body={<FormEdit />}
                   size="lg"
                 />
                 <ModalDeleteContainer
-                  title="Borrar Pais"
+                  title="Borrar departamento"
                   subtitle=""
                   body={<FormDelete />}
                   size="lg"

@@ -4,8 +4,7 @@ import * as yup from "yup";
 import { Context } from "../../../views/25_view_states/helpers/context";
 import { Button } from "shards-react";
 import Icons from "../../../assets/icons";
-import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
-import filterFactory, { selectFilter } from "react-bootstrap-table2-filter";
+import { textFilter } from "react-bootstrap-table2-filter";
 
 // DATA
 // import data from "../../../data/data_05_view_datos.json";
@@ -32,16 +31,26 @@ export default usuario => {
     {
       dataField: "status",
       text: "Estado",
-      sort: true,
+      sort:true,
+      filter: textFilter()
     },
     {
       dataField: "country",
-      text: "Pais"
+      text: "Pais",
+      sort:true,
+      filter: textFilter()
     },
     {
+<<<<<<< HEAD
       dataField: "state",
       text: "Departamento"
     },    
+=======
+      dataField: "departament",
+      text: "Departamento",      
+      filter: textFilter(),      
+    },      
+>>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     {
       dataField: "acciones",
       text: "Actions",

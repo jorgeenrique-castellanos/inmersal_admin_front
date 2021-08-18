@@ -105,12 +105,7 @@ const Page1 = () => {
             information={"Information here!"}
             errorList={error_list}
           />
-        </Col>
-        <Col md="12" className="form-create-footer">
-          <Button className="btn-text-icon-right mr-2" pill type="submit">
-            Guardar
-          </Button>
-        </Col>
+        </Col>        
       </Row>
     </Form>
     // </div>

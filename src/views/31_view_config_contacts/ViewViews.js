@@ -18,7 +18,7 @@ function ViewViews({ usuario }) {
     <Container fluid className="main-content-container px-4">
       <Row noGutters className="page-header py-4">
         <PageTitle
-          title="Crear contacto"
+          title="Crear contactos"
           subtitle="Informacion general de crear, modificar y eliminar contactos"
           className="text-sm-left mb-3"
         />
@@ -35,19 +35,19 @@ function ViewViews({ usuario }) {
               <CardBody>
                 <ToastContainer />
                 <ModalCreateContainer
-                  title="Crear Pais"
-                  subtitle="Completa la informacion para crear pais"
+                  title="Crear Contactos"
+                  subtitle="Completa la informacion para crear contactos"
                   body={<FormCreate />}
                   size="lg"
                 />
                 <ModalEditContainer
-                  title="Editar Pais"
-                  subtitle="Modificar la informacion de pais"
+                  title="Editar Contactos"
+                  subtitle="Modificar la informacion de contactos"
                   body={<FormEdit />}
                   size="lg"
                 />
                 <ModalDeleteContainer
-                  title="Borrar Pais"
+                  title="Borrar contactos"
                   subtitle=""
                   body={<FormDelete />}
                   size="lg"

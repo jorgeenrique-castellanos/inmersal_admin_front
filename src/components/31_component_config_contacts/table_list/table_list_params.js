@@ -4,8 +4,7 @@ import * as yup from "yup";
 import { Context } from "../../../views/31_view_config_contacts/helpers/context";
 import { Button } from "shards-react";
 import Icons from "../../../assets/icons";
-import cellEditFactory, { Type } from "react-bootstrap-table2-editor";
-import filterFactory, { selectFilter } from "react-bootstrap-table2-filter";
+import { textFilter } from "react-bootstrap-table2-filter";
 
 // DATA
 import data from "../../../data/data_05_view_datos.json";
@@ -33,24 +32,65 @@ export default usuario => {
       text: "Estado"
     },
     {
+<<<<<<< HEAD
       dataField: "contact",
       text: "Nombre"
+=======
+      dataField: "name",
+      text: "Nombre",
+      sort:true,
+      filter: textFilter()
+>>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     },
     {
       dataField: "country",
-      text: "Pais"
+      text: "Pais", sort:true,
+      filter: textFilter()
     },
     {
+<<<<<<< HEAD
       dataField: "client",
       text: "Cliente"
     },
     {
       dataField: "primary_phone",
       text: "Telefono"
+=======
+      dataField: "persontype",
+      text: "T. P",
+      sort:true,
+      filter: textFilter()
+    },
+    {
+      dataField: "identificationtype",
+      text: "T. I",
+      sort:true,
+      filter: textFilter()
+    },
+    {
+      dataField: "identification",
+      text: "N°. D",
+      sort:true,
+      filter: textFilter()
+    },
+    {
+      dataField: "clients",
+      text: "Cliente",
+      sort:true,
+      filter: textFilter()
+    },
+    {
+      dataField: "phone",
+      text: "Telefono",
+      sort:true,
+      filter: textFilter()
+>>>>>>> a907e63a4d936d310ab7af771ea2367e47837baa
     },
     {
       dataField: "email",
-      text: "Email"
+      text: "Email",
+      sort:true,
+      filter: textFilter()
     },
     {
       dataField: "acciones",

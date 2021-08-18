@@ -3,7 +3,7 @@ import { Context } from "../../../views/24_view_countrys/helpers/context";
 import ReactHtmlParser from "react-html-parser";
 import { Button } from "shards-react";
 import Icons from "../../../assets/icons";
-
+import { textFilter } from "react-bootstrap-table2-filter";
 
 //prettier-ignore
 export default () => {
@@ -26,17 +26,20 @@ export default () => {
     {
       dataField: "country",
       text: "Pais",
-      sort:true
+      sort:true,
+      filter: textFilter(),            
     },
     {
       dataField: "alpha2",
       text: "Alpha 2",
-      sort:true
+      sort:true,
+      filter: textFilter()
     },
     {
       dataField: "alpha3",
       text: "Alpha 3",
-      sort:true
+      sort:true,
+      filter: textFilter()
     },
     {
       dataField: "acciones",

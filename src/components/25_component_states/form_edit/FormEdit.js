@@ -20,16 +20,16 @@ export default function FormCreate() {
   const { view_global_actions, view_global_state } = React.useContext(Context);
   const icons = Icons();
   const form_params = formEditParams(null);
-  console.log(form_params.validation_rules);
+  // console.log(form_params.validation_rules);
 
-  let x = {};
+  // let x = {};
   // fetch("https://inmersal-back.lopublicaste.co/public/api/pais")
   //   .then(response => response.json())
   //   .then(commits => {
-  //     x = commits.data.map(datos => {
+  //     commits.data.map(datos => {
   //       return datos.country;
   //     }).join();
-  //     console.log(x);
+  //     console.log(commits.data);
   //   });
 
   const { register, handleSubmit, control, reset } = useForm({
@@ -47,13 +47,14 @@ export default function FormCreate() {
     view_global_actions.cancel();
   };
 
-  const onSubmit = data =>
+  const onSubmit = data => {
     validateFormData(
       form_params["validation_rules"],
       data,
       sendToServer,
       viewErrors
     );
+  };
 
   function viewErrors(errors) {
     console.log(errors);
@@ -117,8 +118,8 @@ export default function FormCreate() {
                       required={!false}
                       placeHolder={"Seleccionar Pais"}
                       selectOptions={[
-                        { value: x, label: x.country }
-                        // { value: "", label: "" }
+                        // { value: ,label:  },
+                        { value: "francia", label: "francia" }
                       ]}
                       information={"Information here!"}
                       errorList={error_list}
@@ -127,8 +128,8 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     <InputText
                       register={register}
-                      id={"state"}
-                      name={"state"}
+                      id={"country"}
+                      name={"country"}
                       labelText={"Nombre del departamento"}
                       defaultValue={null}
                       readOnly={false}
