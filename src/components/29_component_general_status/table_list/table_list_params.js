@@ -19,7 +19,7 @@ export default usuario => {
 
   params["server"] = {
     method: "get",
-    url: "http://127.0.0.1:8000/api/v1/status"
+    url: "https://inmersal-back.lopublicaste.co/public/api/v1/status"
   }
 
   const selectOptions = {

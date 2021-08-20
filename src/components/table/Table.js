@@ -13,7 +13,6 @@ export default function Table({ state, actions, params }) {
   const [parametrosdeserver, setParametrosDeServer] = useState(
     params["server"]
   );
-
   
   const keyField = params.key;
   const cols = params.cols;
@@ -23,6 +22,8 @@ export default function Table({ state, actions, params }) {
   const totalSize = tabledata.meta.total;
 
   useEffect(() => {
+    console.log('parametrosdeserver');
+    console.log(parametrosdeserver);
     const getData = async () =>
       enviarAlServidor(
         respuestaPaginationOk,

@@ -18,8 +18,7 @@ export default usuario => {
 
   params["server"] = {
     method: "get",
-    // url: "https://inmersal-back.lopublicaste.co/public/api/v1/status"
-    url: "http://127.0.0.1:8000/api/v1/state"
+    url: "https://inmersal-back.lopublicaste.co/public/api/v1/state"
   }
 
   const selectOptions = {
@@ -31,13 +30,13 @@ export default usuario => {
     {
       dataField: "status",
       text: "Estado",
-      sort:true,
+      sort: true,
       filter: textFilter()
     },
     {
       dataField: "country",
       text: "Pais",
-      sort:true,
+      sort: true,
       filter: textFilter()
     },
     {
@@ -59,24 +58,24 @@ export default usuario => {
   const setColumnActions = (cell, row, rowIndex) => {
     return (
       <ul className="table-list-actions">
-      <li>
-        <Button
-          className="btn-icon-small"
-          onClick={() => { editDataRow(cell, row, rowIndex) }}
-        >
-          {ReactHtmlParser(icons.edit.icon)}
-        </Button>
-      </li>
-      <li>
-        <Button
-          className="btn-icon-small"
-          theme={"danger"}
-          onClick={() => { deleteDataRow(cell, row, rowIndex) }}
-        >
-          {ReactHtmlParser(icons.trash.icon)}
-        </Button>
-      </li>
-    </ul>
+        <li>
+          <Button
+            className="btn-icon-small"
+            onClick={() => { editDataRow(cell, row, rowIndex) }}
+          >
+            {ReactHtmlParser(icons.edit.icon)}
+          </Button>
+        </li>
+        <li>
+          <Button
+            className="btn-icon-small"
+            theme={"danger"}
+            onClick={() => { deleteDataRow(cell, row, rowIndex) }}
+          >
+            {ReactHtmlParser(icons.trash.icon)}
+          </Button>
+        </li>
+      </ul>
     );
   };
 

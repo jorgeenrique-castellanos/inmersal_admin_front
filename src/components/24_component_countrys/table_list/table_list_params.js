@@ -14,7 +14,7 @@ export default () => {
   
   params["server"] = {
     method: "get",
-    url: "https://inmersal-back.lopublicaste.co/public/api/country"
+    url: "https://inmersal-back.lopublicaste.co/public/api/v1/country"
   }
  
   const selectOptions = {

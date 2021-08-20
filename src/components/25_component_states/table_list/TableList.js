@@ -5,7 +5,6 @@ import Table from "../../table/Table";
 import recuperarParametros from "./table_list_params";
 
 export default function List({ title, botones }) {
-  // const [data, setData] = useState({});
   const { view_global_state, view_global_actions } = React.useContext(Context);
   const params = recuperarParametros(null);
 
