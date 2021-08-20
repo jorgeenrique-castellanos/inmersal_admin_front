@@ -12,7 +12,7 @@ const SelectAsyncPaginate = (props) => {
   const loadOptions = async (searchQuery, loadedOptions, { page }) => {
 
     const response = await fetch(
-      `https://www.anapioficeandfire.com/api/houses?region=${regionName}&page=${page}&pageSize=10`
+      `http://127.0.0.1:8000/api/v1/selectcity?region=${regionName}&page=${page}&pageSize=10`
     );
     const responseJSON = await response.json();
 

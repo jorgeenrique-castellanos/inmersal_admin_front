@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import ReactHtmlParser from "react-html-parser";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Icons from "../../../assets/icons";
 import { Context } from "../../../views/25_view_states/helpers/context";
@@ -13,6 +13,7 @@ import { validateFormData } from "../../../helpers/form_validate";
 import { enviarAlServidor } from "../../../helpers/servidor";
 import formCreateParams from "./form_create_params";
 import showMessage from "../../../helpers/messages";
+import SelectAsyncPaginate from "../../asyncselect/selectjs"
 
 import {
   Form,
@@ -106,24 +107,13 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    <InputSelect
-                      Controller={Controller}
-                      control={control}
-                      register={register}
-                      id={"country_id"}
-                      name={"country_id"}
-                      labelText={"Pais"}
-                      required={!false}
-                      placeHolder={"Seleccionar Pais"}
-                      selectOptions={[
-                        { value: "0", label: "España" },
-                        { value: "1", label: "E.E.U.U" },
-                        { value: "2", label: "Francia" },
-                        { value: "3", label: "Colombia" }
-                        // { value: "vanilla", label: "Vanilla" }
-                      ]}
-                      information={"Information here!"}
-                      errorList={error_list}
+                    < SelectAsyncPaginate
+                      url='http://127.0.0.1:8000/api/v1/selectcountry'
+                      init={{ label: 'Colombia', value: 170 }}
+                      prevcondition={null}
+                      onChange={null}
+                      placeholder='Seleccione Pais'
+
                     />
                   </Col>
                   <Col md="12" className="form-group">

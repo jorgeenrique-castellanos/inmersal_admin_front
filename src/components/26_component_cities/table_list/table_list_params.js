@@ -19,7 +19,6 @@ export default usuario => {
   params["server"] = {
     method: "get",
     url: "https://inmersal-back.lopublicaste.co/public/api/v1/city",
-    e:0
   }
 
   params["cols"] = [  
