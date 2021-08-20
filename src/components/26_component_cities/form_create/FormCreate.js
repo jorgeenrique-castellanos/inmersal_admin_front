@@ -13,6 +13,7 @@ import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
 import showMessage from "../../../helpers/messages";
 import { enviarAlServidor } from "../../../helpers/servidor";
+import SelectAsyncPaginate from "../select/selectjs";
 
 
 import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
@@ -24,6 +25,8 @@ export default function FormCreate() {
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
+
+  const [currentcountry, setCurrentCountry] = useState({ value: 1, label: "Audi" });
 
   useEffect(() => {
     const getData = async () =>
@@ -99,23 +102,9 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    <InputSelect
-                      Controller={Controller}
-                      control={control}
-                      register={register}
-                      id={"country"}
-                      name={"country"}
-                      labelText={"Pais"}
-                      required={!false}
-                      placeHolder={"Seleccionar Pais"}
-                      selectOptions={[
-                        { value: "0", label: "España" },
-                        { value: "1", label: "E.E.U.U" },
-                        { value: "2", label: "Francia" },
-                        { value: "3", label: "Colombia" }
-                      ]}
-                      information={"Information here!"}
-                      errorList={error_list}
+                    <SelectAsyncPaginate
+                      value={currentcountry}
+                      onChange={(country) => setCurrentCountry(country)}
                     />
                   </Col>
                   <Col md="12" className="form-group">
