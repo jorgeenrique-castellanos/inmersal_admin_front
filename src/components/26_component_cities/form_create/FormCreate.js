@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import ReactHtmlParser from "react-html-parser";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Icons from "../../../assets/icons";
 import { Context } from "../../../views/26_view_cities/helpers/context";
 import { useForm, Controller } from "react-hook-form";
 import InputText from "../../inputs/InputText";
-import InputSelect from "../../inputs/InputSelect";
 import { ToastContainer, toast } from "react-toastify";
 import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
 import showMessage from "../../../helpers/messages";
 import { enviarAlServidor } from "../../../helpers/servidor";
-import SelectAsyncPaginate from "../select/selectjs";
+import SelectAsyncPaginate from "../../asyncselect/selectjs"
 
 
 import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
@@ -22,6 +20,9 @@ export default function FormCreate() {
   const { register, handleSubmit, control, reset } = useForm();
   const [error_list, setErrorList] = useState("init");
   const [parametrosdeserver, setParametrosDeServer] = useState();
+  const [country, setCountry] = useState({});
+  const [state, setState] = useState();
+
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
@@ -77,6 +78,11 @@ export default function FormCreate() {
     showMessage(error.data.message);
   }
 
+  function changeCountry(option) {
+    setCountry(option);
+    setState();
+  }
+
   return (
     <>
       <ToastContainer />
@@ -102,29 +108,20 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    <SelectAsyncPaginate
-                      value={currentcountry}
-                      onChange={(country) => setCurrentCountry(country)}
+                    < SelectAsyncPaginate
+                      url='https://inmersal-back.lopublicaste.co/public/api/v1/selectcountry'
+                      valueparent={country}
+                      onChangeSelect={changeCountry}
+                      placeholder='Seleccione Pais'
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    <InputSelect
-                      Controller={Controller}
-                      control={control}
-                      register={register}
-                      id={"state_id"}
-                      name={"state_id"}
-                      labelText={"Departamento"}
-                      required={!false}
-                      placeHolder={"Seleccionar departamento"}
-                      selectOptions={[
-                        { value: "0", label: "Antioquia" },
-                        { value: "1", label: "Santander" },
-                        { value: "2", label: "Boyacaa" },
-                        { value: "3", label: "Cundinamarca" }
-                      ]}
-                      information={"Information here!"}
-                      errorList={error_list}
+                    < SelectAsyncPaginate
+                      url='https://inmersal-back.lopublicaste.co/public/api/v1/selectstate'
+                      valueparent={state}
+                      onChangeSelect={setState}
+                      placeholder='Seleccione Departamento'
+                      condition={country.value}
                     />
                   </Col>
                   <Col md="12" className="form-group">
