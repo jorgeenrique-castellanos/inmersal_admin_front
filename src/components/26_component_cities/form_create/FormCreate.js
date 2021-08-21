@@ -109,7 +109,7 @@ export default function FormCreate() {
                   </Col>
                   <Col md="12" className="form-group">
                     < SelectAsyncPaginate
-                      url='http://127.0.0.1:8000/api/v1/selectcountry'
+                      url='https://inmersal-back.lopublicaste.co/public/api/v1/selectcountry'
                       valueparent={country}
                       onChangeSelect={changeCountry}
                       placeholder='Seleccione Pais'
@@ -117,7 +117,7 @@ export default function FormCreate() {
                   </Col>
                   <Col md="12" className="form-group">
                     < SelectAsyncPaginate
-                      url='http://127.0.0.1:8000/api/v1/selectstate'
+                      url='https://inmersal-back.lopublicaste.co/public/api/v1/selectstate'
                       valueparent={state}
                       onChangeSelect={setState}
                       placeholder='Seleccione Departamento'
