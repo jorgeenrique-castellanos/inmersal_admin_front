@@ -29,6 +29,9 @@ export default function FormCreate() {
   const { register, handleSubmit, control, reset } = useForm();
   const [error_list, setErrorList] = useState("init");
   const [parametrosdeserver, setParametrosDeServer] = useState();
+  const [country, setCountry] = useState();
+
+
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
   const form_params = formCreateParams(null);
@@ -109,11 +112,9 @@ export default function FormCreate() {
                   <Col md="12" className="form-group">
                     < SelectAsyncPaginate
                       url='http://127.0.0.1:8000/api/v1/selectcountry'
-                      init={{ label: 'Colombia', value: 170 }}
-                      prevcondition={null}
-                      onChange={null}
+                      valueparent={country}
+                      onChangeSelect={setCountry}
                       placeholder='Seleccione Pais'
-
                     />
                   </Col>
                   <Col md="12" className="form-group">
