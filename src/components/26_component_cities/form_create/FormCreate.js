@@ -11,8 +11,7 @@ import { validateFormData } from "../../../helpers/form_validate";
 import formCreateParams from "./form_create_params";
 import showMessage from "../../../helpers/messages";
 import { enviarAlServidor } from "../../../helpers/servidor";
-import SelectAsyncPaginate from "../../asyncselect/selectjs"
-
+import SelectAsyncPaginate from "../../v1/selectjs/selectasync";
 
 import { Form, Button, Row, Col, ListGroupItem, ListGroup } from "shards-react";
 
@@ -27,7 +26,10 @@ export default function FormCreate() {
   const icons = Icons();
   const form_params = formCreateParams(null);
 
-  const [currentcountry, setCurrentCountry] = useState({ value: 1, label: "Audi" });
+  const [currentcountry, setCurrentCountry] = useState({
+    value: 1,
+    label: "Audi"
+  });
 
   useEffect(() => {
     const getData = async () =>
@@ -83,6 +85,7 @@ export default function FormCreate() {
     setState();
   }
 
+  console.log(country)
   return (
     <>
       <ToastContainer />
@@ -108,19 +111,19 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    < SelectAsyncPaginate
-                      url='https://inmersal-back.lopublicaste.co/public/api/v1/selectcountry'
+                    <SelectAsyncPaginate
+                      url="https://inmersal-back.lopublicaste.co/public/api/v1/selectcountry"                      
                       valueparent={country}
                       onChangeSelect={changeCountry}
-                      placeholder='Seleccione Pais'
+                      placeholder="Seleccione Pais"
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    < SelectAsyncPaginate
-                      url='https://inmersal-back.lopublicaste.co/public/api/v1/selectstate'
+                    <SelectAsyncPaginate
+                      url="https://inmersal-back.lopublicaste.co/public/api/v1/selectstate"
                       valueparent={state}
                       onChangeSelect={setState}
-                      placeholder='Seleccione Departamento'
+                      placeholder="Seleccione Departamento"
                       condition={country.value}
                     />
                   </Col>

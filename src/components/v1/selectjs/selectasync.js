@@ -31,6 +31,7 @@ const SelectAsyncPaginate = (props) => {
     }
   };
 
+  console.log(props);
   return (
     <AsyncPaginate
       key={JSON.stringify(regionName)}
@@ -40,7 +41,7 @@ const SelectAsyncPaginate = (props) => {
       getOptionLabel={(option) => option.name}
       onChange={onChange}
       isSearchable={false}
-      placeholder="Select House"
+      placeholder={props.placeholder}
       additional={{
         page: 1,
       }}

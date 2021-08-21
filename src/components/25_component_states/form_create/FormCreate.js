@@ -13,7 +13,7 @@ import { validateFormData } from "../../../helpers/form_validate";
 import { enviarAlServidor } from "../../../helpers/servidor";
 import formCreateParams from "./form_create_params";
 import showMessage from "../../../helpers/messages";
-import SelectAsyncPaginate from "../../asyncselect/selectjs"
+import SelectAsyncPaginate from "../../v1/selectjs/selectasync";
 
 import {
   Form,
@@ -30,7 +30,6 @@ export default function FormCreate() {
   const [error_list, setErrorList] = useState("init");
   const [parametrosdeserver, setParametrosDeServer] = useState();
   const [country, setCountry] = useState();
-
 
   const { view_global_actions } = React.useContext(Context);
   const icons = Icons();
@@ -110,11 +109,11 @@ export default function FormCreate() {
                     />
                   </Col>
                   <Col md="12" className="form-group">
-                    < SelectAsyncPaginate
-                      url='https://inmersal-back.lopublicaste.co/public/api/v1/selectcountry'
+                    <SelectAsyncPaginate
+                      url="https://inmersal-back.lopublicaste.co/public/api/v1/selectcountry"
                       valueparent={country}
                       onChangeSelect={setCountry}
-                      placeholder='Seleccione Pais'
+                      placeholder="Seleccione Pais"
                     />
                   </Col>
                   <Col md="12" className="form-group">
