@@ -17,6 +17,7 @@ import AppContext from "./components/app_context/general_context";
 import LoginUser from "./views/15_view_login_user";
 import { Login, DefaultLayout } from "./layouts";
 
+
 export default () => {
   const [token, setToken] = React.useState("");
   const [refreshtoken, setRefreshToken] = React.useState(false);
@@ -64,5 +65,6 @@ export default () => {
   const renderFinal = () => (_.isEmpty(token) ? renderLogin : renderMenu);
   // const renderFinal = () => _.isEmpty(token) ? renderMenu : renderMenu;
 
+  
   return <>{renderFinal()}</>;
 };

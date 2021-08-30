@@ -13,7 +13,7 @@ export default function Table({ state, actions, params }) {
   const [parametrosdeserver, setParametrosDeServer] = useState(
     params["server"]
   );
-  
+
   const keyField = params.key;
   const cols = params.cols;
   const data = tabledata.data;
@@ -30,7 +30,7 @@ export default function Table({ state, actions, params }) {
         respuestaPaginationErr,
         parametrosdeserver
       );
-      getData();
+    getData();
   }, [parametrosdeserver]);
 
 
@@ -67,29 +67,22 @@ export default function Table({ state, actions, params }) {
     setParametrosDeServer(parametrosnuevos);
   }
 
-  const respuestaPaginationOk = data => setTableData(data.data);
+  const respuestaPaginationOk = data => {
+    console.log('drespuestaPaginationOk');
+    
+    console.log(data);
+    setTableData(data.data);
+  }
 
-  const respuestaPaginationErr = error => showMessage(error.message);
+  const respuestaPaginationErr = error => {
+    console.log('respuestaPaginationErr');
+    console.log(error);
+    showMessage(error.message);
+  }
 
-  function handleTableChange(
-    type,
-    { page, sizePerPage, filters, sortField, sortOrder, cellEdit }
-  ) {
+  function handleTableChange(type, { page, sizePerPage, filters, sortField, sortOrder, cellEdit }) {
     let parametros = _.get(parametrosdeserver, "params", {});
-    parametros =
-      type === "pagination"
-        ? { ...parametros, type: type, page: page, sizePerPage: sizePerPage }
-        : parametros;
-    parametros =
-      type === "sort"
-        ? {
-            ...parametros,
-            type: type,
-            page: 1,
-            sortField: sortField,
-            sortOrder: sortOrder
-          }
-        : parametros;
+    parametros = { ...parametros, type: type, page: page, sizePerPage: sizePerPage, filters: filters, sortField: sortField, sortOrder: sortOrder, cellEdit: cellEdit }
     const newparametros = { ...parametrosdeserver, params: { ...parametros } };
     setParametrosDeServer(newparametros);
   }
